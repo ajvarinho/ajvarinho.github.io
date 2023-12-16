@@ -14,7 +14,15 @@ img {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  perspective: 10px;
+  /* perspective: 10px; */
+  perspective: 5px;
+  transition-duration: 1.2s;
+  /* background: repeating-linear-gradient(0.65turn, transparent, rgba(133, 133, 213, 0.2) .5rem),
+  repeating-linear-gradient(0.35turn, rgba(136, 0, 255, 0.2), transparent .5rem); */
+}
+
+.zoom {
+  perspective: 7px;
 }
 
 .scroll {
@@ -33,6 +41,15 @@ img {
   repeating-linear-gradient(0.35turn, rgb(136, 0, 255), transparent .5rem);
 }
 
+.logo {
+  transform: translateY(180%);
+  transition-duration: 1s;
+}
+
+.move-left{
+  transform: translateX(-150%) translateY(180%);
+}
+
 /* .card-intro {
   width: 100%;
 } */
@@ -43,6 +60,7 @@ img {
   align-content: space-around;
   /* position: relative; */
 }
+
 
 ul {
   list-style-type: none;
