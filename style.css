@@ -1,28 +1,19 @@
 body {
-    font-size: 1.125rem;
-    margin: 0;
+  background-color: rgb(158, 25, 25);
+  box-sizing: border-box;
+  font-size: 1.125rem;
+  margin: 0;
 }
 
 img {
-    margin: 0;
-    width: 100%;
+  max-width: 100%;
 }
 
-/* parallax wrapper*/
-
-.parallax-wrapper {
+.wrapper {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  /* perspective: 10px; */
-  perspective: 5px;
-  transition-duration: 1.2s;
-  /* background: repeating-linear-gradient(0.65turn, transparent, rgba(133, 133, 213, 0.2) .5rem),
-  repeating-linear-gradient(0.35turn, rgba(136, 0, 255, 0.2), transparent .5rem); */
-}
-
-.zoom {
-  perspective: 7px;
+  perspective: 10px;
 }
 
 .scroll {
@@ -41,113 +32,32 @@ img {
   repeating-linear-gradient(0.35turn, rgb(136, 0, 255), transparent .5rem);
 }
 
-.logo {
-  transform: translateY(180%);
-  transition-duration: 1s;
-}
-
-.move-left{
-  transform: translateX(-150%) translateY(180%);
-}
-
-/* .card-intro {
-  width: 100%;
-} */
-
-.flex-col {
-  display: flex;
-  flex-direction: row;
-  align-content: space-around;
-  /* position: relative; */
-}
-
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333333;
-}
-
-li {
-  display: inline-block;
-}
-
-li a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111111;
-}
-
-.card__img-wrap {
-  border: 1px solid blue;
-  padding: 1em;
-  /* animation: rotate 2s infinite linear; */
-}
-
-.title::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 22em 0 0 0;
-  border: 1em solid rgb(206, 18, 178);
-}
-
-
-.title::after {
-  content: 'alo';
-  position: absolute;
-  inset: 0;
-  border-radius: 22em 0 0 0;
-  border: 1px solid white;
-  font-size: 1em;
-  text-align: center;
-  color: blue;
-  background: linear-gradient(to bottom, pink, blue);
-  z-index: -1;
-  opacity: 0.5;
-}
-
 .img {
   transform: translateZ(-5px) scale(1.5);
 }
 
+.img-small {
+  transform: translateZ(-5px) scale(0.8);
+  opacity: 0.4;
+}
+
+.titl {
+  transform: translateZ(-10px) scale(.5);
+}
+
 .bg,
+.img,
 .titl {
   position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
   z-index: -1;
-  background-image: url('./assets/bg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.6;
 }
 
-.galeb-uno {
-  transform: translateZ(-5px) scale(1.5) rotateY(180deg);
-  filter: drop-shadow(0 0 0.75em rgb(10, 147, 201));
-}
-
-.rotate {
-  transform: rotateY(180deg);
-}
-
-.galeb-dva {
-  transform: translateZ(-30px) scale(1.5);
-  transition-duration: 1s;
-}
-
-.active {
-  transform: translateZ(-5px) scale(1.5);
+.title {
+  font-size: 2em;
+  color: rgb(72, 217, 20);
 }
 
 section {
@@ -155,211 +65,3 @@ section {
   background: pink;
   color:rgb(158, 25, 25);
 }
-
-.container {
-    /* background-image: url('./assets/index.jpeg'); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    overflow-y: scroll;
-    background: repeating-radial-gradient(#0b5881, #bb91e5 20%);
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    position: relative;
-}
-
-.saturate {
-    animation-name: animate;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: ease-in;
-  }
-  
-  @keyframes animate {
-    0% {
-      filter: saturate(1);
-    }
-    50% {
-      filter: saturate(5);
-    }
-    100% {
-      filter: saturate(1);
-    }
-  }
-
-  .wrapper {
-    position: absolute;
-    top: 25%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .text-wrap {
-    height: 20rem;
-    width: 25%;
-    overflow-y: scroll;
-  }
-
-  .img-wrap {
-    display: inline-block;
-    background-color: aqua;
-    opacity: 0.6;
-    border: 2px solid rgb(212, 12, 212);
-    /**/
-    background-image: url('./assets/index.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-  }
-
-  .img-wrap > img {
-    filter: drop-shadow(0 0 0.75em rgb(212, 12, 212));
-    animation: rotate;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-direction: linear;
-  }
-
-  /* .img-wrap:nth-child(1){
-    transform: rotateY(180deg);
-  } */
-/* 
-  @keyframes rotate {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(360deg);
-    }
-  } */
-
-  /**/
-  .ticker-wrap {
-    position: sticky;
-    top: .1em;
-    z-index: 10;
-    background: rgba(212, 12, 212, 0.4);
-  }
-  
-  #headlines {
-    white-space: nowrap;
-    position: absolute;
-    left: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-
-  #headlines > .wrap {
-    padding-right: 1em;
-    margin-right: 1px;
-    font-size: 1em;
-    color:rgb(212, 12, 212);
-  }
-  
-  #headlines button {
-    padding-right: 1em;
-    margin-right: 1px;
-    font-size: 1em;
-    color:rgb(212, 12, 212);
-  }
-
-  #headlines button:hover {
-    font-size: 2.2em;
-    color:rgb(95, 12, 212);
-  }
-
-  /* #headlines a:before{
-    content: 'DANAS U PONUDI';
-    position: absolute;
-    top: 20%;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    font-size: 2em;
-
-  } */
-  
-  #ticker {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    border-bottom: .5em rgb(126, 20, 112) solid;
-    height: 5em;
-  }
-
-  /* MENU */
-
-  .accordion-content {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 500ms;
-  }
-  
-  .accordion-content[aria-hidden="false"] {
-    grid-template-rows: 1fr;
-  }
-  
-  .accordion-content > div {
-    overflow: hidden;
-  }
-  
-  /* other styles */
-  
-  /* body {
-    font-family: system-ui;
-    font-size: 1.25rem;
-    line-height: 1.5;
-  } */
-  
-  .menu-wrapper {
-    width: min(65ch, 100% - 4rem);
-    margin-inline: auto;
-  }
-  
-  .accordion {
-    background: #121212;
-    color: #effeef;
-    padding: 1rem;
-  }
-  
-  .accordion-panel {
-    padding: 1rem;
-    border: 1px solid;
-  }
-  
-  .accordion h2 {
-    position: relative;
-  }
-  
-  .accordion-trigger {
-    background: transparent;
-    border: 0;
-    font: inherit;
-    color: inherit;
-  }
-  
-  .accordion-trigger::before,
-  .accordion-trigger::after {
-    position: absolute;
-    right: 1em;
-    content: "";
-    display: block;
-    width: 1em;
-    height: 5px;
-    background: currentcolor;
-    transition: transform 500ms;
-  }
-  
-  .accordion-trigger::after {
-    rotate: 90deg;
-    translate: 0 -1.5em;
-  }
-  
-  .accordion-trigger[aria-expanded="true"]::before,
-  .accordion-trigger[aria-expanded="true"]::after {
-    transform: rotate(45deg);
-  }
-  
-  
