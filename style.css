@@ -3,6 +3,7 @@ body {
   box-sizing: border-box;
   font-size: 1.125rem;
   margin: 0;
+  cursor:url('./img/bball.jpeg'), -moz-zoom-in;
 }
 
 img {
