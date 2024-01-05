@@ -3,11 +3,120 @@ body {
   box-sizing: border-box;
   font-size: 1.125rem;
   margin: 0;
-  cursor:url('./img/bball.jpeg'), -moz-zoom-in;
+  position: relative;
+  font-family: monospace;
+}
+
+.under-construction {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(136, 0, 255, 0.2);
+  z-index: 100;
+  text-align: center;
+  background: repeating-linear-gradient(45deg, #a6a43f, #10100f 15%, #fff649 20%);
+  transition: .7s;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.uc-text {
+  padding: 2em;
+  color: white;
+  background: repeating-linear-gradient(45deg, #a6a43f, #10100f 15%, #fff649 20%);
+}
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  
+  /* position: fixed; */
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 12rem;
+  background-color: rgba(#000, 0.9); 
+  padding-left: 100%;
+  box-sizing: content-box;
+
+  .ticker {
+    color: white;
+    display: inline-block;
+    height: 4rem;
+    line-height: 2rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+    background: linear-gradient(45deg, orange, blue);
+
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+   -webkit-animation-name: ticker;
+           animation-name: ticker;
+    -webkit-animation-duration: 30s;
+            animation-duration: 30s;
+
+    &__item {
+
+      display: inline-block;
+      background-color: blue;
+      padding: 0 2rem;
+      font-size: 2rem;
+      color: white;   
+
+    }
+  }
+
 }
 
 img {
   max-width: 100%;
+}
+
+button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.btn {
+  padding: 1em 2em;
+  border: 2px solid white;
+  color: white;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .wrapper {
@@ -15,6 +124,8 @@ img {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;
+  position: relative;
+  z-index: 10;
 }
 
 .scroll {
