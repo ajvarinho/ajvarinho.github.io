@@ -81,6 +81,8 @@ body {
     -webkit-animation-duration: 30s;
             animation-duration: 30s;
 
+
+
     &__item {
 
       display: inline-block;
@@ -106,6 +108,17 @@ button {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.gif {
+  height: 1em;
+  width: 10em;
+  display: inline-block;
+  background-image: url('./assets/uc07.gif');
+  background-repeat: no-repeat;
+  padding: 0 2rem;
+  font-size: 2rem;
+  color: white;   
 }
 
 .btn {
