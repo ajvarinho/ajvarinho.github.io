@@ -7,16 +7,33 @@ body {
   font-family: monospace;
 }
 
+#canvas {
+  border: 2px solid yellow;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 3em;
+  overflow-y: clip;
+  background: repeating-linear-gradient(-0.45turn, transparent, rgb(202, 218, 21) .8rem), repeating-linear-gradient(0.35turn, rgb(89, 89, 85), transparent .5rem);
+}
+
+.canvas-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+}
+
 .under-construction {
   position: absolute;
   inset: 0;
   background-color: rgba(136, 0, 255, 0.2);
   z-index: 100;
   text-align: center;
-  background: repeating-linear-gradient(45deg, #a6a43f, #10100f 15%, #fff649 20%);
+  
   transition: .7s;
   opacity: 1;
   overflow: hidden;
+  z-index: 100;
 }
 
 .uc-text {
@@ -70,7 +87,7 @@ body {
     white-space: nowrap;
     padding-right: 100%;
     box-sizing: content-box;
-    background: linear-gradient(45deg, orange, blue);
+    background: repeating-linear-gradient(45deg, #a6a43f, #10100f 15%, #fff649 20%);
 
     -webkit-animation-iteration-count: infinite; 
             animation-iteration-count: infinite;
