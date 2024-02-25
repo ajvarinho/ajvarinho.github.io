@@ -5,6 +5,9 @@ body {
   margin: 0;
   position: relative;
   font-family: monospace;
+  /**/
+  background: repeating-linear-gradient(0.65turn, transparent, rgb(133, 133, 213) .5rem),
+  repeating-linear-gradient(0.35turn, rgb(136, 0, 255), transparent .5rem);
 }
 
 #canvas {
@@ -12,9 +15,12 @@ body {
   display: flex;
   align-content: center;
   justify-content: center;
-  padding: 3em;
+  box-shadow: inset .2rem .2rem .2rem violet;
+  z-index: -1;
+  position: absolute;
+  /* padding: 3em;
   overflow-y: clip;
-  background: repeating-linear-gradient(-0.45turn, transparent, rgb(202, 218, 21) .8rem), repeating-linear-gradient(0.35turn, rgb(89, 89, 85), transparent .5rem);
+  background: repeating-linear-gradient(-0.45turn, transparent, rgb(202, 218, 21) .8rem), repeating-linear-gradient(0.35turn, rgb(89, 89, 85), transparent .5rem); */
 }
 
 .canvas-bg {
@@ -170,8 +176,8 @@ button {
 
 .bg {
   transform: translateZ(-10px) scale(2);
-  background: repeating-linear-gradient(0.65turn, transparent, rgb(133, 133, 213) .5rem),
-  repeating-linear-gradient(0.35turn, rgb(136, 0, 255), transparent .5rem);
+  /* background: repeating-linear-gradient(0.65turn, transparent, rgb(133, 133, 213) .5rem),
+  repeating-linear-gradient(0.35turn, rgb(136, 0, 255), transparent .5rem); */
 }
 
 .img {
@@ -179,7 +185,7 @@ button {
 }
 
 .img-small {
-  transform: translateZ(-5px) scale(0.8);
+  transform: translateZ(-5px) scale(0.5);
   opacity: 0.4;
 }
 
