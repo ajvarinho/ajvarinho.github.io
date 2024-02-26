@@ -46,6 +46,9 @@ body {
   padding: 2em;
   color: white;
   background: repeating-linear-gradient(45deg, #a6a43f, #10100f 15%, #fff649 20%);
+  /**/
+  opacity: 0.9;
+  height: 50%;
 }
 
 @-webkit-keyframes ticker {
@@ -68,9 +71,15 @@ body {
     visibility: visible;
   }
 
+  50% {
+    height: 50rem;
+    opacity: 0.7;
+  }
+
   100% {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
+    opacity: 0;
   }
 }
 
@@ -84,6 +93,7 @@ body {
   background-color: rgba(#000, 0.9); 
   padding-left: 100%;
   box-sizing: content-box;
+  opacity: 1;
 
   .ticker {
     color: white;
@@ -101,8 +111,11 @@ body {
             animation-timing-function: linear;
    -webkit-animation-name: ticker;
            animation-name: ticker;
-    -webkit-animation-duration: 30s;
-            animation-duration: 30s;
+    -webkit-animation-duration: 20s;
+            animation-duration: 20s;
+
+            z-index: 110;
+    position: absolute;
 
 
 
