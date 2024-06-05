@@ -42,6 +42,10 @@ body {
   z-index: 100;
 }
 
+.under-construction.hide {
+  display: none;
+}
+
 .uc-text {
   padding: 2em;
   color: white;
@@ -233,6 +237,13 @@ button {
   z-index: -1;
 }
 
+.menu {
+  position: fixed;
+  top: 1em;
+  z-index: 140;
+  color: wheat;
+}
+
 .bg {
   transform: translateZ(-10px) scale(2);
   /* background: repeating-linear-gradient(0.65turn, transparent, rgb(133, 133, 213) .5rem),
@@ -241,6 +252,8 @@ button {
 
 .img {
   transform: translateZ(-5px) scale(1.5);
+  /**/
+  transform: translateZ(0px) scale(1);
 }
 
 .img-small {
