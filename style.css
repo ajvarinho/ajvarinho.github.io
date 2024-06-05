@@ -46,9 +46,8 @@ body {
   padding: 2em;
   color: white;
   background: repeating-linear-gradient(45deg, #a6a43f, #10100f 15%, #fff649 20%);
-  /**/
   opacity: 0.9;
-  height: 50%;
+  height: 100%;
 }
 
 @-webkit-keyframes ticker {
@@ -77,18 +76,48 @@ body {
   }
 
   100% {
+    -webkit-transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-200%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes reverse-animation {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes reverse-animation {
+  0% {
+    -webkit-transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-200%, 0, 0);
+    visibility: visible;
+  }
+
+  50% {
+    height: 50rem;
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     opacity: 0;
   }
 }
 
 .ticker-wrap {
-  
   /* position: fixed; */
   bottom: 0;
-  width: 100%;
-  overflow: hidden;
+  width: 60%;
   height: 12rem;
   background-color: rgba(#000, 0.9); 
   padding-left: 100%;
@@ -99,6 +128,7 @@ body {
     color: white;
     display: inline-block;
     height: 4rem;
+
     line-height: 2rem;  
     white-space: nowrap;
     padding-right: 100%;
@@ -111,25 +141,37 @@ body {
             animation-timing-function: linear;
    -webkit-animation-name: ticker;
            animation-name: ticker;
-    -webkit-animation-duration: 20s;
-            animation-duration: 20s;
+    -webkit-animation-duration: 10s;
+            animation-duration: 10s;
 
             z-index: 110;
-    position: absolute;
-
-
-
     &__item {
-
       display: inline-block;
       background-color: blue;
       padding: 0 2rem;
       font-size: 2rem;
       color: white;   
-
     }
   }
+}
 
+.reverse-animation > .ticker {
+  -webkit-animation-iteration-count: infinite; 
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: reverse-animation;
+  animation-name: reverse-animation;
+  -webkit-animation-duration: 8s;
+  animation-duration: 8s;
+  &__item {
+    display: inline-block;
+    background-color: blue;
+    padding: 0 2rem;
+    font-size: 5rem;
+    color: white;   
+  }
+  
 }
 
 img {
@@ -155,12 +197,16 @@ button {
   padding: 0 2rem;
   font-size: 2rem;
   color: white;   
+  /**/
+  transform: scale(1.8);
 }
 
 .btn {
   padding: 1em 2em;
   border: 2px solid white;
   color: white;
+  position: absolute;
+  top: 50%;
 }
 
 .hide {
