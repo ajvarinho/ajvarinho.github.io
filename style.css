@@ -285,3 +285,28 @@ section {
   background: pink;
   color:rgb(158, 25, 25);
 }
+
+.burek-test {
+  border: 1px solid white;
+  position: relative;
+  background-color: beige;
+}
+
+.burek-wrap {
+  padding: 1em;
+  width: 10%;
+}
+.burek-image {
+  background-image: url(./img/rekbu.png);
+  background-repeat: no-repeat;
+}
+
+.init {
+  display: inline-block;
+  font-size: 4em;
+  margin: 0;
+}
+
+.burek-wrap > p {
+  margin: 0;
+}
