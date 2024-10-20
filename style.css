@@ -242,6 +242,12 @@ button {
   top: 1em;
   z-index: 140;
   color: wheat;
+  display: flex;
+  justify-content: space-around;
+}
+
+.about-wrap {
+  width: 50%;
 }
 
 .bg {
