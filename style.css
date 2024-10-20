@@ -254,6 +254,7 @@ button {
   transform: translateZ(-5px) scale(1.5);
   /**/
   transform: translateZ(0px) scale(1);
+  filter:blur(4px);
 }
 
 .img-small {
