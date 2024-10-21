@@ -242,6 +242,12 @@ button {
   top: 1em;
   z-index: 140;
   color: wheat;
+  display: flex;
+  justify-content: space-around;
+}
+
+.about-wrap {
+  width: 50%;
 }
 
 .bg {
@@ -254,6 +260,7 @@ button {
   transform: translateZ(-5px) scale(1.5);
   /**/
   transform: translateZ(0px) scale(1);
+  filter:blur(4px);
 }
 
 .img-small {
@@ -282,7 +289,7 @@ button {
 
 section {
   font-size: 2rem;
-  background: pink;
+  background: rgb(27, 92, 221);
   color:rgb(158, 25, 25);
 }
 
@@ -294,11 +301,25 @@ section {
 
 .burek-wrap {
   padding: 1em;
-  width: 10%;
+  width: 18%;
+  z-index: 100;
+  position: relative;
+  border: 5px dotted pink;
 }
+
+.burek-wrap > p {
+  text-align: right;
+}
+
 .burek-image {
   background-image: url(./img/rekbu.png);
   background-repeat: no-repeat;
+  position: absolute;
+  inset: 0;
+  height: 3em;
+  width: 2em;
+  border: 2px solid blue;
+  background-size: contain;
 }
 
 .init {
@@ -309,4 +330,53 @@ section {
 
 .burek-wrap > p {
   margin: 0;
+}
+
+/***/
+
+.image {
+  display: block;
+  height: 20rem;
+  width: 100%;
+  border: 2px solid;
+  transition-duration: .5s;
+}
+
+.left-up {
+  transform: perspective(20em) rotateY(-20deg) rotateX(15deg);
+}
+
+.left {
+    transform: perspective(20em) rotateY(-30deg);
+}
+
+.left-down {
+  transform: perspective(20em) rotateY(-20deg) rotateX(-15deg);
+}
+
+.right-up {
+  transform: perspective(20em) rotateY(20deg) rotateX(15deg);
+}
+
+.right {
+    transform: perspective(20em) rotateY(30deg);
+}
+
+.right-down {
+  transform: perspective(20em) rotateY(20deg) rotateX(-15deg);
+}
+
+.up {
+  transform: perspective(20em) rotateX(15deg);
+}
+
+.down {
+  transform: perspective(20em) rotateX(-15deg);
+}
+
+.flash {
+  box-shadow: .1em .3em 1em .5em blue;
+  background-image: url('https://svgsilh.com/svg_v2/1801287.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
