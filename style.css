@@ -64,14 +64,17 @@ body {
 
 header {
   position: relative;
-  height: 40vh;
   background: linear-gradient(to right, rgba(96, 2, 82, 0.7), rgba(1, 47, 77, 0.7));
   color: var(--clr-text-light);
-  padding: var(--padding-large) 0 0 0;
+  padding: var(--padding-large) 0;
   padding-inline-start: var(--padding-inline-large);
   padding-inline-end: var(--padding-inline-large);
   border-bottom: .5em solid var(--clr-branding-1);
 }
+
+/* .bg-wrap {
+  position: relative;
+} */
 
 .bg {
   position: absolute;
@@ -80,6 +83,19 @@ header {
   background-image: url(./assets/bg.png);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  background-image: url(./img/snabo-removebg-preview.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.layer .two {
+  background-position-x: right;
+  opacity: .7;
 }
 
 .logo-wrap {
@@ -96,7 +112,7 @@ header {
   margin-right: .5rem;
 }
 
-.logo-wrap > figcaption > span:first-of-type {
+/* .logo-wrap > figcaption > span:first-of-type {
   font-size: var(--text-large);
   font-weight: bold;
 }
@@ -104,7 +120,7 @@ header {
 .logo-wrap > figcaption > span:last-of-type  {
   font-size: var(--text-small);
   font-weight: normal;
-}
+} */
 
 .logo-wrap .logo {
   width: 50px;
