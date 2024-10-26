@@ -144,6 +144,7 @@ header {
 /*  N A V I G A T I O N  */
 
 nav {
+  position: relative;
   line-height: 2em;
   background-color: var(--background-dark);
   text-align: center;
