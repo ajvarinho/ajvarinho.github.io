@@ -63,18 +63,28 @@ body {
 /*   H E A D E R  */
 
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: linear-gradient(to right, rgba(96, 2, 82, 0.7), rgba(1, 47, 77, 0.7));
   color: var(--clr-text-light);
-  padding: var(--padding-large) 0;
+  padding: var(--padding-small) 0;
   padding-inline-start: var(--padding-inline-large);
   padding-inline-end: var(--padding-inline-large);
   border-bottom: .5em solid var(--clr-branding-1);
 }
 
+
 /* .bg-wrap {
   position: relative;
 } */
+
+.welcome {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
 
 .bg {
   position: absolute;
@@ -91,6 +101,8 @@ header {
   background-image: url(./img/snabo-removebg-preview.png);
   background-size: cover;
   background-repeat: no-repeat;
+  /**/
+  background-position-y: 70%;
 }
 
 .layer .two {
@@ -129,10 +141,11 @@ header {
 }
 
 .title-wrap {
+  position: relative;
+  top: 40%;
   font-size: var(--text-large);
-  color: var(--clr-text-light);
+  color: var(--clr-text-dark);
   text-align: center;
-  margin-top: var(--margin-large);
 }
 
 .background-wrap {
@@ -301,6 +314,13 @@ footer p {
       width: 40px;
       height: 40px;
   }
+
+  nav ul {
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
 
   nav ul li {
       margin: 0;
