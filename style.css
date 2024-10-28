@@ -164,11 +164,13 @@ nav {
 
 nav ul {
   list-style-type: none;
+  display: flex;
+  justify-content: space-around;
 }
 
 nav ul li {
   display: inline;
-  margin: 0 15px;
+  /* margin: 0 15px; */
 }
 
 nav ul li a {
