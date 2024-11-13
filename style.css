@@ -78,6 +78,7 @@ button {
   display: flex;
   align-content: space-between;
   justify-content: space-between;
+  gap: 1.2em;
 }
 
 section {
@@ -113,6 +114,14 @@ header {
 .svg-icon {
   cursor: pointer;
   pointer-events: none;
+}
+
+.a11y-menu {
+  position: absolute;
+  top: 4em;
+  left: -3em;
+  text-align: center;
+  background-color: #222297;
 }
 
 .wrap > a {

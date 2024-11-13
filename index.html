@@ -18,37 +18,46 @@
                 Nikola
             </a>
             <h1>Nikola Njavro</h1>
+
             <div class="header-menu flex">
+
+                <button id="light-mode" class="btn-img">dark / light</button>
+
                 <button id="a11y-menu" class="menu-btn" aria-label="open accessibility menu">
                     <svg class="svg-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">        
                         <circle cx="10" cy="10" r="8" stroke="white" fill="transparent" stroke-width="1"/>
                         <circle cx="10" cy="6" r="1" stroke="white" fill="white" stroke-width="1"/>
                         <path d="M 6 7 Q 10 10 14 7" stroke="white" fill="transparent" stroke-width="1"/>
-                        <path d="M 10 7 10 8 10 12" stroke="white" fill="transparent" stroke-width="1"/>
+                        <path d="M 10 8 10 10 10 12" stroke="white" fill="transparent" stroke-width="2"/>
                         <path d="M 8 15 Q 10 8 12 15" stroke="white" fill="transparent" stroke-width="1"/>
                       </svg>
                 </button>
                 <div class="a11y-menu">
                     <fieldset>
-                        <legend>Select font size</legend>
+                        <legend>Select font size:</legend>
                       
                         <div>
-                          <input type="radio" id="huey" name="drone" value="huey" checked />
-                          <label for="huey">Small</label>
+                          <input type="radio" id="small" name="font-size" value="small"  />
+                          <label for="small">Small</label>
                         </div>
                       
                         <div>
-                          <input type="radio" id="dewey" name="drone" value="dewey" />
-                          <label for="dewey">Default</label>
+                          <input type="radio" id="default" name="font-size" value="default" checked />
+                          <label for="default">Default</label>
                         </div>
                       
                         <div>
-                          <input type="radio" id="louie" name="drone" value="louie" />
-                          <label for="louie">Large</label>
+                          <input type="radio" id="large" name="font-size" value="large" />
+                          <label for="large">Large</label>
                         </div>
                       </fieldset>
+
+                      <div class="letter-spacing">
+                        <label for="letter-spacing">Letter spacing</label>
+                        <input type="range" id="letter-spacing" name="letter-spacing" min="0" max="5">
+                      </div>
                 </div>
-                <button id="light-mode" class="btn-img">dark / light</button>
+                
             </div>
         </div>
     </header>
