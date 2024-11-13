@@ -67,6 +67,13 @@ a {
   text-decoration: none;
 }
 
+button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 .flex {
   display: flex;
   align-content: space-between;
@@ -90,6 +97,22 @@ header {
   padding-inline-start: var(--padding-inline-large);
   padding-inline-end: var(--padding-inline-large);
   border-bottom: .5em solid var(--clr-branding-1);
+}
+
+.header-menu {
+  position: relative;
+  border: 1px solid green;
+}
+
+.header-menu > .menu-btn {
+  height: 5em;
+  width: 5em;
+  cursor: pointer;
+}
+
+.svg-icon {
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .wrap > a {
@@ -151,21 +174,41 @@ nav {
 }
 
 .nav-list > li {
+  height: 20%;
   border: 1px dotted white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-link {
+  position: relative;
   color: white;
   text-decoration: none;
   font-weight: bold;
   border: 1px solid red;
   height: 100%;
   width: 100%;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a.nav-link:hover {
-  color: orange;
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--radial-2);
+  transition-duration: .7s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.nav-link:hover::before {
+  transform: translateX(2em);
+  opacity: 1;
+  background-image: url('./img/rekbu.png');
+  box-shadow: 1em 1em 1em orange;
 }
 
 
