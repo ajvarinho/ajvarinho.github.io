@@ -105,6 +105,17 @@ header {
   border: 1px solid green;
 }
 
+.mode {
+  position: relative;
+}
+
+.mode > label {
+  height: 100%;
+  display: block;
+  border: 2px solid blue;
+  cursor: pointer;
+}
+
 .header-menu > .menu-btn {
   height: 5em;
   width: 5em;
@@ -120,8 +131,18 @@ header {
   position: absolute;
   top: 4em;
   left: -3em;
-  text-align: center;
+  padding: 1em .5em;
   background-color: #222297;
+  opacity: 0;
+  transition-duration: .3s;
+}
+
+.active {
+  opacity: 1;
+}
+
+.letter-spacing {
+  text-align: center;
 }
 
 .wrap > a {
