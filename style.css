@@ -117,8 +117,7 @@ header {
 }
 
 .header-menu > .menu-btn {
-  height: 5em;
-  width: 5em;
+  width: 3em;
   cursor: pointer;
 }
 
@@ -194,6 +193,11 @@ nav {
   text-align: center;
 }
 
+.nav-main {
+  background-image: url('./img/npl-tru.png');
+  background-size: cover;
+}
+
 .nav-main > ul {
   height: 100%;
   display: flex;
@@ -246,12 +250,14 @@ nav {
 
 main {
   margin: 0 auto;
+  background-color: #1b191c;
   padding: var(--padding-large) 0 var(--padding-large) 0;
   padding-inline-start: var(--padding-inline-large);
   padding-inline-end: var(--padding-inline-large);
 }
 
 .about {
+  border: dashed 2em chartreuse;
   background: var(--gradient-2);
 }
 
