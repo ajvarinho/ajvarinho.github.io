@@ -116,6 +116,10 @@ header {
   cursor: pointer;
 }
 
+#mode:checked > header {
+  background-color: red;
+}
+
 .header-menu > .menu-btn {
   width: 3em;
   cursor: pointer;
@@ -254,11 +258,63 @@ main {
   padding: var(--padding-large) 0 var(--padding-large) 0;
   padding-inline-start: var(--padding-inline-large);
   padding-inline-end: var(--padding-inline-large);
+  /**/
+  /* background-image: linear-gradient(to bottom, transparent 50%, #28487d 50%),
+  linear-gradient(to right, #617ca2 50%, #28487d 50%);
+  background-size: 10px 10px, 10px 10px; */
+
+  background-size: 10px 10px;
+  background-image: conic-gradient(
+    #28487d 90deg,
+    #28487d 90deg 180deg,
+    #617ca2 180deg 270deg,
+    #28487d 270deg
+  );
 }
 
 .about {
-  border: dashed 2em chartreuse;
-  background: var(--gradient-2);
+  position: relative;
+  border: dashed .2em chartreuse;
+}
+
+.about >.bg{
+  /* background-image: linear-gradient(to bottom, transparent 50%, #28487d 50%),
+  linear-gradient(to right, #617ca2 50%, #28487d 50%);
+  background-size: 10px 10px, 10px 10px; */
+}
+
+.content-wrap {
+  position: relative;
+  border: 2px dotted red;
+  height: 100vh;
+}
+
+.bg-test {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: url('./img/slaja.png');
+  /* background: linear-gradient(to bottom, transparent 50%, #28487d 50%),
+  linear-gradient(to right, #617ca2 50%, #28487d 50%); */
+  background-size: 10px 10px, 10px 10px;
+  transition-duration: 2s;
+}
+
+.bg-test:hover {
+}
+
+.test-card {
+  position: relative;
+  z-index: 5;
+}
+
+.content-wrap:hover .bg-test {
+  /* background-size: 90px 150px, 10px 10px; */
+  background-size: 350px 650px, 10px 10px;
+}
+
+.content-wrap:hover .test-card {
+  box-shadow: inset .5em .5em .5em 1em chartreuse;
 }
 
 .more-content {
@@ -311,52 +367,6 @@ main {
   transition-duration: .5s;
   transform: translateX(0em) translateZ(-1em);
 }
-
-/**/
-.parallax-wrap {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  perspective: 10px;
-  position: relative;
-  z-index: 10;
-  background-image: var(--radial-2);
-}
-
-.img-wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  transform-style: preserve-3d;
-  z-index: -1;
-}
-
-.bg-test, .fg-test {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.bg-test {
-  transform: translateZ(-10px) scale(2);
-  /* transform: translateZ(-5px) scale(2); */
-}
-
-.fg-test {
-  transform: translateZ(0px) scale(1.5);
-  height: 150%;
-}
-
-.text-wrap {
-  margin: 0;
-  padding: 2em;
-  height: 100vh;
-}
-
 
 
 /*  F O O T E R  */
