@@ -110,7 +110,6 @@ button {
 
 section, .template__main {
   min-height: 100vh;
-  /* padding-top: 3.25em; */
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -628,7 +627,7 @@ border: 1px solid red;
 @media (max-width: 30rem) {
 
   section {
-    padding-top: 3.85em;
+    /* padding-top: 3.85em; */
   }
 
   .text-break_mobile {
