@@ -1,198 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-
-  scalable=yes"> <!--THIS-->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script> -->
-    <script src="index.js"></script>
-    <link href="style.css" rel="stylesheet">
-    <title>djesba ajvarinho</title>
-</head>
-<body>
-    <header>
-        <div class="wrap flex">
-            <a href="/" title="Home page" rel="home">
-                Nikola
-            </a>
-            <h1>Nikola Njavro</h1>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description">
+      <!--AAA-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <link href="style.css" rel="stylesheet">
+      <title>Nikola</title>
+   </head>
+   <body>
+       
+       <div class="header-bg header-link archivo-test">
+        <p class="">
+            NIKOLA <br class="text-break_mobile"/> NJAVRO
+        </p>
+       </div>
+        <header>
 
-            <div class="header-menu flex">
+            <div class="wrap flex archivo-test">
 
-                <div class="mode">
-                    <label for="mode">
-                        aaa
-                        <input type="checkbox" id="mode" class="mode-switch" name="mode">
-                    </label>
-                </div>
+                <div class="header-menu">
 
-                <button id="a11y-menu" class="menu-btn" aria-label="open accessibility menu">
-                    <svg class="svg-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">        
-                        <circle cx="10" cy="10" r="8" stroke="white" fill="transparent" stroke-width="1"/>
-                        <circle cx="10" cy="6" r="1" stroke="white" fill="white" stroke-width=".1"/>
+                    <div class="mode">
+                        <label for="switch-mode">
+                            <input type="checkbox" id="switch-mode" name="switch-mode">
+                            <div class="switch-icon"></div>
+                        </label>
+                    </div>
 
-                        <path d="M 6 8 Q 10 9 14 8" stroke="white" fill="transparent" stroke-width="1"/>
-                        <path d="M 10 8 10 10 10 12" stroke="white" fill="transparent" stroke-width="2"/>
-                        <path d="M 8 15 Q 10 8 12 15" stroke="white" fill="transparent" stroke-width="1"/>
-                      </svg>
-                </button>
-                <div class="a11y-menu">
-                    <fieldset>
-                        <legend>Select font size:</legend>
-                      
-                        <div>
-                          <input type="radio" id="small" name="font-size" value="small"  />
-                          <label for="small">Small</label>
+                    <button id="a11y-menu" class="menu-btn" aria-label="open accessibility menu" aria-controls="a11y-widget" aria-expanded="false">
+                        <svg class="svg-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">        
+                            <circle class="svg-icon__el" cx="10" cy="10" r="8" stroke="white" fill="transparent" stroke-width="1"/>
+                            <circle class="svg-icon__el head" cx="10" cy="6" r="1" stroke="white" fill="white" stroke-width=".1"/>
+
+                            <path class="svg-icon__el" d="M 6 8 Q 10 9 14 8" stroke="white" fill="transparent" stroke-width="1"/>
+                            <path class="svg-icon__el" d="M 10 8 10 10 10 12" stroke="white" fill="transparent" stroke-width="2"/>
+                            <path class="svg-icon__el" d="M 8 15 Q 10 8 12 15" stroke="white" fill="transparent" stroke-width="1"/>
+                        </svg>
+                    </button>
+                    
+                    <div id="a11y-widget" class="a11y-menu hidden">
+                        <button id="close-a11y" class="close-btn" aria-label="close accessibility menu">X</button>
+                        <fieldset>
+                            <legend>Select font size:</legend>
+                        
+                            <div>
+                            <input type="radio" id="small" name="font-size" value="small"  />
+                            <label for="small">Small</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="default" name="font-size" value="default" checked />
+                            <label for="default">Default</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="large" name="font-size" value="large" />
+                            <label for="large">Large</label>
+                            </div>
+                        </fieldset>
+
+                        <div class="letter-spacing">
+                            <label for="letter-spacing">Letter spacing</label>
+                            <input type="range" id="letter-spacing" name="letter-spacing" min="0" max="10" value="2" step="1">
                         </div>
-                      
-                        <div>
-                          <input type="radio" id="default" name="font-size" value="default" checked />
-                          <label for="default">Default</label>
-                        </div>
-                      
-                        <div>
-                          <input type="radio" id="large" name="font-size" value="large" />
-                          <label for="large">Large</label>
-                        </div>
-                      </fieldset>
-
-                      <div class="letter-spacing">
-                        <label for="letter-spacing">Letter spacing</label>
-                        <input type="range" id="letter-spacing" name="letter-spacing" min="0" max="5">
-                      </div>
+                    </div>
+                    
                 </div>
-                
+                <a href="/" title="Home page" rel="home" class="header-link">
+                    NIKOLA NJAVRO
+                </a>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section class="welcome">
-        <div class="bg"></div>
-        <div class="svg-wrap">
-            <svg class="svg-el" viewBox="0 0 1269 845" fill="none" xmlns="http://www.w3.org/2000/svg">
-      
-              <path d="M100,300 C200,100 400,100 500,300" stroke="blue" stroke-width="3"/>
-              <path d="M100,350 C200,100 400,100 500,300" stroke="blue" stroke-width="3"/>
-              <path d="M100,400 C200,100 400,100 500,300" stroke="blue" stroke-width="3"/>
-              <path d="M100,450 C200,100 400,100 500,300" stroke="blue" stroke-width="3"/>
-      
-              <path d="M100,550 C200,100 400,100 500,300" stroke="blue" stroke-width="3"/>
-      
-              <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5"/>
-      
-              <path d="M 500 600 C 600 400, 700 400, 800 600 S 1000 800, 1100 600" stroke="blue" stroke-width="3"/>
-              <path d="M 500 700 C 600 500, 700 500, 800 700 S 1000 900, 1100 700" stroke="blue" stroke-width="3"/>
-      
-              <!--ma zdravo-->
-            </svg>
-        </div>
-
-        <div class="grid">
-            <nav class="nav-main" aria-label="content navigation">
-                <ul class="nav-list main">
-                    <li>
-                        <a href="#about" class="nav-link">about</a>
-                    </li>
-                    <li>
-                        <a href="#work" class="nav-link">work</a>
-                    </li>
-                    <li>
-                        <a href="#about" class="nav-link">contact</a>
-                    </li>
-                </ul>
-            </nav>
-    
-            <div class="title-wrap">
-                <p>dobro dosli</p>
-                <figure>
-                    <img src="./img/gm-cetiir.png" alt="">
-                    <figcaption>alo</figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <main>
-        <section id="about" class="about">
-            <h2>about me</h2>
-            <div class="bg"></div>
-            <div class="about-wrap grid">
-                <figure class="portrait">
-                    <img src="./img/moi.png" alt="Nikola portrait" class="portrait">
-                    <figcaption>Me</figcaption>
-                </figure>
-                <p class="text">
-                    Berlin-based web developer, 
-                </p>
-            </div>
-        </section>
-
-        <section id="work" class="work">
-            <h2>work</h2>
-            <nav class="nav-work" aria-label="work navigation">
-                <ul class="nav-list work">
-                    <li>
-                        <a href="#about" class="nav-link">web dev</a>
-                    </li>
-                    <li>
-                        <a href="#about" class="nav-link">snippets & animations</a>
-                    </li>
-                    <li>
-                        <a href="#about" class="nav-link">texts</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="content-wrap">
-                
-                <div class="bg-test">
-                </div>
-                <p>ovo je experiment buahaxhahaha</p>
-
-                <div class="test-card">
-                    <figure>
-                        <img src="./img/krki.png" alt="">
-                        <figcaption>plito rekbu</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <section class="more-content">
-            <div class="medo-wrap">
-                <p class="title">MEDO! MEDO!</p>
-                <p class="text">TO NIJE COKO-<br/>LA-<br/>DA</p>
-                <img src="./img/medo.png" alt="medo" class="medo">
-                <div class="medo-bg"></div>
-            </div>
-            <div class="medo-wrap">
-                <p class="title">MEDO! MEDO!</p>
-                <p class="text">TO NIJE COKO-<br/>LA-<br/>DA</p>
-                <img src="./img/medo.png" alt="medo" class="medo">
-                <div class="medo-bg"></div>
-            </div>
-        </section>
-
-
-
-    </main>
-    
-    <footer class="flex">
-        <div class="contact-wrap">
-            <p>nidjasim residence</p>
-            <p>vruce pite 22A</p>
-            <p>373 </p>
-            <p></p>
-        </div>
-        <ul class="social-links">
-            <li><a href="">LinkedIn</a></li>
-            <li><a href="">jubito</a></li>
-            <li><a href="">dji mejl</a></li>
-            <li><a href="">ounli fens</a></li>
-        </ul>
-    </footer>
-
-    <script src="dom.js"></script>
-</body>
+        <main id="content"></main>
+        <footer class="footer archivo-test">WEBBAUSTELLE</footer>
+        <script src="/router.js"></script>
+        <script src="/index.js"></script>
+   </body>
 </html>

@@ -1,61 +1,159 @@
-// this class describes the properties of a single particle.
-class Particle {
-  // setting the co-ordinates, radius and the
-  // speed of a particle in both the co-ordinates axes.
-  constructor() {
-    this.x = random(0, width);
-    this.y = random(0, height);
-    this.r = random(1, 20);
-    this.xSpeed = random(-2, 2);
-    this.ySpeed = random(-1, 1.5);
+console.log("djesba");
+
+//dark mode
+let userPrefersDark
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  userPrefersDark = true;
+} else {
+  userPrefersDark = false;
+}
+
+const switchEl = document.querySelector('input[name=switch-mode]');
+
+if(userPrefersDark){
+    switchEl.checked = true;
+  } else {
+    switchEl.checked = false;
   }
 
-  // creation of a particle.
-  createParticle() {
-    noStroke();
-    fill("rgba(200,169,169,0.5)");
-    circle(this.x, this.y, this.r);
+document.addEventListener("DOMContentLoaded", function (event) {
+  let selectorWrap = document.querySelector('.mode')
+  if(userPrefersDark){
+    selectorWrap.style.border = '2px solid white';
   }
-
-  // setting the particle in motion.
-  moveParticle() {
-    if (this.x < 0 || this.x > width) this.xSpeed *= -1;
-    if (this.y < 0 || this.y > height) this.ySpeed *= -1;
-    this.x += this.xSpeed;
-    this.y += this.ySpeed;
-  }
-
-  // this function creates the connections(lines)
-  // between particles which are less than a certain distance apart
-  joinParticles(particles) {
-    particles.forEach((element) => {
-      let dis = dist(this.x, this.y, element.x, element.y);
-      if (dis < 85) {
-        stroke("rgba(215,255,245,0.04)");
-        line(this.x, this.y, element.x, element.y);
+  switchEl.addEventListener('change', function (event) {
+      if (switchEl.checked) {
+          document.body.classList.remove('light-mode');
+          document.body.classList.add('dark-mode');
+          selectorWrap.style.border = '2px solid white';
+      } else {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode')
+          selectorWrap.style = '';
       }
-    });
-  }
+  });
+});
+
+console.log('aloo')
+
+const a11yBtn = document.getElementById('a11y-menu')
+const a11yCloseBtn = document.getElementById('close-a11y')
+const accessibilityWrap = document.querySelector('.a11y-menu')
+//
+const letterSpacing = document.getElementById('letter-spacing')
+
+a11yBtn.addEventListener('click', ()=>{
+  accessibilityWrap.classList.add('active');
+  a11yBtn.setAttribute('aria-expanded', 'true');
+})
+
+a11yCloseBtn.addEventListener('click', ()=>{
+  accessibilityWrap.classList.remove('active');
+  a11yBtn.setAttribute('aria-expanded', 'false');
+})
+
+// text elements 
+let textElements
+
+let currentLocation = window.location.pathname;
+
+function setFontSize(arr, string){
+  arr.forEach(element => {
+    element.setAttribute('class', '')
+    element.classList.add('font-'+ `${string}`)
+  });
 }
 
-// an array to add multiple particles
-let particles = [];
-
-function setup() {
-  const canvas = createCanvas(window.innerWidth, window.innerHeight);
-  canvas.parent("canvas");
-  for (let i = 0; i < width / 10; i++) {
-    particles.push(new Particle());
+function setLetterSpacing(arr, string){
+  let spacingValue
+  if(string.length === 1){
+    spacingValue = Number(string)
   }
+  arr.forEach(element => {
+    element.style.letterSpacing = spacingValue + 'px'
+  })
 }
 
-function draw() {
-  background("#0f0f0f");
-  for (let i = 0; i < particles.length; i++) {
-    particles[i].createParticle();
-    particles[i].moveParticle();
-    particles[i].joinParticles(particles.slice(i));
-  }
-}
+const smallFont = document.getElementById('small');
+const defaultFont = document.getElementById('default');
+const largeFont =  document.getElementById('large');
 
-console.log("alo breee");
+accessibilityWrap.addEventListener('change', (e)=>{
+  console.log('test click', e.target, e.target.value, typeof e.target.value)
+  let selectedValue = e.target.value
+  if(e.target.type ==='radio') {
+    setFontSize(textElements, selectedValue)
+  } else {
+    setLetterSpacing(textElements, selectedValue)
+  }
+  e.preventDefault()
+})
+
+setTimeout(() => {
+  accessibilityWrap.classList.remove('hidden');
+  textElements = document.querySelectorAll('.content-wrap p');
+}, 1000);
+
+//reselect text elements if 'route' has changed
+
+document.addEventListener("click", (e) => {
+  const { target } = e;
+  if (!target.matches("nav a")) {
+      return;
+  }
+  if(target.href !== '/'){
+    //
+    //mozda tu animacija
+    //
+    //console.log("CHECK", document.querySelector('#content section'))
+    //
+    setTimeout(() => {
+      textElements = document.querySelectorAll('.content-wrap p');
+    }, 500);
+  }
+});
+
+//
+
+var i;
+var fib = [0, 1]; // Initialize array!
+
+// const svgWrap = document.querySelector('.svg-wrap')
+// const fibonacciTest = svgWrap.querySelector('.fibonacci'); 
+// let fibonacciArr = []
+
+//
+let pathPointsTest 
+// = `m ${imgWrapLeft + 100},${
+//   imgWrapTop - 50
+// } l 175,0 l 0,175 l -175,0 z`;
+// //
+// pathEl.setAttribute("d", pathPointsTest);
+
+// for (i = 2; i <= 10; i++) {
+//   // Next fibonacci number = previous + one before previous
+//   // Translated to JavaScript:
+//   console.log('check', fib[i-2])
+//   fib[i] = fib[i - 2] + fib[i - 1];
+//   //
+//   fibonacciArr.push(fib[i-2], fib[i])
+//   console.log(fib[i], fibonacciArr);
+// }
+
+// let number
+// function returnNums(number){
+//   return number;
+// }
+
+// for (i = 1; i <= fibonacciArr.length; i++){
+//   returnNums(fibonacciArr[i]);
+// }
+
+// console.log('number', number)
+
+// let check = fibonacciTest.getAttribute('d');
+// console.log(check, typeof check);
+// console.log(fibonacciArr[i]);
+// let proba = check + ' ' + `${fibonacciArr[i]} ${fibonacciArr[i]}`;
+// console.log(proba, 'proba');
