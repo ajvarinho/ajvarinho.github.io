@@ -1,5 +1,9 @@
 console.log("djesba");
 
+const date = new Date();
+
+console.log(date, typeof date)
+
 //dark mode
 let userPrefersDark
 

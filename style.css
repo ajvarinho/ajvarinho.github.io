@@ -112,6 +112,8 @@ section, .template__main {
   min-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+    /**/
+    padding-top: 3.25em;
 }
 
 .hidden {
@@ -230,6 +232,7 @@ header {
   border: .2em solid;
   text-transform: uppercase;
   height: 0;
+  transform: translateX(-100%);
 }
 
 .active {
@@ -238,6 +241,7 @@ header {
   opacity: 1;
   box-shadow: 0em 0em 6em 2em;
   padding: 1em .5em;
+  transform: translateX(100%);
 }
 
 .close-btn {
@@ -290,7 +294,7 @@ header {
   background-color: #1263e6;
 } */
 
-.header-link > p {
+p.header-link {
   opacity: 0;
   text-align: right;
 }
@@ -314,6 +318,7 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;
+
   
 }
 
