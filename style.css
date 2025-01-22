@@ -317,9 +317,7 @@ main {
   /**/
   overflow-y: auto;
   overflow-x: hidden;
-  perspective: 10px;
-
-  
+  perspective: 10px;  
 }
 
 .welcome-wrap {
@@ -442,6 +440,10 @@ nav {
   z-index: -1;
 }
 
+/**/
+
+
+
 .content-wrap {
   position: relative;
   height: 50%;
@@ -479,6 +481,14 @@ nav {
   }
 }
 
+.content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .content-text {
   color: inherit;
@@ -505,6 +515,80 @@ nav {
 .content-text > p {
   color: light-dark(var(--light-font-primary), var(--dark-font-primary));
 }
+
+
+/**/
+
+.widget-wrap {
+  position: relative;
+}
+
+.ticker-container {
+  width: 80%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    45deg,          /* Diagonal stripes */
+    #000,           /* Black stripe */
+    #000 15px,      /* End of black stripe */
+    #ffcc00 15px,   /* Start of yellow stripe */
+    #ffcc00 30px    /* End of yellow stripe */
+  );
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  color: #fff;
+  padding: 15px;
+  position: relative;
+  animation: scroll 10s linear infinite;
+  opacity: 0; /* Hide content initially */
+}
+
+.ticker-text {
+  color: light-dark(var(--light-font-primary), var(--dark-font-primary));
+  background-color: light-dark(var(--light-bg-2), var(--dark-bg-2));
+  padding: .2em;
+}
+
+.ticker-container .ticker {
+  opacity: 1; /* Show content once animation begins */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  10% {
+    opacity: 1; /* Ensure text is fully visible after it enters */
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.img-wrap {
+  position: relative;
+  border: 2px solid blue;
+}
+
+.widget-img {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+}
+
+.widget-img__two {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+}
+
 
 .welcome-content{
   height: 100%;
@@ -697,5 +781,9 @@ border: 1px solid red;
   .welcome > .title-wrap > h2 {
     padding-left: 0;
     font-size: 1.2em;
+  }
+
+  .content {
+    flex-direction: column-reverse;
   }
 }
