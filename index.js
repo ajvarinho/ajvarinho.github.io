@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 console.log('aloo')
 
+const enterBtn = document.getElementById('enter');
+const enterWidget = document.getElementById('enter-widget');
+
+enterBtn.addEventListener('click', ()=> {
+  console.log('djesbaaa');
+  enterWidget.style.display = 'none';
+})
+
 const a11yBtn = document.getElementById('a11y-menu')
 const a11yCloseBtn = document.getElementById('close-a11y')
 const accessibilityWrap = document.querySelector('.a11y-menu')
