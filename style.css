@@ -490,7 +490,7 @@ nav {
   display: inline-block;
   justify-content: center;
   align-items: center;
-  padding: 0 1em;
+  padding: .5em 1em;
   font-size: 1.5em;
   font-weight: 900;
 }
@@ -591,6 +591,39 @@ nav {
 
 .filter-test {
   filter: url('#green');
+}
+
+.project-preview {
+  /* margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; */
+  width: 50%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enables snapping */
+  scrollbar-width: thin; /* Thin scrollbar (for Firefox) */
+  scrollbar-color: #888 #f0f0f0; /* Colors for scrollbar (for Firefox) */
+}
+
+.preview-wrap {
+  display: grid;
+  grid-auto-flow: column; /* Horizontal grid flow */
+  grid-auto-columns: 75%; /* Each item takes full width */
+  scroll-snap-align: start; /* Snap at the start of each item */
+}
+
+.preview-card {
+  scroll-snap-align: start; /* Ensure each item snaps */
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin: 0 var(--margin-small);
 }
 
 
