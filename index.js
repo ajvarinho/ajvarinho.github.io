@@ -44,8 +44,14 @@ console.log('aloo')
 const enterBtn = document.getElementById('enter');
 const enterWidget = document.getElementById('enter-widget');
 
+const visited = localStorage.getItem("visited");
+
+if(visited){
+  enterWidget.style.display = 'none';
+}
+
 enterBtn.addEventListener('click', ()=> {
-  console.log('djesbaaa');
+  localStorage.setItem("visited", true);
   enterWidget.style.display = 'none';
 })
 
