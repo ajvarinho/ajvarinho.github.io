@@ -393,14 +393,18 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;  
+  /**/
+  height: 150vh;
+  overflow-y: scroll;
 }
 
 .svg-wrap {
   position: absolute;
   inset: 0;
   z-index: -1;
-  border-bottom: 5px solid;
-
+  padding-top: 3.5em;
+  padding-bottom: 2em;
+  background: var(--seabottom);
 }
 
 .svg-el {
@@ -709,7 +713,11 @@ border: 1px solid red;
 .footer {
   color: light-dark(var(--light-font-primary), var(--dark-font-primary));
   background-color: light-dark(var(--light-bg-1), var(--dark-bg-1));
-  border-top: 1em dotted light-dark(var(--dark-bg-1), var(--light-bg-1));
+  border-top: 1em ridge light-dark(var(--dark-bg-1), var(--light-bg-1));
+  /**/
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 

@@ -63,6 +63,19 @@ window.addEventListener('resize', ()=> {
   svgBackground.setAttribute('viewBox', `0, 0, ${wrapWidth}, ${wrapHeight}`)
 })
 
+// efekti
+
+//feGaussianBlur stdDeviation="0.5"
+
+const blurLevel = document.getElementById('blur-level');
+
+window.addEventListener('scroll', ()=>{
+  console.log('scrolling', window.scrollY);
+  let scrollFactor = window.scrollY * 0.01;
+  console.log(scrollFactor, 'alooo')
+  blurLevel.setAttribute('stdDeviation', scrollFactor);
+})
+
 const a11yBtn = document.getElementById('a11y-menu')
 const a11yCloseBtn = document.getElementById('close-a11y')
 const accessibilityWrap = document.querySelector('.a11y-menu')
