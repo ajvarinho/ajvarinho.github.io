@@ -713,7 +713,7 @@ border: 1px solid red;
 .footer {
   color: light-dark(var(--light-font-primary), var(--dark-font-primary));
   background-color: light-dark(var(--light-bg-1), var(--dark-bg-1));
-  border-top: 1em ridge light-dark(var(--dark-bg-1), var(--light-bg-1));
+  /* border-top: 1em ridge light-dark(var(--dark-bg-1), var(--light-bg-1)); */
   /**/
   position: fixed;
   bottom: 0;
