@@ -394,7 +394,7 @@ main {
   overflow-x: hidden;
   perspective: 10px;  
   /**/
-  height: 150vh;
+  height: 250vh;
   overflow-y: scroll;
 }
 
@@ -402,9 +402,11 @@ main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  padding-top: 3.5em;
-  padding-bottom: 2em;
-  background: var(--seabottom);
+  /* padding-top: 3.5em;
+  padding-bottom: 2em; */
+  /**/
+  margin-top: 3.5em;
+  background: var(--mesh);
 }
 
 .svg-el {

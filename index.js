@@ -66,14 +66,20 @@ window.addEventListener('resize', ()=> {
 // efekti
 
 //feGaussianBlur stdDeviation="0.5"
-
+const turbulence = document.getElementById('turbulence');
 const blurLevel = document.getElementById('blur-level');
 
+let scrollFactor;
+let turbulenceFactor = 0.0025;
+let blurFactor = 0.5;
+
 window.addEventListener('scroll', ()=>{
-  console.log('scrolling', window.scrollY);
-  let scrollFactor = window.scrollY * 0.01;
-  console.log(scrollFactor, 'alooo')
-  blurLevel.setAttribute('stdDeviation', scrollFactor);
+  scrollFactor = Math.floor(window.scrollY);
+  //turbulenceFactor = turbulenceFactor + (scrollFactor * 0.001);
+  turbulenceFactor += turbulenceFactor
+  blurFactor += 0.1;
+  console.log(turbulenceFactor, blurFactor);
+  blurLevel.setAttribute('stdDeviation', blurFactor);
 })
 
 const a11yBtn = document.getElementById('a11y-menu')
