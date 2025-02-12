@@ -399,21 +399,13 @@ main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  /* background: var(--gradient-1); */
-  /* border: .5em dotted chartreuse; */
   border-bottom: 5px solid;
 
 }
 
 .svg-el {
-  /* height: 100%;
-  width: 100%; */
   overflow: auto;
   resize: vertical;
-}
-
-#svg-bg {
-  
 }
 
 .bg, .fg {

@@ -1,9 +1,5 @@
 console.log("djesba");
 
-const date = new Date();
-
-console.log(date, typeof date)
-
 //dark mode
 let userPrefersDark
 
@@ -39,8 +35,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 });
 
-console.log('aloo')
-
 const enterBtn = document.getElementById('enter');
 const enterWidget = document.getElementById('enter-widget');
 
@@ -53,6 +47,20 @@ if(visited){
 enterBtn.addEventListener('click', ()=> {
   localStorage.setItem("visited", true);
   enterWidget.style.display = 'none';
+})
+
+//SVG
+const svgWrap = document.getElementById('svg-wrap');
+const svgBackground = document.getElementById('svg-bg');
+let wrapHeight = svgWrap.offsetHeight;
+let wrapWidth = svgWrap.offsetWidth;
+
+svgBackground.setAttribute('viewBox', `0, 0, ${wrapWidth}, ${wrapHeight}`)
+
+window.addEventListener('resize', ()=> {
+  wrapHeight = svgWrap.offsetHeight;
+  wrapWidth = svgWrap.offsetWidth;
+  svgBackground.setAttribute('viewBox', `0, 0, ${wrapWidth}, ${wrapHeight}`)
 })
 
 const a11yBtn = document.getElementById('a11y-menu')
