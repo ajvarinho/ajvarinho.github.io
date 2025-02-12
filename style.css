@@ -544,15 +544,30 @@ nav {
 }
 
 .content-card {
+  position: relative;
   width: 50%;
-  background-color: light-dark(var(--light-bg-2), var(--dark-bg-2));
+  /* background-color: light-dark(var(--light-bg-2), var(--dark-bg-2)); */
   align-self: flex-start;
   padding-inline-start: var(--padding-inline-large);
   transition-duration: .7s;
   border-left: 1em solid light-dark(var(--light-primary), var(--dark-primary));
   /**/
+  overflow: auto;
   resize: both;
-  resize: vertical;
+    /**/
+    cursor: url(./public/img/burek_cursor.png), pointer;
+}
+
+.content-card:before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid;
+  transform: skew(-20deg);
+}
+
+.content-card__img:hover {
+  filter: drop-shadow(30px 10px 4px rgba(221, 68, 162, .7));
 }
 
 /* .content-card:hover {
@@ -565,9 +580,12 @@ nav {
 
 .content-card:nth-child(even) {
   align-self: flex-end;
-  background: var(--mesh);
+  background: transparent;
   border-left: 0px;
   border-right: 3em solid light-dark(var(--light-primary), var(--dark-primary));
+  /**/
+  transform: skew(-20deg);
+
 }
 
 .content-text {
