@@ -402,11 +402,18 @@ main {
   /* background: var(--gradient-1); */
   /* border: .5em dotted chartreuse; */
   border-bottom: 5px solid;
+
 }
 
 .svg-el {
   /* height: 100%;
   width: 100%; */
+  overflow: auto;
+  resize: vertical;
+}
+
+#svg-bg {
+  
 }
 
 .bg, .fg {
@@ -443,6 +450,7 @@ main {
   z-index: 10;
   background-color: light-dark(var(--light-primary), var(--dark-primary));
   animation: show .5s;
+
 }
 
 .title-wrap > h2 {
@@ -546,6 +554,9 @@ nav {
   padding-inline-start: var(--padding-inline-large);
   transition-duration: .7s;
   border-left: 1em solid light-dark(var(--light-primary), var(--dark-primary));
+  /**/
+  resize: both;
+  resize: vertical;
 }
 
 /* .content-card:hover {
