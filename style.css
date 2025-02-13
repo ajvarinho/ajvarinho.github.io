@@ -394,7 +394,7 @@ main {
   overflow-x: hidden;
   perspective: 10px;  
   /**/
-  height: 250vh;
+  /* height: 250vh; */
   overflow-y: scroll;
 }
 
