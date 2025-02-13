@@ -151,7 +151,7 @@ openNav.addEventListener('click', ()=>{
 const about = `
 
         <div class="content-card">
-            <img src="../public/img/me.png" alt="" class="content-card__img">
+            
         </div>
 
         <div class="content-card">
@@ -215,7 +215,7 @@ aboutBtn.addEventListener('click', ()=>{
     toggleMenu();
     pageTitle.classList.add('show');
     pageTitle.innerHTML = 'About';
-    bgImg.src = './public/img/holbein.png';
+    bgImg.src = './public/img/golf.png';
 });
 
 workBtn.addEventListener('click', ()=>{
