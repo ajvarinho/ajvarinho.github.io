@@ -79,6 +79,8 @@ html { scroll-behavior: smooth; }
   );
   --mesh: repeating-linear-gradient(0.65turn, transparent, rgb(133, 133, 213) .5rem),
   repeating-linear-gradient(0.35turn, rgb(136, 0, 255), transparent .5rem);
+  /**/
+  --test: linear-gradient(10deg, rgb(6, 6, 6), rgb(83, 83, 81));
 
 }
 
@@ -122,8 +124,6 @@ section, .template__main {
   min-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-    /**/
-    padding-top: 3.25em;
 }
 
 .hidden {
@@ -303,7 +303,6 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;  
-  /**/
   height: 150vh;
   overflow-y: scroll;
 }
@@ -313,8 +312,10 @@ main {
   inset: 0;
   z-index: -1;
   padding-top: 3.5em;
-  padding-bottom: 2em;
+  margin: 0 5em;
   background: var(--seabottom);
+  /**/
+  background-color: light-dark(grey, black);
 }
 
 .svg-el {
@@ -354,7 +355,12 @@ main {
   text-align: right;
   color: black;
   z-index: 10;
-  background-color: light-dark(var(--light-primary), var(--dark-primary));
+  /* background-color: light-dark(var(--light-primary), var(--dark-primary)); */
+  background-color: transparent;
+  animation: show .5s;
+}
+
+.show {
   animation: show .5s;
 }
 
@@ -386,6 +392,10 @@ nav {
   text-align: center;
 }
 
+.nav-wrap {
+  position: relative;
+}
+
 .nav-main {
   border-right: 3em solid;
   border-bottom: 1px solid;
@@ -396,6 +406,12 @@ nav {
   animation: show .5s;
   /**/
   width: 100%;
+  transition: opacity .3s ease;
+
+}
+
+.nav-main.hide {
+  display: none;
 }
 
 .nav-btn {
@@ -461,7 +477,7 @@ nav {
   position: relative;
   width: 50%;
   /* background-color: light-dark(var(--light-bg-2), var(--dark-bg-2)); */
-  align-self: flex-start;
+  align-self: center;
   padding-inline-start: var(--padding-inline-large);
   transition-duration: .7s;
   border-left: 1em solid light-dark(var(--light-primary), var(--dark-primary));
@@ -472,13 +488,13 @@ nav {
     cursor: url(./public/img/burek_cursor.png), pointer;
 }
 
-.content-card:before{
+/* .content-card:before{
   content: '';
   position: absolute;
   inset: 0;
   border: 1px solid;
   transform: skew(-20deg);
-}
+} */
 
 .content-card__img:hover {
   filter: drop-shadow(30px 10px 4px rgba(221, 68, 162, .7));
@@ -678,7 +694,7 @@ nav {
 
 @media (max-width: 30rem) {
 
-  section, .template__main {
+  main {
     padding-top: 3.85em;
   }
 
@@ -728,10 +744,12 @@ nav {
   .nav-menu {
     display: block;
     cursor: pointer;
-    border: 1px solid blue;
     width: 100%;
     text-align: left;
     padding-inline-start: 2em;
+    padding: .5em 0;
+    color: white;
+    background-color: black;
   }
 
   .nav-main {
@@ -739,11 +757,15 @@ nav {
     flex-direction: column;
     gap: 1em;
     text-align: left;
-    padding: .5em 0;
+    /* padding: .5em 0; */
     visibility: hidden;
     max-height: 0px;
     opacity: 0;
     transition: all .3s ease;
+    /**/
+      /**/
+  position: absolute;
+  z-index: 20;
   }
 
   .open {
@@ -752,18 +774,15 @@ nav {
     max-height: 1000px;
   }
 
+  .svg-wrap {
+    margin: 0 2em;
+    padding-top: 3.85em;
+  }
+
 
   .welcome > .title-wrap > h2 {
     padding-left: 0;
     font-size: 1.2em;
   }
 
-  .content-card  {
-    width: 90%;
-    /* align-self: center; */
-  }
-
-  .project-preview {
-    width: 100%;
-  }
 }

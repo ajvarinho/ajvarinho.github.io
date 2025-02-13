@@ -1,5 +1,23 @@
 console.log("djesba");
 
+const aboutBtn = document.getElementById('about');
+const workBtn = document.getElementById('work');
+const contactBtn = document.getElementById('contact');
+const contentWrapper = document.getElementById('content-wrapper');
+const bgImg = document.getElementById('bg-img');
+const mainHTML = document.getElementById("content");
+const navWrap = document.getElementById('nav-wrap');
+const navEl = document.getElementById('nav-el');
+const titleWrap = document.querySelector('.title-wrap');
+const pageTitle = document.getElementById('page-title');
+
+if(window.innerWidth < 400){
+  navEl.classList.add('mobile');
+  mainHTML.insertBefore(titleWrap, navWrap);
+
+}
+
+
 //dark mode
 let userPrefersDark
 
@@ -128,22 +146,88 @@ openNav.addEventListener('click', ()=>{
   navMenu.classList.toggle('open');
 })
 
-//reselect text elements if 'route' has changed
 
-document.addEventListener("click", (e) => {
-  const { target } = e;
-  if (!target.matches("nav a")) {
-      return;
+
+const about = `
+
+        <div class="content-card">
+            <img src="../public/img/me.png" alt="" class="content-card__img">
+        </div>
+
+        <div class="content-card">
+
+            <p>hello, my name is Nikola and I'm</p>
+            <p>
+                web designer, creative coder and developer<br/>
+                based in Berlin
+            </p>
+
+            <p>
+                I love creating functional solutions with unconventional design <br/>
+                experimenting with motion graphics and
+            </p>
+            <p>interactions</p>
+
+            <p>
+                My MA degree in philosophy and art history, together with experience in web development <br/>
+                resulted in interest for deeper creative exploration of web and computational aesthetics.
+            </p>
+            <p>
+                My designs are inspired by renaissance paintings, post-modern deconstruction, <br/>
+                early graffitti, album art and fonts, as well as the aesthetics of<br/>
+                pre-2001 Internet era. <br/>
+                I like to call it digital situationism.
+            </p>
+        </div>`;
+
+const work = `
+        <div class="template__main">
+
+
+            <div class="content-wrap archivo-test">
+                <p id="template__desc" class="content-title archivo-test">{{}}</p>
+                <div id="template__grid-wrap" class="template__grid-wrap">
+
+                </div>
+            </div>
+        </div>
+        `;
+
+const contact = `
+    <div class="contact-card">
+        <p>polamekkartnija@gmail.com</p>
+        <a href="https://www.instagram.com/njikola_123?igsh=MTRlbjN0d2cxMHRhMg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+    </div>
+`;
+
+//transitions
+
+function toggleMenu(){
+  if(navEl.classList.contains('mobile')){
+    navEl.classList.remove('open');
+  } else {
+    navEl.classList.add('hide');
   }
-  if(target.href !== '/'){
-    //
-    //mozda tu animacija
-    //
-    //console.log("CHECK", document.querySelector('#content section'))
-    //
-    setTimeout(() => {
-      textElements = document.querySelectorAll('.content-wrap p');
-    }, 500);
-  }
+}
+
+aboutBtn.addEventListener('click', ()=>{
+    contentWrapper.innerHTML = about;
+    toggleMenu();
+    pageTitle.classList.add('show');
+    pageTitle.innerHTML = 'About';
+    bgImg.src = './public/img/holbein.png';
 });
+
+workBtn.addEventListener('click', ()=>{
+    contentWrapper.innerHTML = work;
+    toggleMenu();
+    pageTitle.innerHTML = 'Work';
+});
+
+contactBtn.addEventListener('click', ()=>{
+    contentWrapper.innerHTML = contact;
+    toggleMenu();
+    pageTitle.innerHTML = 'Contact';
+});
+
 
