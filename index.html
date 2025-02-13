@@ -78,42 +78,19 @@
             </div>
         </header>
 
-        <div id="enter-widget" class="widget">
-            <div class="widget-wrap">
-                  <div class="ticker-container">
-                        <div class="ticker">
-                            <p class="ticker-text">
-                                🚧 Website under construction, please drop by again soon 🚧
-                            </p>
-                        </div>
-                  </div>
-                  <div class="img-wrap">
-                      <img src="../public/img/ummarel.png" alt="decor" class="widget-img">
-                      <img src="../public/img/ummarell-solo.png" alt="decor" class="widget-img__two">
-                      
-                        <p>test description ummarello</p>
-                        <button id="enter" class="enter">alo</button>
-
-                  </div>
-            </div>
-        </div>
-
         <!-- svg decoration & effects -->
 
         <div id="svg-wrap" class="svg-wrap">
             <svg id="svg-bg" class="svg-el" viewBox="0 0 1269 845" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <title>NIKOLA</title>
-                <g style="overflow:hidden; text-anchor: middle; font-size:56; font-family: Impact, sans-serif">
-                </g>
+
                 <filter id="filter-wel556mrk">
-                    <feTurbulence baseFrequency="0.0025" numOctaves="1" seed="20"></feTurbulence>
+                    <feTurbulence baseFrequency="0.1" numOctaves="1" seed="1"></feTurbulence>
                     <!-- animacao -->
                     <feColorMatrix type="hueRotate" values="0" result="cm">
-                        <animate attributeName="values" from="0" to="360" dur="3.5s" repeatCount="indefinite" />
-                    </feColorMatrix>
-                    <!-- <feColorMatrix values="-2 -1 -3.5 1.2 -2.5 2.7 4.8 1.2 -3.9 4.2 0.5 0 -1.7 -2.3 2.8 -3.5 -2.7 0.2 0.3 1.1"></feColorMatrix> -->
-                    <feColorMatrix values="-3 -2 -4.5 2.2 -3.5 3.7 5.8 2.2 -4.9 5.2 1.5 0 -1.7 -2.3 2.8 -3.5 -2.7 0.2 0.3 1.1"></feColorMatrix>
-                    <feGaussianBlur id="blur-level" stdDeviation="0.025" />
+                            <animate attributeName="values" from="0" to="360" dur="3.5s" repeatCount="indefinite" />
+                        </feColorMatrix>
+                    <feColorMatrix values="-2 -1 -3.5 1.2 -2.5 2.7 4.8 1.2 -3.9 4.2 0.5 0 -1.7 -2.3 2.8 -3.5 -2.7 0.2 0.3 1.1"></feColorMatrix>
+                    <feGaussianBlur stdDeviation="6.5" />
                 </filter>
                 <!-- <rect width="100%" height="100%" fill="rgb(2,2,0)" class="bgRect"></rect> -->
                 <rect width="100%" height="100%" filter="url(#filter-wel556mrk)"></rect>

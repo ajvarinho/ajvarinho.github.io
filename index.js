@@ -35,20 +35,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 });
 
-const enterBtn = document.getElementById('enter');
-const enterWidget = document.getElementById('enter-widget');
-
-const visited = localStorage.getItem("visited");
-
-if(visited){
-  enterWidget.style.display = 'none';
-}
-
-enterBtn.addEventListener('click', ()=> {
-  localStorage.setItem("visited", true);
-  enterWidget.style.display = 'none';
-})
-
 //SVG
 const svgWrap = document.getElementById('svg-wrap');
 const svgBackground = document.getElementById('svg-bg');
@@ -134,6 +120,14 @@ setTimeout(() => {
   textElements = document.querySelectorAll('.content-wrap p');
 }, 1000);
 
+const openNav = document.getElementById('nav-menu_mobile');
+const navMenu = document.getElementById('nav-el');
+
+openNav.addEventListener('click', ()=>{
+  console.log('alo re', navMenu)
+  navMenu.classList.toggle('open');
+})
+
 //reselect text elements if 'route' has changed
 
 document.addEventListener("click", (e) => {
@@ -153,46 +147,3 @@ document.addEventListener("click", (e) => {
   }
 });
 
-//
-
-var i;
-var fib = [0, 1]; // Initialize array!
-
-// const svgWrap = document.querySelector('.svg-wrap')
-// const fibonacciTest = svgWrap.querySelector('.fibonacci'); 
-// let fibonacciArr = []
-
-//
-let pathPointsTest 
-// = `m ${imgWrapLeft + 100},${
-//   imgWrapTop - 50
-// } l 175,0 l 0,175 l -175,0 z`;
-// //
-// pathEl.setAttribute("d", pathPointsTest);
-
-// for (i = 2; i <= 10; i++) {
-//   // Next fibonacci number = previous + one before previous
-//   // Translated to JavaScript:
-//   console.log('check', fib[i-2])
-//   fib[i] = fib[i - 2] + fib[i - 1];
-//   //
-//   fibonacciArr.push(fib[i-2], fib[i])
-//   console.log(fib[i], fibonacciArr);
-// }
-
-// let number
-// function returnNums(number){
-//   return number;
-// }
-
-// for (i = 1; i <= fibonacciArr.length; i++){
-//   returnNums(fibonacciArr[i]);
-// }
-
-// console.log('number', number)
-
-// let check = fibonacciTest.getAttribute('d');
-// console.log(check, typeof check);
-// console.log(fibonacciArr[i]);
-// let proba = check + ' ' + `${fibonacciArr[i]} ${fibonacciArr[i]}`;
-// console.log(proba, 'proba');
