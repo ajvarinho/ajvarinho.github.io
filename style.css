@@ -285,103 +285,13 @@ p.header-link {
   text-align: right;
 }
 
-/* UNDER CONSTRUCTION WIDGET*/
-
-/**/
-
-.widget {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-}
-
-.widget-wrap {
-  width: 50%;
-  padding: 1em;
-  background: var(--gradient-1);
-}
-
-.ticker-container {
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  background: var(--construction);
-  border: 1.5em solid black;
-}
-
-.ticker {
-  display: inline-block;
-  white-space: nowrap;
-  color: #fff;
-  padding: 15px;
-  position: relative;
-  animation: scroll 10s linear infinite;
-  opacity: 0; /* Hide content initially */
-}
-
-.ticker-text {
-  font-family: monospace;
-  color: light-dark(var(--light-font-primary), var(--dark-font-primary));
-  background-color: light-dark(var(--light-bg-2), var(--dark-bg-2));
-  padding: .2em;
-}
-
-.ticker-container .ticker {
-  opacity: 1; /* Show content once animation begins */
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(100%);
-  }
-  10% {
-    opacity: 1; /* Ensure text is fully visible after it enters */
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.img-wrap {
-  position: relative;
-}
-
-.widget-img {
-  position: absolute;
-  inset: 0;
-  opacity: 0.8;
-  transform: scale(.5) translateX(-10em);
-}
-
-.widget-img__two {
-  position: absolute;
-  inset: 0;
-  opacity: 1;
-  transform: rotateY(180deg);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.enter {
-  position: relative;
-  top: 0px;
-  left: 60%;
-  border: 2px solid;
-  padding: 2em 4em;
-  background: yellow;
-  z-index: 5;
-  cursor: pointer;
-}
-
 /**/
 main {
   position: relative;
   min-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 3.25em;
 }
 
 /* W E L C O M E */
@@ -488,9 +398,9 @@ nav {
   width: 100%;
 }
 
-
 .nav-btn {
   position: relative;
+  font-family: inherit;
   color: rgb(5, 5, 5);
   text-decoration: none;
   text-transform: uppercase;
@@ -500,6 +410,7 @@ nav {
   padding: .5em 1em;
   font-size: 1.5em;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .nav-btn::before {
