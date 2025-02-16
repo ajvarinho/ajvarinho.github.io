@@ -320,6 +320,8 @@ main {
   /**/
   /* height: 200vh; */
   height: auto;
+  /**/
+  transform-style: preserve-3d;
 }
 
 .svg-wrap {
