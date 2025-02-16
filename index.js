@@ -1,5 +1,7 @@
 console.log("djesba");
 
+const header = document.getElementById('header');
+const headerBg = document.getElementById('header-bg');
 const aboutBtn = document.getElementById('about');
 const workBtn = document.getElementById('work');
 const contactBtn = document.getElementById('contact');
@@ -166,25 +168,24 @@ const textToScroll = document.querySelector('.position-move');
 let index = 0;
 
 window.addEventListener('scroll', ()=>{
+
   let scrollValue = Math.round(window.scrollY);
+
   console.log(scrollValue, 'scrol')
   const randomArr = randomNumbers();
   const matchedArray = randomArr.map(i => allSymbols[i]);
-  //index++; 
-  textToScroll.textContent += matchedArray.slice(0, scrollValue).join(''); 
+  index += 1; 
+  textToScroll.textContent += matchedArray[index]; 
   textToScroll.style.opacity = 1
-  //
-  console.log('index', index)
+
 
   // move
-  textToScroll.style.top = scrollValue + 'px';
-  if (index < matchedArray.length) {
+  textToScroll.style.top = scrollValue / 2 + 'px';
+//   if (index < matchedArray.length) {
 
-    console.log('hello', index)
-}
+//     console.log('hello', index)
+// }
 })
-
-
 
 const openNav = document.getElementById('nav-menu_mobile');
 const navMenu = document.getElementById('nav-el');
