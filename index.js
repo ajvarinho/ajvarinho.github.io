@@ -71,14 +71,8 @@ window.addEventListener('resize', ()=> {
 
 //feGaussianBlur stdDeviation="0.5"
 
-const blurLevel = document.getElementById('blur-level');
+//const blurLevel = document.getElementById('blur-level');
 
-window.addEventListener('scroll', ()=>{
-  console.log('scrolling', window.scrollY);
-  let scrollFactor = window.scrollY * 0.01;
-  console.log(scrollFactor, 'alooo')
-  blurLevel.setAttribute('stdDeviation', scrollFactor);
-})
 
 const a11yBtn = document.getElementById('a11y-menu')
 const a11yCloseBtn = document.getElementById('close-a11y')
@@ -137,6 +131,60 @@ setTimeout(() => {
   accessibilityWrap.classList.remove('hidden');
   textElements = document.querySelectorAll('.content-wrap p');
 }, 1000);
+
+
+// TEXT SCROLL
+// Function to get symbols excluding letters and numbers
+function getAllSymbols() {
+  let symbols = [];
+
+  for (let i = 33; i <= 0x10FFFF; i++) {
+      let char = String.fromCodePoint(i);
+
+      if (!/[a-zA-Z0-9]/.test(char) && char.trim() !== '') {
+          symbols.push(char);
+      }
+      if (symbols.length > 200) break; 
+  }
+  return symbols;
+}
+
+const allSymbols = getAllSymbols();
+console.log(allSymbols);
+
+function randomNumbers() {
+  let randumNum = [];
+  for(i = 0; i <= 199; i++){
+    let number = Math.floor(Math.random() * i);
+    randumNum.push(number);
+  }
+  return randumNum;
+}
+
+const textToMove = document.querySelector('.position-main');
+const textToScroll = document.querySelector('.position-move');
+let index = 0;
+
+window.addEventListener('scroll', ()=>{
+  let scrollValue = Math.round(window.scrollY);
+  console.log(scrollValue, 'scrol')
+  const randomArr = randomNumbers();
+  const matchedArray = randomArr.map(i => allSymbols[i]);
+  //index++; 
+  textToScroll.textContent += matchedArray.slice(0, scrollValue).join(''); 
+  textToScroll.style.opacity = 1
+  //
+  console.log('index', index)
+
+  // move
+  textToScroll.style.top = scrollValue + 'px';
+  if (index < matchedArray.length) {
+
+    console.log('hello', index)
+}
+})
+
+
 
 const openNav = document.getElementById('nav-menu_mobile');
 const navMenu = document.getElementById('nav-el');
