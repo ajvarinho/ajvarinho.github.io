@@ -477,7 +477,7 @@ nav {
   /**/
   margin: 0 3em;
   gap: 10em;
-  height: 200vh;
+  height: 160vh;
 }
 
 .cursor {
@@ -538,7 +538,7 @@ nav {
 .welcome-card {
   position: relative;
   height: 30%;
-  background: black;
+  background: rgba(117, 6, 207, 0.7);
   display: flex;
   justify-content: flex-start; 
   width: fit-content;

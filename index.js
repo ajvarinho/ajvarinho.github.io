@@ -172,23 +172,19 @@ window.addEventListener('scroll', ()=>{
 
   let scrollValue = Math.round(window.scrollY);
 
-  console.log(scrollValue, 'scrol')
   const randomArr = randomNumbers();
   const matchedArray = randomArr.map(i => allSymbols[i]);
   index += 1; 
-  textToScroll.textContent += matchedArray[index]; 
-  textToScroll.style.opacity = 1
-
+  //textToScroll.textContent += matchedArray[index]; 
+  textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
+  textToScroll.style.opacity = 1;
 
   // move
-  textToScroll.style.transform = `rotateY(${scrollValue / 2}deg)`;
+  //textToScroll.style.transform = `rotateY(${scrollValue / 2}deg)`;
+  //textCard.style.transform = `translateY(${scrollValue / 2}px)`
   //
-  textToMove.style.textShadow = `${index}px ${index}px 2px rgb(18, 18, 20), 0 0 1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`
-  textToMove.style.boxShadow = `${scrollValue / 2}px ${index}px 2px rgb(18, 18, 20), 0 0 1em rgb(26, 255, 0), 0 0 ${scrollValue}em rgb(32, 31, 30)`
-//   if (index < matchedArray.length) {
-
-//     console.log('hello', index)
-// }
+  textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
+  textToMove.style.boxShadow = `${scrollValue / 2}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 ${scrollValue}px rgb(32, 31, 30)`;
 })
 
 const openNav = document.getElementById('nav-menu_mobile');
