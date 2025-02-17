@@ -57,6 +57,8 @@ html {
   --clr-branding-2:rgba(100, 185, 228, 0.7);
   --gradient-1: linear-gradient(35deg, var(--clr-branding-1), var(--clr-branding-2));
   --gradient-2: linear-gradient(-35deg, var(--clr-branding-2), var(--clr-branding-1));
+  --gradient-pixel: repeating-linear-gradient(transparent, #1b1c1b 1px),
+  repeating-linear-gradient(0.25turn, transparent, #060606 2px);
 
   /* dark */
   --clr-dark-1: rgb(0, 0, 0);
@@ -335,9 +337,10 @@ main {
   z-index: -1;
   padding-top: 3.5em;
   margin: 0 5em;
-  /* background: var(--seabottom); */
+  /* za white mode */
+  background: var(--clr-branding-1);
   /**/
-  background-color: light-dark(grey, black);
+  /* background-color: light-dark(grey, black); */
 }
 
 .fg {
@@ -365,7 +368,7 @@ main {
 .fg {
   /* transform: translateZ(-20px) scale(1.2) rotateY(1deg); */
   transform: translateZ(-5px) scale(1.2) rotateY(-1deg);
-  background: var(--mesh);
+  /* background: var(--mesh); */
 }
 
 .title-wrap {
@@ -476,11 +479,11 @@ nav {
   position: absolute;
   top: 15%;
   left: 15%;
-  bottom: 75%;
-  right: 30%;
+  bottom: 80%;
+  right: 10%;
   /* height: 30vh; */
-  background-image: url(../public/img/gaseri2.png);
-  /* background: var(--mesh); */
+  /* background-image: url(../public/img/gaseri2.png); */
+  background: var(--mesh);
   background-repeat: no-repeat;
   background-position: center;
   background-position: 0% 0%;
@@ -494,11 +497,11 @@ nav {
   inset: 0; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   animation: content .3s;
   /**/
   margin: 0 3em;
-  gap: 10em;
+  gap: 15em;
   height: 160vh;
 }
 
@@ -561,12 +564,19 @@ nav {
 
 .welcome-card {
   position: relative;
-  height: 30%;
-  background: rgba(117, 6, 207, 0.7);
+  height: 40%;
+  /* background: rgba(117, 6, 207, 0.7); */
   display: flex;
   justify-content: flex-start; 
   width: fit-content;
+  background: repeating-linear-gradient(transparent, #1b1c1b 1px),
+  repeating-linear-gradient(0.25turn, transparent, #060606 40px);
+  transition-duration: .7s;
 }
+
+/*animacija - na hover prosiri drugu vriejdnost i auto ode lijeo*/
+
+
 
 .welcome-img {
 
@@ -713,7 +723,7 @@ nav {
   }
 
   .svg-wrap {
-    margin: 0 2em;
+    /* margin: 0 2em; */
     padding-top: 3.85em;
   }
 
@@ -730,7 +740,13 @@ nav {
     gap: 5em;
   }
   
+  .text {
+    font-size: 1em;
+  }
 
+  .fg {
+    transform: translateZ(1px) scale(1.2) rotateY(2deg);
+  }
 
 }
 

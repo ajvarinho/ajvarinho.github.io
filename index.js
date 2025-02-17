@@ -167,26 +167,50 @@ const parallaxWrap = document.getElementById('parallax-wrap');
 const textCard = document.querySelector('.text-card');
 const textToMove = document.querySelector('.position-main');
 const textToScroll = document.querySelector('.position-move');
+const svgTextWrap = document.querySelector('.svg-text-wrap');
+//
 let index = 0;
+const windowHeight = window.innerHeight;
+console.log(windowHeight);
+let parallaxWrapStyle = window.getComputedStyle(parallaxWrap);
+let position = parallaxWrapStyle.bottom;
 
-window.addEventListener('scroll', ()=>{
+position = position.replace(/[^\d.-]/g, '');
+position = Math.floor(position);
 
-  let scrollValue = Math.round(window.scrollY);
-
+function handleText(arr){
   const randomArr = randomNumbers();
   const matchedArray = randomArr.map(i => allSymbols[i]);
   index += 1; 
+  console.log(index, 'index')
   //textToScroll.textContent += matchedArray[index]; 
   textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
   textToScroll.style.opacity = 1;
+}
 
-  // move
-  //textToScroll.style.transform = `rotateY(${scrollValue / 2}deg)`;
-  //textCard.style.transform = `translateY(${scrollValue / 2}px)`
-  //
+function handleTransitions(){
+  let scrollValue = Math.round(window.scrollY);
+
+  let scrollDistance = windowHeight - (windowHeight - scrollValue);
+
+  console.log(scrollDistance, 'distance')
+  index += 1; 
   textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
-  textToMove.style.boxShadow = `${scrollValue / 2}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 ${scrollValue}px rgb(32, 31, 30)`;
-  parallaxWrap.style.bottom = index + '%'
+  //textToMove.style.boxShadow = `${scrollValue / 2}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 ${scrollValue}px rgb(32, 31, 30)`;
+  
+  //let newPosition = position - scrollDistance;
+  //parallaxWrap.style.bottom = newPosition + 'px'
+
+  if (scrollDistance >= windowHeight){
+    svgTextWrap.classList.add('show');
+  } else {
+    svgTextWrap.classList.remove('show')
+  }
+}
+
+window.addEventListener('scroll', ()=>{
+  handleText(allSymbols);
+  handleTransitions();
 })
 
 const openNav = document.getElementById('nav-menu_mobile');
@@ -197,39 +221,25 @@ openNav.addEventListener('click', ()=>{
   navMenu.classList.toggle('open');
 })
 
-
+const arrIntro = ['hello', ',', 'my', 'name', 'is', 'Nikola', 'and', 'I', 'am', 'web designer', 'creative coder', 'and', 'developer', 'based in Berlin'];
+const arrStuff = ['I', 'love', 'creating', 'functional', 'solutions', 'with', 'unconventional', 'design', 'experimenting with', 'motion', 'graphics', 'and', 'interactions'];
+const arrBg = ['My', 'MA', 'degree', 'in philosophy and', 'art history',',', 'together with', 'experience in', 'web development', 'resulted in', 'interest for', 'deeper', 'creative exploration', 'of web and computational', 'aesthetics.'];
+const arrInspo = ['My', 'designs', 'are inspired by', 'renaissance paintings,', 'post-modern deconstruction', ',', 'early graffiti', 'album art', 'and fonts', 'as well as', 'the aesthetics of', 'pre-2001 Internet era.'];
 
 const about = `
-
-        <div class="content-card">
-            
-        </div>
-
-        <div class="content-card">
-
-            <p>hello, my name is Nikola and I'm</p>
-            <p>
-                web designer, creative coder and developer<br/>
-                based in Berlin
-            </p>
-
-            <p>
-                I love creating functional solutions with unconventional design <br/>
-                experimenting with motion graphics and
-            </p>
-            <p>interactions</p>
-
-            <p>
-                My MA degree in philosophy and art history, together with experience in web development <br/>
-                resulted in interest for deeper creative exploration of web and computational aesthetics.
-            </p>
-            <p>
-                My designs are inspired by renaissance paintings, post-modern deconstruction, <br/>
-                early graffitti, album art and fonts, as well as the aesthetics of<br/>
-                pre-2001 Internet era. <br/>
-                I like to call it digital situationism.
-            </p>
-        </div>`;
+  <div class="text-card">
+      <div class="text-wrap">
+          <p class="text position-main">
+          </p>
+          <p class="text position-move">
+          </p>
+      </div>
+</div>
+                    
+<div class="welcome-card">
+    <img class="welcome-img" src="" alt="">
+</div>
+        `;
 
 const work = `
         <div class="template__main">
@@ -266,7 +276,10 @@ aboutBtn.addEventListener('click', ()=>{
     toggleMenu();
     pageTitle.classList.add('show');
     pageTitle.innerHTML = 'About';
-    bgImg.src = './public/img/golf.png';
+    //bgImg.src = './public/img/golf.png';
+    document.addEventListener('scroll', ()=>{
+      handleTransitions();
+    })
 });
 
 workBtn.addEventListener('click', ()=>{
