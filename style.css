@@ -13,7 +13,11 @@
   src: url("fonts/Web437_Siemens_PC-D.woff") format('woff');
 }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  /* height: 100%; */
+}
+
 
 .archivo-test {
   font-family: "Archivo", sans-serif;
@@ -100,6 +104,7 @@ body {
   position: relative;
   font-size: 1.125rem;
   line-height: 1.6;
+  /* height: 100%; */
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -359,7 +364,7 @@ main {
 
 .fg {
   /* transform: translateZ(-20px) scale(1.2) rotateY(1deg); */
-  transform: translateZ(-25px) scale(1) rotateY(-1deg);
+  transform: translateZ(-5px) scale(1.2) rotateY(-1deg);
   background: var(--mesh);
 }
 
@@ -467,6 +472,23 @@ nav {
   }
 }
 
+.parallax-wrap {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  bottom: 75%;
+  right: 30%;
+  /* height: 30vh; */
+  background-image: url(../public/img/gaseri2.png);
+  /* background: var(--mesh); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: 0% 0%;
+  /* box-shadow: -2em 7em .1em green; */
+  /**/
+  perspective: 10px;
+}
+
 .content-wrap {
   /* position: absolute;
   inset: 0; */
@@ -533,6 +555,8 @@ nav {
   width: 70%;
   opacity: 0;
   transition: opacity 0.7s ease-in-out;
+  /* background-clip: text;
+  color: rgba(13, 164, 219, 0.5); */
 }
 
 .welcome-card {

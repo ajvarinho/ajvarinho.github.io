@@ -163,6 +163,7 @@ function randomNumbers() {
   return randumNum;
 }
 
+const parallaxWrap = document.getElementById('parallax-wrap');
 const textCard = document.querySelector('.text-card');
 const textToMove = document.querySelector('.position-main');
 const textToScroll = document.querySelector('.position-move');
@@ -185,6 +186,7 @@ window.addEventListener('scroll', ()=>{
   //
   textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
   textToMove.style.boxShadow = `${scrollValue / 2}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 ${scrollValue}px rgb(32, 31, 30)`;
+  parallaxWrap.style.bottom = index + '%'
 })
 
 const openNav = document.getElementById('nav-menu_mobile');
