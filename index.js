@@ -12,6 +12,7 @@ const navWrap = document.getElementById('nav-wrap');
 const navEl = document.getElementById('nav-el');
 const titleWrap = document.querySelector('.title-wrap');
 const pageTitle = document.getElementById('page-title');
+const adImg = document.getElementById('ad');
 
 if(window.innerWidth < 400){
   navEl.classList.add('mobile');
@@ -169,7 +170,7 @@ const parallaxWrap = document.getElementById('parallax-wrap');
 const textCard = document.querySelector('.text-card');
 const textToMove = document.querySelector('.position-main');
 const textToScroll = document.querySelector('.position-move');
-const svgTextWrap = document.querySelector('.svg-text-wrap');
+const adWrap = document.querySelector('.ad-wrap');
 //
 let index = 0;
 const windowHeight = window.innerHeight;
@@ -225,10 +226,13 @@ window.addEventListener("scroll", function(){
 function handleTransitions(scrollDistance){
   index += 1; 
   textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
+  
   if (scrollDistance >= windowHeight){
-    svgTextWrap.classList.add('show');
+    //adWrap.classList.add('show');
+    adImg.classList.add('on');
   } else {
-    svgTextWrap.classList.remove('show')
+    //adWrap.classList.remove('show')
+    adImg.classList.remove('on');
   }
 }
 
@@ -333,4 +337,13 @@ contactBtn.addEventListener('click', ()=>{
     pageTitle.innerHTML = 'Contact';
 });
 
+
+// const adText = document.getElementById('animatedText');
+// const adImg = document.getElementById('ad');
+
+// console.log(adText.getAttribute(startOffset))
+
+// if(adText.startOffset > 90) {
+//   console.log('alo')
+// }
 
