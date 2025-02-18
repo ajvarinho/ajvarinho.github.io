@@ -163,6 +163,8 @@ function randomNumbers() {
   return randumNum;
 }
 
+
+
 const parallaxWrap = document.getElementById('parallax-wrap');
 const textCard = document.querySelector('.text-card');
 const textToMove = document.querySelector('.position-main');
@@ -172,35 +174,68 @@ const svgTextWrap = document.querySelector('.svg-text-wrap');
 let index = 0;
 const windowHeight = window.innerHeight;
 console.log(windowHeight);
+
 let parallaxWrapStyle = window.getComputedStyle(parallaxWrap);
 let position = parallaxWrapStyle.bottom;
 
 position = position.replace(/[^\d.-]/g, '');
 position = Math.floor(position);
 
-function handleText(arr){
-  const randomArr = randomNumbers();
-  const matchedArray = randomArr.map(i => allSymbols[i]);
-  index += 1; 
-  console.log(index, 'index')
-  //textToScroll.textContent += matchedArray[index]; 
-  textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
-  textToScroll.style.opacity = 1;
-}
+let scrollValue;
+let scrollDistance;
 
-function handleTransitions(){
-  let scrollValue = Math.round(window.scrollY);
+// function handleText(scrollDistance){
+  
+//   let prevScrollY = window.scrollY;
+//   let currentScrollY = window.scrollY;
+//   console.log(prevScrollY, currentScrollY)
+//   const randomArr = randomNumbers();
+//   const matchedArray = randomArr.map(i => allSymbols[i]);
+//   //index += 1; 
 
-  let scrollDistance = windowHeight - (windowHeight - scrollValue);
+//   if(currentScrollY > prevScrollY){
+//     textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
+//     textToScroll.style.opacity = 1;
+//     index += 1;
+//     console.log('index up', index)
+//   } else {
+//     console.log('goin up')
+//     index -= 1;
+//     console.log('index down', index)
+//     textToScroll.textContent = matchedArray.slice(0, index).join(" ");
+//   }
+// }
 
-  console.log(scrollDistance, 'distance')
+var lastScrollTop = 0;
+
+window.addEventListener("scroll", function(){ 
+
+   var st = window.scrollY || document.documentElement.scrollTop; 
+   let randomArr = randomNumbers();
+   let matchedArray = randomArr.map(i => allSymbols[i]);
+
+   if (st > lastScrollTop) {
+      console.log('down')
+      textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
+      textToScroll.style.opacity = 1;
+      index += 1;
+      //console.log('elementi scroll down', index, matchedArray)
+   } else if (st < lastScrollTop) {
+      //index =index -= 1;
+      textToScroll.innerText = textToScroll.innerText.slice(0, -5);
+      //textToScroll.textContent -= textToScroll.innerHTML.slice(0, -5);
+      console.log('up', matchedArray.length)
+      //
+
+   } 
+   lastScrollTop = st <= 0 ? 0 : st; 
+   console.log(lastScrollTop, 'scroll')
+});
+
+
+function handleTransitions(scrollDistance){
   index += 1; 
   textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
-  //textToMove.style.boxShadow = `${scrollValue / 2}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 ${scrollValue}px rgb(32, 31, 30)`;
-  
-  //let newPosition = position - scrollDistance;
-  //parallaxWrap.style.bottom = newPosition + 'px'
-
   if (scrollDistance >= windowHeight){
     svgTextWrap.classList.add('show');
   } else {
@@ -209,8 +244,10 @@ function handleTransitions(){
 }
 
 window.addEventListener('scroll', ()=>{
-  handleText(allSymbols);
-  handleTransitions();
+  scrollValue = Math.round(window.scrollY);
+  scrollDistance = windowHeight - (windowHeight - scrollValue);
+  //handleText(scrollDistance);
+  handleTransitions(scrollValue, scrollDistance);
 })
 
 const openNav = document.getElementById('nav-menu_mobile');
@@ -227,19 +264,32 @@ const arrBg = ['My', 'MA', 'degree', 'in philosophy and', 'art history',',', 'to
 const arrInspo = ['My', 'designs', 'are inspired by', 'renaissance paintings,', 'post-modern deconstruction', ',', 'early graffiti', 'album art', 'and fonts', 'as well as', 'the aesthetics of', 'pre-2001 Internet era.'];
 
 const about = `
-  <div class="text-card">
-      <div class="text-wrap">
-          <p class="text position-main">
-          </p>
-          <p class="text position-move">
-          </p>
-      </div>
-</div>
-                    
-<div class="welcome-card">
-    <img class="welcome-img" src="" alt="">
-</div>
-        `;
+
+        <div class="content-card">
+
+            <p>hello, my name is Nikola and I'm</p>
+            <p>
+                web designer, creative coder and developer<br/>
+                based in Berlin
+            </p>
+
+            <p>
+                I love creating functional solutions with unconventional design <br/>
+                experimenting with motion graphics and
+            </p>
+            <p>interactions</p>
+
+            <p>
+                My MA degree in philosophy and art history, together with experience in web development <br/>
+                resulted in interest for deeper creative exploration of web and computational aesthetics.
+            </p>
+            <p>
+                My designs are inspired by renaissance paintings, post-modern deconstruction, <br/>
+                early graffitti, album art and fonts, as well as the aesthetics of<br/>
+                pre-2001 Internet era. <br/>
+                I like to call it digital situationism.
+            </p>
+        </div>`;
 
 const work = `
         <div class="template__main">
@@ -276,7 +326,7 @@ aboutBtn.addEventListener('click', ()=>{
     toggleMenu();
     pageTitle.classList.add('show');
     pageTitle.innerHTML = 'About';
-    //bgImg.src = './public/img/golf.png';
+    bgImg.src = './public/img/gm-reno.png';
     document.addEventListener('scroll', ()=>{
       handleTransitions();
     })

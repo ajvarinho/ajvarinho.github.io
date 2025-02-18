@@ -37,7 +37,7 @@ html {
 --light-primary: blue;
 --light-font-primary: black;
 
---dark-bg-1: rgb(0, 0, 0);
+--dark-bg-1: rgba(0, 0, 0, 0.5);
 --dark-bg-2: rgb(69, 69, 73);
 --dark-primary: gold;
 --dark-secondary: lavender;
@@ -335,7 +335,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  padding-top: 3.5em;
+  padding-top: 3.25em;
   margin: 0 5em;
   /* za white mode */
   background: var(--clr-branding-1);
@@ -587,6 +587,29 @@ nav {
   border: 2px solid blue;
   padding-inline-start: var(--padding-inline-large);
   background: var(--gradient-2);
+}
+
+.content-card {
+  width: 30%;
+  margin-left: 10%;
+  text-align: left;
+}
+
+.content-card > p {
+  background: rgba(232,121,232, 0.6);
+  margin: 1px 0;
+  transform: skew(-20deg);
+  padding: 1em;
+  display: inline-block;
+  transition: .2s;
+}
+
+.content-card > p:nth-child(2n){
+  transform: skew(20deg);
+}
+
+.content-card > p:hover {
+  box-shadow: .1em .1em 0 white;
 }
 
 
