@@ -584,9 +584,19 @@ nav {
 
 
 .svg-text-wrap {
-  border: 2px solid blue;
+  position: relative;
   padding-inline-start: var(--padding-inline-large);
-  background: var(--gradient-2);
+}
+
+.filter {
+  position: relative;
+}
+
+.filter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid;
 }
 
 .content-card {
@@ -773,6 +783,11 @@ nav {
 
 }
 
+
+#animatedText {
+  fill: black;
+  font-family: "IBM";
+}
 
 /* helper  */
 

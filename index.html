@@ -142,7 +142,7 @@
                                 ///**/*/WORLD/*2*?>\<br/> 
                             </p>
                             <p class="text position-move">
-                                -=8#89==\<strong>hello</strong>==-1=313/<br/>
+                                <!-- -=8#89==\<strong>hello</strong>==-1=313/<br/> -->
                             </p>
                         </div>
                     </div>
@@ -155,22 +155,37 @@
             </section>
 
             <div class="svg-text-wrap">
+                <div class="filter"></div>
                 <svg width="100%" height="100%">
                     <!-- <rect width="100" height="100" style="fill:blue;stroke:black;stroke-width:5;" /> -->
-                    <path id="curve"  d="M 130 110 C 250 150, 350 150, 500 100" stroke="red" fill="transparent"/>/>
-                    <text width="500">
+                    <path id="curve"  d="M -500 100 C 200 0, 200 200, 400 100 S 600 220, 800 110" fill="transparent"/>/>
+                    <!-- <text width="500">
                         <textPath xlink:href="#curve">
                             END OF THE PAGE
                         </textPath>
+                    </text> -->
+                    <text font-size="36" fill="black">
+                        <textPath id="animatedText" href="#curve">
+                            The end of page
+                        </textPath>
                     </text>
                 </svg>
+                <button class="up">gou bek</button>
             </div>
 
 
             
         </main>
         <footer class="footer archivo-test">WEBBAUSTELLE</footer>
-        <script src="/router.js"></script>
         <script src="/index.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script>
+            gsap.to("#animatedText", {
+                attr: { startOffset: "100%" }, 
+                duration: 6, 
+                repeat: -1, 
+                ease: "linear"
+            });
+        </script>
    </body>
 </html>

@@ -173,63 +173,52 @@ const svgTextWrap = document.querySelector('.svg-text-wrap');
 //
 let index = 0;
 const windowHeight = window.innerHeight;
-console.log(windowHeight);
 
-let parallaxWrapStyle = window.getComputedStyle(parallaxWrap);
-let position = parallaxWrapStyle.bottom;
+// let parallaxWrapStyle = window.getComputedStyle(parallaxWrap);
+// let position = parallaxWrapStyle.bottom;
 
-position = position.replace(/[^\d.-]/g, '');
-position = Math.floor(position);
+// position = position.replace(/[^\d.-]/g, '');
+// position = Math.floor(position);
 
 let scrollValue;
 let scrollDistance;
+let lastScrollTop = 0;
 
-// function handleText(scrollDistance){
-  
-//   let prevScrollY = window.scrollY;
-//   let currentScrollY = window.scrollY;
-//   console.log(prevScrollY, currentScrollY)
-//   const randomArr = randomNumbers();
-//   const matchedArray = randomArr.map(i => allSymbols[i]);
-//   //index += 1; 
+function initArr() {
+  let randomArr = randomNumbers();
+  matchedArray = randomArr.map(i => allSymbols[i]);
+}
 
-//   if(currentScrollY > prevScrollY){
-//     textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
-//     textToScroll.style.opacity = 1;
-//     index += 1;
-//     console.log('index up', index)
-//   } else {
-//     console.log('goin up')
-//     index -= 1;
-//     console.log('index down', index)
-//     textToScroll.textContent = matchedArray.slice(0, index).join(" ");
-//   }
-// }
-
-var lastScrollTop = 0;
+initArr();
 
 window.addEventListener("scroll", function(){ 
 
    var st = window.scrollY || document.documentElement.scrollTop; 
-   let randomArr = randomNumbers();
-   let matchedArray = randomArr.map(i => allSymbols[i]);
 
-   if (st > lastScrollTop) {
-      console.log('down')
-      textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
-      textToScroll.style.opacity = 1;
-      index += 1;
-      //console.log('elementi scroll down', index, matchedArray)
-   } else if (st < lastScrollTop) {
-      //index =index -= 1;
-      textToScroll.innerText = textToScroll.innerText.slice(0, -5);
-      //textToScroll.textContent -= textToScroll.innerHTML.slice(0, -5);
-      console.log('up', matchedArray.length)
-      //
+   if (st > lastScrollTop) {  
 
-   } 
-   lastScrollTop = st <= 0 ? 0 : st; 
-   console.log(lastScrollTop, 'scroll')
+    if (index + 5 <= matchedArray.length) {  
+        textToScroll.textContent += matchedArray.slice(index, index + 5).join('');
+        textToScroll.style.opacity = 1;
+        index += 5;  
+
+    } else {
+      initArr();
+      index = 0;  
+    }
+
+  } else if (st < lastScrollTop) {  
+
+    if (index >= 5) {  
+        textToScroll.textContent = textToScroll.textContent.slice(0, -5); // Remove last 5 chars
+        index -= 5; 
+      } 
+    // else if(index = 0) {
+    //   textToScroll.textContent = '';
+    // }
+  } 
+
+  lastScrollTop = st <= 0 ? 0 : st; 
 });
 
 
