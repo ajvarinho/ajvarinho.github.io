@@ -821,7 +821,13 @@ nav {
   }
 
   .fg {
-    transform: translateZ(1px) scale(1.2) rotateY(2deg);
+    transform: translateZ(2px) scale(1) rotateY(-1deg);
+  }
+
+  .content-card {
+    width: 50%;
+    margin-left: 15%;
+    padding: .5em;
   }
 
   /* A D */
