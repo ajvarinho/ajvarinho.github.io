@@ -226,7 +226,7 @@ window.addEventListener("scroll", function(){
 
 function handleTransitions(scrollDistance){
   index += 1; 
-  textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
+  //textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
   
   if (scrollDistance >= windowHeight){
     //adWrap.classList.add('show');
@@ -283,7 +283,7 @@ const about = `
                 resulted in interest for deeper creative exploration of web and computational aesthetics.
             </p>
             <p>
-                My designs are inspired by renaissance paintings, post-modern deconstruction, <br/>
+                My designs get inspired by renaissance painting and punk, <br/>
                 early graffitti, album art and fonts, as well as the aesthetics of<br/>
                 pre-2001 Internet era. <br/>
                 I like to call it digital situationism.
@@ -304,12 +304,14 @@ const work = `
         `;
 
 const contact = `
-    <div class="contact-card">
+      <div class="content-card">
         <p>polamekkartnija@gmail.com</p>
+      </div>
+      <div class="content-card">
         <a href="https://www.instagram.com/njikola_123?igsh=MTRlbjN0d2cxMHRhMg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
-    </div>
-`;
-
+      </div>
+        `;
+        
 //transitions
 
 function toggleMenu(){
@@ -318,22 +320,21 @@ function toggleMenu(){
   } else {
     navEl.classList.add('hide');
   }
-}
+};
 
 function mobileTitle(){
   if(titleWrap.classList.contains('mobile')){
     titleWrap.style.textAlign = 'left';
   }
-}
-
-
+};
 
 aboutBtn.addEventListener('click', ()=>{
     contentWrapper.innerHTML = about;
     navWrap.style.display = 'none';
-
     pageTitle.classList.add('show');
+    //showContent;
     pageTitle.innerHTML = 'About';
+    parallaxWrap.classList.add('show')
     bgImg.src = './public/img/gm-reno.png';
     mobileTitle();
     document.addEventListener('scroll', ()=>{
@@ -344,6 +345,7 @@ aboutBtn.addEventListener('click', ()=>{
 workBtn.addEventListener('click', ()=>{
     contentWrapper.innerHTML = work;
     navWrap.style.display = 'none';
+    pageTitle.classList.add('show');
     mobileTitle();
     pageTitle.innerHTML = 'Work';
 });
@@ -351,6 +353,7 @@ workBtn.addEventListener('click', ()=>{
 contactBtn.addEventListener('click', ()=>{
     contentWrapper.innerHTML = contact;
     navWrap.style.display = 'none';
+    pageTitle.classList.add('show');
     mobileTitle();
     pageTitle.innerHTML = 'Contact';
 });

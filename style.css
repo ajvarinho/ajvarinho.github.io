@@ -385,6 +385,10 @@ main {
   animation: show .5s;
 }
 
+.content-transition {
+  animation: content 1s;
+}
+
 .nav-menu {
   display: none;
 }
@@ -472,9 +476,11 @@ main {
 @keyframes content {
   0% {
     opacity: 0;
+    transform: translateX(-110%);
   }
   100% {
     opacity: 1;
+    transform: translateX(1%);
   }
 }
 
@@ -491,6 +497,7 @@ main {
   background-position: center;
   background-position: 0% 0%;
   perspective: 10px;
+  /* animation: content ease-in .5s; */
 }
 
 
@@ -522,7 +529,7 @@ main {
 .content-wrap {
   display: flex;
   flex-direction: column;
-  animation: content ease-in .3s;
+  animation: content ease-in .5s;
   margin: 0 3em;
   gap: 15em;
   height: 160vh;
@@ -532,7 +539,7 @@ main {
   font-size: 1.2rem;
   transition-duration: .7s;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 }
 
 .text-wrap {
@@ -583,6 +590,30 @@ main {
 }
 
 
+.content-card {
+  width: 30%;
+  margin-left: 10%;
+  text-align: left;
+}
+
+.content-card > p {
+  background: rgba(232,121,232, 0.6);
+  margin: 1px 0;
+  transform: skew(-20deg);
+  padding: 1em;
+  display: inline-block;
+  transition: .2s;
+}
+
+.content-card > p:nth-child(2n){
+  transform: skew(20deg);
+}
+
+.content-card > p:hover {
+  box-shadow: .1em .1em 0 white;
+}
+
+
 .ad-wrap {
   position: relative;
   padding-inline-start: var(--padding-inline-large);
@@ -621,28 +652,6 @@ main {
   transform: scale(1.3);
 }
 
-.content-card {
-  width: 30%;
-  margin-left: 10%;
-  text-align: left;
-}
-
-.content-card > p {
-  background: rgba(232,121,232, 0.6);
-  margin: 1px 0;
-  transform: skew(-20deg);
-  padding: 1em;
-  display: inline-block;
-  transition: .2s;
-}
-
-.content-card > p:nth-child(2n){
-  transform: skew(20deg);
-}
-
-.content-card > p:hover {
-  box-shadow: .1em .1em 0 white;
-}
 
 
 .footer {
