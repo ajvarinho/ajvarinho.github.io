@@ -1,5 +1,6 @@
 console.log("djesba");
 
+const mainLink = document.getElementById('link-main');
 const header = document.getElementById('header');
 const headerBg = document.getElementById('header-bg');
 const aboutBtn = document.getElementById('about');
@@ -16,8 +17,8 @@ const adImg = document.getElementById('ad');
 
 if(window.innerWidth < 400){
   navEl.classList.add('mobile');
+  titleWrap.classList.add('mobile');
   mainHTML.insertBefore(titleWrap, navWrap);
-
 }
 
 
@@ -249,6 +250,11 @@ const navMenu = document.getElementById('nav-el');
 openNav.addEventListener('click', ()=>{
   console.log('alo re', navMenu)
   navMenu.classList.toggle('open');
+  if(navMenu.classList.contains('open')){
+    openNav.classList.add('rotate');
+  } else {
+    openNav.classList.remove('rotate');
+  }
 })
 
 const arrIntro = ['hello', ',', 'my', 'name', 'is', 'Nikola', 'and', 'I', 'am', 'web designer', 'creative coder', 'and', 'developer', 'based in Berlin'];
@@ -314,12 +320,22 @@ function toggleMenu(){
   }
 }
 
+function mobileTitle(){
+  if(titleWrap.classList.contains('mobile')){
+    titleWrap.style.textAlign = 'left';
+  }
+}
+
+
+
 aboutBtn.addEventListener('click', ()=>{
     contentWrapper.innerHTML = about;
-    toggleMenu();
+    navWrap.style.display = 'none';
+
     pageTitle.classList.add('show');
     pageTitle.innerHTML = 'About';
     bgImg.src = './public/img/gm-reno.png';
+    mobileTitle();
     document.addEventListener('scroll', ()=>{
       handleTransitions();
     })
@@ -327,13 +343,15 @@ aboutBtn.addEventListener('click', ()=>{
 
 workBtn.addEventListener('click', ()=>{
     contentWrapper.innerHTML = work;
-    toggleMenu();
+    navWrap.style.display = 'none';
+    mobileTitle();
     pageTitle.innerHTML = 'Work';
 });
 
 contactBtn.addEventListener('click', ()=>{
     contentWrapper.innerHTML = contact;
-    toggleMenu();
+    navWrap.style.display = 'none';
+    mobileTitle();
     pageTitle.innerHTML = 'Contact';
 });
 
