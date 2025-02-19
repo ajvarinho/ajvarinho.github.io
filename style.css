@@ -15,9 +15,7 @@
 
 html { 
   scroll-behavior: smooth; 
-  /* height: 100%; */
 }
-
 
 .archivo-test {
   font-family: "Archivo", sans-serif;
@@ -30,7 +28,6 @@ html {
 
 :root {
   color-scheme: light dark;
-  /**/
   
 --light-bg-1: ghostwhite;
 --light-bg-2: #eee; /*ili gainsboro*/
@@ -108,7 +105,6 @@ body {
   position: relative;
   font-size: 1.125rem;
   line-height: 1.6;
-  /* height: 100%; */
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -307,7 +303,8 @@ p.header-link {
   text-align: right;
 }
 
-/**/
+/* M A I N   L A Y O U T */
+
 main {
   position: relative;
   min-height: 100vh;
@@ -316,8 +313,6 @@ main {
   padding-top: 3.25em;
 }
 
-/* W E L C O M E */
-
 .welcome {
   position: relative;
   top: 0;
@@ -325,11 +320,7 @@ main {
   overflow-x: hidden;
   overflow-y: hidden;
   perspective: 25px;  
-  /* overflow-y: scroll; */
-  /**/
-  /* height: 200vh; */
   height: auto;
-  /**/
   transform-style: preserve-3d;
 }
 
@@ -339,39 +330,10 @@ main {
   z-index: -1;
   padding-top: 3.25em;
   margin: 0 5em;
-  /* za white mode */
   background: var(--clr-branding-1);
-  /**/
-  /* background-color: light-dark(grey, black); */
 }
 
-.fg {
-  position: absolute;
-  /* height: 50%; */
-  height: auto;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-  transition-duration: 1s;
-}
-
-.bg {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-  transition-duration: .5s;
-  transform: translateZ(-10px) scale(2);
-  /* border: 2em solid pink;
-  border-radius: 0 0 75% 0; */
-}
-
-.fg {
-  /* transform: translateZ(-20px) scale(1.2) rotateY(1deg); */
-  transform: translateZ(-5px) scale(1.2) rotateY(-1deg);
-  /* background: var(--mesh); */
-}
+/* T I T L E */
 
 .title-wrap {
   position: relative;
@@ -413,17 +375,14 @@ nav {
 }
 
 .nav-main {
-  border-right: 3em solid;
-  border-bottom: 1px solid;
+  display: inline-block;
+  width: 100%;
   background: white;
   text-align: right;
-  /**/
-  display: inline-block;
-  animation: show .5s;
-  /**/
-  width: 100%;
+  border-right: 3em solid;
+  border-bottom: 1px solid;
   transition: opacity .3s ease;
-
+  animation: show .5s;
 }
 
 .nav-main.hide {
@@ -432,30 +391,36 @@ nav {
 
 .nav-btn {
   position: relative;
-  font-family: inherit;
-  color: rgb(5, 5, 5);
-  text-decoration: none;
-  text-transform: uppercase;
   display: inline-block;
-  justify-content: center;
-  align-items: center;
-  padding: .5em 1em;
   font-size: 1.5em;
   font-weight: 900;
+  align-items: center;
+  font-family: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  justify-content: center;
+  color: rgb(5, 5, 5);
+  padding: .5em 1em;
   cursor: pointer;
 }
 
 .nav-btn::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: var(--radial-2);
+  top: 90%;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  background-color: rgb(14, 14, 14);
+  height: 1px;
   transition-duration: .7s;
-  opacity: 0;
-  z-index: -1;
 }
 
-/**/
+.nav-btn:hover::before {
+  right: 0%;
+}
+
+/* C O N T E N T  ______  A N I M A C I J E  */
 @keyframes show {
   0% {
     opacity: 0;
@@ -477,58 +442,62 @@ nav {
   }
 }
 
+/* P O Z A D I N A  -  Wrap i slike */
+
 .parallax-wrap {
   position: absolute;
   top: 15%;
   left: 15%;
   bottom: 80%;
   right: 10%;
-  /* height: 30vh; */
-  /* background-image: url(../public/img/gaseri2.png); */
   background: var(--mesh);
   background-repeat: no-repeat;
   background-position: center;
   background-position: 0% 0%;
-  /* box-shadow: -2em 7em .1em green; */
-  /**/
   perspective: 10px;
 }
 
+
+.fg {
+  position: absolute;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition-duration: 1s;
+}
+
+.bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition-duration: .5s;
+  transform: translateZ(-10px) scale(2);
+}
+
+.fg {
+  transform: translateZ(-5px) scale(1.2) rotateY(-1deg);
+}
+
+/* C O N T E N T */
+
 .content-wrap {
-  /* position: absolute;
-  inset: 0; */
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  animation: content .3s;
-  /**/
+  animation: content ease-in .3s;
   margin: 0 3em;
   gap: 15em;
   height: 160vh;
 }
-
-.cursor {
-  border-left: 1em solid light-dark(var(--light-primary), var(--dark-primary));
-    /**/
-    /* cursor: url(./public/img/burek_cursor.png), pointer; */
-}
-
-/* .content-wrap:hover {
-  background: repeating-radial-gradient(circle at 10%, #333, #333 10px, #eee 10px, #eee 20px);
-} */
 
 .text-card {
   font-size: 1.2rem;
   transition-duration: .7s;
   display: flex;
   justify-content: flex-end;
-  /**/
-  /* width: 50%; */
 }
-
-/* .text-wrap:hover {
-  text-decoration-line: line-through;
-} */
 
 .text-wrap {
   position: relative;
@@ -543,14 +512,10 @@ nav {
   color: chartreuse;
   text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30);
   font-weight: normal;
-  /* width: 50%;
-  padding: 2em 3em; */
 }
 
 .position-main {
-  /* position: absolute;
-  top: 0;
-  left: 0; */
+
 }
 
 .position-move {
@@ -560,14 +525,11 @@ nav {
   width: 70%;
   opacity: 0;
   transition: opacity 0.7s ease-in-out;
-  /* background-clip: text;
-  color: rgba(13, 164, 219, 0.5); */
 }
 
 .welcome-card {
   position: relative;
   height: 40%;
-  /* background: rgba(117, 6, 207, 0.7); */
   display: flex;
   justify-content: flex-start; 
   width: fit-content;
@@ -622,26 +584,6 @@ nav {
   transform: scale(1.3);
 }
 
-/* .moving-text {
-  animation: moveText 4s linear infinite;
-}
-
-@keyframes moveText {
-  from { startOffset: 0%; }
-  to { startOffset: 100%; }
-} */
-
-.filter {
-  position: relative;
-}
-
-/* .filter::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid;
-} */
-
 .content-card {
   width: 30%;
   margin-left: 10%;
@@ -690,32 +632,12 @@ nav {
 }
 
 .changeContent{
-
   animation-name: changeContent;
   animation-duration: .5s;
   animation-timing-function: linear;
 }
 
-@keyframes changeContent {
-  0% {
-    opacity: 1;
-  }
 
-  25% {
-    opacity: .5;
-    filter: blur(10px);
-  }
-  50% {
-    opacity: 0;
-  }
-  75% {
-    opacity: .5;
-    filter: blur(10px);
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 @media (max-width: 30rem) {
 
@@ -799,7 +721,6 @@ nav {
   }
 
   .svg-wrap {
-    /* margin: 0 2em; */
     padding-top: 3.85em;
   }
 
@@ -896,4 +817,25 @@ nav {
 .deco:hover {
   opacity: .2;
   background-size: 350px 650px, 10px 10px;
+} */
+
+/* @keyframes changeContent {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: .5;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: .5;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+  }
 } */
