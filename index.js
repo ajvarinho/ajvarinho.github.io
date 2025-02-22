@@ -62,34 +62,6 @@ const moonFieldHTML = `
     <div class="moon"></div>
     <div class="moon"></div>
   </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
 </div>
 `;
 
@@ -183,27 +155,31 @@ const workMainInterface = document.getElementById('work-main');
 const moonField = document.querySelector('.moon-field');
 const textField = document.querySelector('.text-field');
 
-// function moonFunction(){
-//     const moons = document.querySelectorAll('.moon')
-//     moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-//         element.classList.toggle('move')
-//        })
-//      })
-// }
+function moonFunction(){
+    const moons = document.querySelectorAll('.moon')
+    moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
+        element.classList.toggle('move')
+       })
+     })
+}
 
-// open.addEventListener('click', ()=>{
-//     content.innerHTML = moonFieldHTML;
-//     moonFunction();
-// });
 
 moonField.innerHTML = moonFieldHTML;
 textField.innerHTML = textFieldHTML;
+
+let active = Boolean;
 
 const closeWork = document.getElementById('close');
 console.log(closeWork);
 
 workMainInterface.addEventListener('click', ()=>{
   workMainInterface.classList.toggle('active-preview');
+  if(workMainInterface.classList.contains('active-preview')){
+    active = true;
+  }
+  if(active){
+    moonFunction();
+  }
   closeWork.classList.toggle('visible');
 });
 
