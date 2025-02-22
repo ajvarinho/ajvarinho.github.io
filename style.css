@@ -160,6 +160,10 @@ body {
   transform: translateZ(0px) translateY(-5rem) translateX(10em) rotateY(0deg) rotateZ(0deg);
 }
 
+.close {
+  display: none;
+}
+
 /**/
 
 .fg__element {
@@ -242,7 +246,19 @@ body {
     }
 
     .active-preview {
+      width: 100%;
       transform: translateZ(0px) translateY(-10rem) translateX(0em) rotateY(0deg) rotateZ(0deg);
+    }
+
+    .close {
+      position: absolute;
+      top: 0;
+      left: 90%;
+      color: white;
+      padding: .5rem;
+      background-color: black;
+      border: 1px solid lawngreen;
+      display: inline-block;
     }
 
     .parallax__text {

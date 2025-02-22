@@ -206,6 +206,13 @@ workMainInterface.addEventListener('click', ()=>{
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
 
+const closeWork = document.getElementById('close');
+console.log(closeWork);
+
+closeWork.addEventListener('click', ()=> {
+  workMainInterface.classList.remove('active-preview');
+})
+
 
 let scrollValue;
 let scrollDistance;
