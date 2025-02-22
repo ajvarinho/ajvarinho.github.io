@@ -241,7 +241,7 @@ body {
     .scroll-context {
       /* height: 50%; */
       perspective: 50px;
-      transform: translateZ(0rem) translateX(5rem) translateY(10rem) rotateY(-1deg) rotateZ(0deg);
+      transform: translateZ(0rem) translateX(4rem) translateY(10rem) rotateY(-1deg) rotateZ(0deg);
     }
 
     .context-wrap {
@@ -264,11 +264,15 @@ body {
       /* height: 100%;
       width: 50%; */
       z-index: 1;
-      transform: translateY(-60em) translateX(-9em) translateZ(-1em) rotateY(1deg);
+      transform: translateY(-55em) translateX(-4em) translateZ(-1em) rotateY(1deg);
+    }
+
+    .title {
+      font-size: 10rem;
     }
 
     .work {
-      transform: translateZ(-6px) translateY(-15rem) translateX(-1px) rotateY(-1deg) rotateZ(0deg);
+      transform: translateZ(-6px) translateY(-15rem) translateX(-1px) rotateY(-1.5deg) rotateZ(0deg);
     }
 
     .active-preview {
