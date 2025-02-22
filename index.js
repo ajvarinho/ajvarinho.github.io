@@ -1,6 +1,13 @@
 console.log('alo');
 
+const width = window.innerWidth;
+let mobile;
 
+console.log(width)
+
+if(width < 430){
+  mobile = true;
+}
 
 const moonFieldHTML = `
 <div class="moon-field">
@@ -56,6 +63,27 @@ const moonFieldHTML = `
     <div class="moon"></div>
   </div>
   <div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+  </div>
+    <div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+  </div>
+    <div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+    <div class="moon"></div>
+  </div>
+    <div>
     <div class="moon"></div>
     <div class="moon"></div>
     <div class="moon"></div>
@@ -155,12 +183,21 @@ const workMainInterface = document.getElementById('work-main');
 const moonField = document.querySelector('.moon-field');
 const textField = document.querySelector('.text-field');
 
+console.log(mobile)
+
 function moonFunction(){
     const moons = document.querySelectorAll('.moon')
-    moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
+    if(mobile){
+      moons.forEach((element)=>{ element.addEventListener('touchstart', ()=> {
         element.classList.toggle('move')
        })
      })
+    } else {
+      moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
+        element.classList.toggle('move')
+       })
+     })
+    }
 }
 
 
@@ -173,7 +210,11 @@ const closeWork = document.getElementById('close');
 console.log(closeWork);
 
 workMainInterface.addEventListener('click', ()=>{
-  workMainInterface.classList.toggle('active-preview');
+  if(mobile){
+    workMainInterface.classList.add('active-preview');
+  } else {
+    workMainInterface.classList.toggle('active-preview');
+  }
   if(workMainInterface.classList.contains('active-preview')){
     active = true;
   }

@@ -8,6 +8,11 @@ html {
   scroll-behavior: smooth; 
 }
 
+:root {
+  --pixel-gradient: repeating-linear-gradient(transparent, #4d9f0c .1rem),
+  repeating-linear-gradient(0.25turn, transparent, #3f87a6 .1rem);
+}
+
 @font-face {
   font-family: "IBM";
   src: url("./fonts/Web437_IBM_BIOS.woff") format('woff');
@@ -45,8 +50,8 @@ body {
   position: absolute;
   inset: 0;
 
-  filter: contrast(160%) brightness(250%);
-  background: radial-gradient(circle, rgba(163,165,180,.1) 0%, rgba(41,39,40, 1) 50%, rgba(41,39,40,1) 100%), url(#noiseFilter);
+  /* filter: contrast(160%) brightness(250%);
+  background: radial-gradient(circle, rgba(163,165,180,.1) 0%, rgba(41,39,40, 1) 50%, rgba(41,39,40,1) 100%), url(#noiseFilter); */
 }
 
 /* .background-circle {
@@ -71,10 +76,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 15px;
-  
-  /**/
-  /* scrollbar-color: red orange;
-  scrollbar-width: 1rem; */
+  background: whitesmoke;
 }
 
 .parallax-wrap {
@@ -175,8 +177,8 @@ body {
   height: 150%;
 }
 
-.work__card {
-
+.work__desc > p {
+  padding: 2rem 0;
 }
 
 .active-preview {
@@ -214,6 +216,7 @@ body {
 
 .section__text.about {
   font-size: 1.5rem;
+  padding: 0 2rem;
 }
 
 .contact {
