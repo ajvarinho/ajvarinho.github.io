@@ -251,14 +251,18 @@ body {
     }
 
     .close {
+      display: none;
       position: absolute;
-      top: 0;
-      left: 90%;
+      top: 5%;
+      left: 85%;
       color: white;
       padding: .5rem;
       background-color: black;
       border: 1px solid lawngreen;
-      display: inline-block;
+    }
+
+    .close.visible {
+      display: block;
     }
 
     .parallax__text {

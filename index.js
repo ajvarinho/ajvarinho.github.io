@@ -199,15 +199,18 @@ const textField = document.querySelector('.text-field');
 moonField.innerHTML = moonFieldHTML;
 textField.innerHTML = textFieldHTML;
 
+const closeWork = document.getElementById('close');
+console.log(closeWork);
+
 workMainInterface.addEventListener('click', ()=>{
   workMainInterface.classList.toggle('active-preview');
+  closeWork.classList.toggle('visible');
 });
 
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
 
-const closeWork = document.getElementById('close');
-console.log(closeWork);
+
 
 closeWork.addEventListener('click', ()=> {
   workMainInterface.classList.remove('active-preview');
