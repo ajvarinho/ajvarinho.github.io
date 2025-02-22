@@ -188,7 +188,7 @@ console.log(mobile)
 function moonFunction(){
     const moons = document.querySelectorAll('.moon')
     if(mobile){
-      moons.forEach((element)=>{ element.addEventListener('touchstart', ()=> {
+      moons.forEach((element)=>{ element.addEventListener('pointerdown', ()=> {
         element.classList.toggle('move')
        })
      })
@@ -207,31 +207,44 @@ textField.innerHTML = textFieldHTML;
 let active = Boolean;
 
 const closeWork = document.getElementById('close');
-console.log(closeWork);
+
+
+closeWork.addEventListener('click', ()=> {
+  workMainInterface.classList.remove('active-preview');
+});
+
+if(mobile){
+  workMainInterface.addEventListener('click', (e)=>{
+    e.preventDefault;
+    if(mobile){
+      workMainInterface.classList.add('active-preview');
+    } else {
+      workMainInterface.classList.toggle('active-preview');
+    }
+    if(workMainInterface.classList.contains('active-preview')){
+      active = true;
+      closeWork.classList.add('visible');
+    }
+    if(active){
+      moonFunction();
+    }
+  });
+}
 
 workMainInterface.addEventListener('click', ()=>{
-  if(mobile){
-    workMainInterface.classList.add('active-preview');
-  } else {
-    workMainInterface.classList.toggle('active-preview');
-  }
+  workMainInterface.classList.toggle('active-preview');
   if(workMainInterface.classList.contains('active-preview')){
     active = true;
   }
   if(active){
     moonFunction();
   }
-  closeWork.classList.toggle('visible');
-});
+})
+
+
 
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
-
-
-
-closeWork.addEventListener('click', ()=> {
-  workMainInterface.classList.remove('active-preview');
-})
 
 
 let scrollValue;
