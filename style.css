@@ -189,8 +189,17 @@ body {
   font-size: 1.5rem;
 }
 
+.contact {
+  position: relative;
+  z-index: 2;
+  font-size: 1.4rem;
+  transform: translateY(70rem);
+  text-align: right;
+  margin-right: 2rem;
+}
+
 .footer {
-  transform: translateY(80rem);
+  transform: translateY(90rem);
 }
 
 @media (max-width: 30rem) {
@@ -200,9 +209,9 @@ body {
     }
 
     .scroll-context {
-      height: 50%;
+      /* height: 50%; */
       perspective: 50px;
-      transform: translateZ(0rem) translateX(10rem) rotateY(-1deg) rotateZ(0deg);
+      transform: translateZ(0rem) translateX(5rem) translateY(10rem) rotateY(-1deg) rotateZ(0deg);
     }
 
     .context-wrap {
@@ -222,11 +231,18 @@ body {
     }
 
     .parallax__bg {
-      height: 100%;
-      width: 50%;
+      /* height: 100%;
+      width: 50%; */
       z-index: 1;
-      border: 1rem solid blue;
-      transform: translateY(-76em) translateX(-9em) translateZ(-1em) rotateY(1deg);
+      transform: translateY(-60em) translateX(-9em) translateZ(-1em) rotateY(1deg);
+    }
+
+    .work {
+      transform: translateZ(-6px) translateY(-15rem) translateX(-1px) rotateY(-1deg) rotateZ(0deg);
+    }
+
+    .active-preview {
+      transform: translateZ(0px) translateY(-10rem) translateX(0em) rotateY(0deg) rotateZ(0deg);
     }
 
     .parallax__text {
