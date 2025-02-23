@@ -11,8 +11,6 @@ html {
 :root {
   --pixel-gradient: repeating-linear-gradient(transparent, #4d9f0c .1rem),
   repeating-linear-gradient(0.25turn, transparent, #3f87a6 .1rem);
-  /* --mesh: repeating-linear-gradient(0.65turn, transparent, rgba(22, 22, 224, 0.5) .7rem),
-  repeating-linear-gradient(0.35turn, rgba(249, 7, 253, 0.5), transparent .7rem); */
   --mesh: repeating-linear-gradient(0.65turn, transparent, rgba(255, 255, 255, 0.808) .25rem),
   repeating-linear-gradient(0.35turn, rgb(114, 109, 114), transparent .25rem);
 }
@@ -55,39 +53,6 @@ body {
   inset: 0;
   background: var(--mesh);
   animation: noise linear infinite;
-
-  /* filter: contrast(160%) brightness(250%);
-  background: radial-gradient(circle, rgba(163,165,180,.1) 0%, rgba(41,39,40, 1) 50%, rgba(41,39,40,1) 100%), url(#noiseFilter); */
-}
-
-@keyframes noise {
-  0%{
-    background-position: 0% 10%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-/* .background-circle {
-  position: absolute;
-  inset: 0;
-  top: 50%;
-  left: 40%;
-  height: 20rem;
-  width: 20rem;
-  border-radius: 50%;
-
-  filter: contrast(160%) brightness(250%);
-  background: radial-gradient(circle, rgba(163,165,180,.1) 0%, rgba(41,39,40, 1) 50%, rgba(41,39,40,1) 100%), url(#noiseFilter);
-} */
-
-.bg-decor {
-  height: 40%;
-
-  position: relative;
-  z-index: 2;
-  transition-duration: .7s;
 }
 
 .flex-center {
@@ -110,7 +75,6 @@ body {
 
 .parallax-wrap {
   position: relative;
-  /* height: 100%; */
   height: 45%;
   transform-style: preserve-3d;
   z-index: 1;
@@ -155,15 +119,23 @@ body {
   animation-fill-mode: forwards; 
 }
 
-.bg-wrap__img:first-of-type {
+/* .bg-wrap__img:first-of-type {
   transform: rotateY(180deg);
-}
+  animation: move-up-2 4s ease-out;
+} */
 
 .stup {
   transform: translateY(-2px);
 }
 
+.stup:first-of-type{
+  transform: translateX(15px);
+}
+
 .galeb{
+  z-index: 3;
+  transform: translateX(5px);
+  margin-right: 1.5rem;
   animation: rotate 3s linear infinite;
 }
 
@@ -173,10 +145,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 16px;
-  /* transform: rotateY(1deg); */
-  /* height: fit-content; */
   height: 94%;
-
 }
 
 .text-wrap {
@@ -262,7 +231,7 @@ body {
     width: 75%;
     z-index: 1;
     text-align: right;
-    transform: translateZ(-6px) translateY(5rem) translateX(-1px) rotateY(-1deg) rotateZ(0deg);
+    transform: translateZ(-6px) translateY(5rem) translateX(-5rem) rotateY(-1deg) rotateZ(0deg);
     overflow: scroll;
     transition-duration: .7s;
 }
@@ -358,11 +327,16 @@ body {
   }
 
   .animate {
+    animation: move-up-2 4s ease-out; 
+    animation-fill-mode: forwards; 
+  }
+
+  .animate-two {
     animation: move-up 4s ease-out; 
     animation-fill-mode: forwards; 
   }
 
-  .animate::before {
+  .fire::before {
     content: '';
     position: absolute;
     top: 105%;
@@ -379,34 +353,53 @@ body {
     animation-fill-mode: forwards; 
   }
 
-  .bg-wrap__img:first-of-type {
+  .bg-wrap__img.first {
     transform: rotateY(180deg);
   }
 
   .stup {
-    transform: translateY(-2px);
+    transform: translateY(-2px) translateX(-10px);
   }
 
   .galeb{
     animation: rotate 3s linear infinite;
   }
 
-    .wrapper {
-      perspective: 10px;
+  .wrapper {
+    perspective: 10px;
+  }
+
+  .scroll-context {
+    perspective: 20px;
+    /* height: 45%; */
+    transform: translateX(0rem) rotateX(0deg) translateY(-30rem) translateZ(0rem);
+    animation-fill-mode: forwards;
+    overflow: hidden;
+     border: .5rem solid;
+  }
+
+  .start {
+    animation: show 3s linear;
+  }
+
+  @keyframes show {
+    0% {
+      border: 95px dashed blue;
     }
 
-    .scroll-context {
-      perspective: 20px;
-      height: fit-content;
-      transform: translateY(-20rem) rotate(0);
+    100% {
+      border: 0px dashed blue;
     }
+  }
+
+
 
     .text-wrap {
-      transform: translateX(40rem) translateY(0rem) translateZ(-70px) scale(5) rotateY(-60deg);
+      transform: translateX(2rem) rotateY(8deg);
     }
 
     .text-wrap.dva{
-      transform: translateX(-10rem) translateY(-8rem) translateZ(-240px) scale(5) rotateY(60deg);
+      transform: translateX(-1rem)rotateY(-8deg);
     }
 
     .context-wrap {
@@ -414,11 +407,6 @@ body {
       transform: translateZ(0rem) translateX(0rem) rotateY(0deg) rotateZ(0deg);
     }
 
-    .baby {
-      z-index: 1;
-      transform: translateZ(0px) translateX(-1px) rotateY(48deg) rotateZ(0deg) scale(1);
-      overflow: scroll;
-    }
 
     .context-wrap > p {
       color: white;
@@ -435,7 +423,7 @@ body {
     }
 
     .work {
-      transform: translateZ(-6px) translateY(-20rem) translateX(-1px) rotateY(-1.5deg) rotateZ(0deg);
+      transform: translateZ(-4px) translateY(-20rem) translateX(1.5rem) rotateY(-1deg) rotateZ(0deg);
 
     }
 
@@ -462,6 +450,15 @@ body {
     .close.visible {
       opacity: 1;
       display: block;
+    }
+
+    .parallax__fg {
+      position: relative;
+      height: 50%;
+      width: 156%;
+      z-index: 1;
+      transform: translateZ(-8px) translateY(30rem) translateX(-20rem) rotateY(-2deg) rotateZ(4deg) rotateX(0deg) skew(0deg);
+      overflow: scroll;
     }
 
     .parallax__text {
@@ -515,6 +512,15 @@ body {
     }
   }
 
+  @keyframes move-up-2 {
+    0%{
+      transform: rotateY(180deg) translateY(0rem);
+    }
+    100% {
+      transform: rotateY(180deg) translateY(-25rem);
+    }
+  }
+
 /* M O O N    F I E L D */
 
 /* .moon-field {
@@ -544,8 +550,8 @@ em:hover {
       height: 100px;
       border-radius: 50%;
       box-shadow: 15px 5px 15px 0 #c2e5f4 inset;
-  transform: perspective(4em), translateX(20deg);
-  transition-duration: .5s;
+      transform: perspective(4em), translateX(20deg);
+      transition-duration: .5s;
     }
 
 /*, -10px 0px 5px 0 #c2e5f4 inset*/
@@ -577,6 +583,17 @@ em:hover {
   /**/
   animation:
   about var(--speed) infinite linear;
+  animation-play-state: paused;
+}
+
+.room.mobile {
+  height: 100%;
+  perspective: 50em;
+  perspective-origin: -30% calc(25% - 2em);
+  overflow: hidden;
+  transition-timing-function: ease-in-out;
+  transition-duration: .8s;
+  animation: about var(--speed) infinite linear;
   animation-play-state: paused;
 }
 
@@ -641,32 +658,6 @@ to {
 }
 }
 
-/**/
-:target.turnLeft ~ .scene, #turnLeft:focus ~ .scene {
-  animation-play-state: running, paused, paused, paused;
-}
-
-:target.about ~ .room, #about:focus ~ .room {
-  animation-play-state: running;
-}
-
-:target.turnRight ~ .scene, #turnRight:focus ~ .scene {
-  animation-play-state: paused, running, paused, paused;
-}
-
-:target.moveBack ~ .scene, #moveBack:focus ~ .scene {
-  animation-play-state: paused, paused, paused, running;
-}
-
-  :target.moveForward ~ .scene, #moveForward:focus ~ .scene {
-  animation-play-state: paused, paused, running, paused;
-}
-
-#moveForward, #turnLeft, #stop, #turnRight, #moveBack {
-  position: absolute;
-  left: -5000px;
-  top:-5000px;
-}
 
 /**/
 

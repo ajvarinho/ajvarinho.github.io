@@ -184,6 +184,11 @@ const closeBtn = document.getElementById('close');
 
 moonField.innerHTML = moonFieldHTML;
 textField.innerHTML = textFieldHTML;
+const roomEl = document.querySelector('.room');
+
+if(mobile){
+  roomEl.classList.add('mobile');
+}
 
 function moonFn(){
     const moons = document.querySelectorAll('.moon')
@@ -271,8 +276,11 @@ wrapper.addEventListener("scroll", e => {
 
   console.log('scroll')
   galebWraps.forEach((element)=> {
-    element.classList.add('animate');
+    element.classList.add('fire');
   })
+
+  galebWraps[0].classList.add('animate');
+  galebWraps[1].classList.add('animate-two');
 
   let scrollDistance = e.target.scrollTop;
   let st = window.scrollY || document.documentElement.scrollTop; 
