@@ -134,7 +134,7 @@ body {
   transform: translateX(30em) translateY(-5em) rotateX(0deg) rotateY(-1deg) rotateZ(-3deg) skew(-45deg);
 }
 
-.parallax__bg {
+.title__wrap {
   height: 100%;
   width: 50%;
   z-index: 1;
@@ -242,8 +242,6 @@ body {
 
 @media (max-width: 30rem) {
 
-
-
   .bg-wrap {
     position: relative;
     z-index: 2;
@@ -258,17 +256,23 @@ body {
     flex-direction: column;
   }
 
-  .bg-wrap__img::before {
+  .animate {
+    animation: move 2s linear;
+  }
+
+  .animate::before {
     content: '';
     position: absolute;
-    top: 100%;
-    left: 25%;
+    top: 105%;
+    left: 15%;
     height: 3rem;
     width: 3rem;
     background-image: url(./img/fire.png);
     background-position: center;
     background-size: cover;
     transform: rotateX(180deg) scale(2);
+    filter: url(#noise);
+    box-shadow: 1rem -1rem 1rem .2rem rgba(0, 0, 0, .2);
   }
 
   .bg-wrap__img:first-of-type {
@@ -295,20 +299,22 @@ body {
     }
   }
 
-
-
-
-
-
-
     .wrapper {
       perspective: 10px;
     }
 
     .scroll-context {
-      /* height: 50%; */
-      perspective: 50px;
-      transform: translateZ(-1rem) translateX(15rem) translateY(28rem) rotateY(-1deg) rotateZ(0deg) scale(3);
+      perspective: 20px;
+      height: fit-content;
+      transform: translate(0) rotate(0);
+    }
+
+    .text-wrap {
+      transform: translateX(40rem) translateY(0rem) translateZ(-70px) scale(5) rotateY(-60deg);
+    }
+
+    .text-wrap.dva{
+      transform: translateX(-10rem) translateY(-8rem) translateZ(-240px) scale(5) rotateY(60deg);
     }
 
     .context-wrap {
@@ -327,11 +333,9 @@ body {
       transform: scale(1) rotateY(4deg) rotateX(3deg) skewY(84deg);
     }
 
-    .parallax__bg {
-      /* height: 100%;
-      width: 50%; */
+    .title__wrap {
       z-index: 1;
-      transform: translateY(-25em) translateX(0em) translateZ(-1em) rotateY(1deg) rotateX(.5deg);
+      transform: translateZ(-15px) translateX(-1rem) translateY(-20rem) rotateX(1deg) rotateY(0deg) skew(0deg);
     }
 
     .title {

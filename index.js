@@ -246,6 +246,7 @@ workMainInterface.addEventListener('click', ()=>{
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
 
+const galebWraps = document.querySelectorAll('.bg-wrap__img')
 
 let scrollValue;
 let scrollDistance;
@@ -260,28 +261,22 @@ console.log(wrapperHeight, windowHeight)
 
 wrapper.addEventListener("scroll", e => { 
 
+  console.log('scroll')
+  galebWraps.forEach((element)=> {
+    element.classList.add('animate');
+  })
+
   let scrollDistance = e.target.scrollTop;
-
-  if(scrollDistance > 500) {
-    pageTitle.classList.add('small');
-    //galeboviWrap.style.opacity = 0;
-  } else {
-   // galeboviWrap.style.opacity = 1;
-    //pageTitle.classList.remove('small');
-  }
-
-  console.log(wrapperHeight, e.target.scrollTop)
-
-   var st = window.scrollY || document.documentElement.scrollTop; 
+  let st = window.scrollY || document.documentElement.scrollTop; 
 
    if (st > lastScrollTop) {  
 
-    index+=1;
+    index += 1;
     console.log(index, 'down');
 
   } else if (st < lastScrollTop) {  
 
-    index -=1;
+    index -= 1;
     console.log(index, 'up');
 
   } 

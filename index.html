@@ -15,9 +15,15 @@
    </head>
    <body>
 
-        <!-- <div class="test">
-            nikola
-        </div> -->
+        <div class="svg-filteri" style="height: 0;">
+
+            <svg viewBox="0 0 0 0">
+                <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+                    <feTurbulence baseFrequency="0.01 0.4" result="NOISE" numOctaves="2" />
+                    <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+                </filter>
+            </svg>
+        </div>
 
         <div class="mega-wrap">
 
@@ -40,23 +46,33 @@
             <div id="wrapper" class="wrapper">
                 <div class="parallax-wrap">
 
+                    <div  class="title__wrap">
+                        <img src="" alt="" class="image bg">
+                        <h2 id="title" class="title">nikola <br/>njavro</h2>
+                    </div>
+
                     <div class="scroll-context">
-                        <div class="context-wrap">
-                            <div class="baby">
-
-                            </div>
-                            <div class="text-wrap">
-                                <p class="">
-                                    web design and development<br/>
-                                    web design and development<br/>
-                                    web design and development<br/>
-                                    web design and development<br/>
-                                    web design and development<br/>
-                                </p>
-
-                            </div>
+                        <div class="text-wrap">
+                            <p class="">
+                                web design and development<br/>
+                                web design and development<br/>
+                                web design and development<br/>
+                                web design and development<br/>
+                                web design and development<br/>
+                            </p>
+                        </div>
+                        <div class="text-wrap dva">
+                            <p class="">
+                                web design and development<br/>
+                                web design and development<br/>
+                                web design and development<br/>
+                                web design and development<br/>
+                                web design and development<br/>
+                            </p>
                         </div>
                     </div>
+
+
                     
                     <!-- <div class="parallax__text">
                         <h2 class="text title">
@@ -64,10 +80,7 @@
                         </h2>
                     </div> -->
 
-                    <div  class="parallax__bg">
-                        <img src="" alt="" class="image bg">
-                        <h2 id="title" class="title">nikola <br/>njavro</h2>
-                    </div>
+
 
                     <div id="work-main" class="work">
                         <h3 class="work__title">work</h3>
