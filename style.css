@@ -11,6 +11,10 @@ html {
 :root {
   --pixel-gradient: repeating-linear-gradient(transparent, #4d9f0c .1rem),
   repeating-linear-gradient(0.25turn, transparent, #3f87a6 .1rem);
+  /* --mesh: repeating-linear-gradient(0.65turn, transparent, rgba(22, 22, 224, 0.5) .7rem),
+  repeating-linear-gradient(0.35turn, rgba(249, 7, 253, 0.5), transparent .7rem); */
+  --mesh: repeating-linear-gradient(0.65turn, transparent, rgba(255, 255, 255, 0.808) .25rem),
+  repeating-linear-gradient(0.35turn, rgb(114, 109, 114), transparent .25rem);
 }
 
 @font-face {
@@ -49,9 +53,20 @@ body {
 .background {
   position: absolute;
   inset: 0;
+  background: var(--mesh);
+  animation: noise linear infinite;
 
   /* filter: contrast(160%) brightness(250%);
   background: radial-gradient(circle, rgba(163,165,180,.1) 0%, rgba(41,39,40, 1) 50%, rgba(41,39,40,1) 100%), url(#noiseFilter); */
+}
+
+@keyframes noise {
+  0%{
+    background-position: 0% 10%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 /* .background-circle {
@@ -75,6 +90,12 @@ body {
   transition-duration: .7s;
 }
 
+.flex-center {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* P A R A L L A X    C O N T E X T    M A I N  */
@@ -84,7 +105,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 15px;
-  background: whitesmoke;
+
 }
 
 .parallax-wrap {
@@ -101,7 +122,8 @@ body {
   position: relative;
   z-index: 2;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  transform: translateY(5rem) scale(1.2);
 }
 
 .bg-wrap__img {
@@ -150,10 +172,20 @@ body {
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  perspective: 5px;
-  transform: translateZ(1.5rem) translateX(60rem) rotateY(-2.5deg) rotateZ(0deg) translateY(12rem);
+  perspective: 16px;
+  /* transform: rotateY(1deg); */
   /* height: fit-content; */
-  height: 50%;
+  height: 94%;
+
+}
+
+.text-wrap {
+  transform: rotateY(2deg);
+  padding: 3rem;
+}
+
+.text-wrap.dva {
+  transform: rotateY(-2deg);
 }
 
 .context-wrap {
@@ -186,8 +218,7 @@ body {
 }
 
 .title__wrap {
-  transform: translateY(-20rem);
-  border: 1px solid;
+  transform: translateY(-15rem) rotateX(2deg) translateZ(-5px) rotateZ(0deg) scale(5);
   text-align: center;
   display: flex;
   align-items: center;
@@ -205,11 +236,22 @@ body {
 
 .parallax__fg {
   position: relative;
-  height: 35%;
-  width: 70%;
+  height: 50%;
+  width: 100%;
   z-index: 1;
   transform: translateZ(-8px) translateY(20rem) translateX(0px) rotateY(-2deg) rotateZ(0deg) rotateZ(0deg);
   overflow: scroll;
+
+}
+
+#animatedText {
+  font-size: 1.2em;
+  font-weight: 900;
+  fill: rgb(224, 31, 134);
+  font-family: "IBM";
+  filter: blur(0px);
+  text-shadow: .1em .1em .1em rgb(11, 11, 11);
+  /* text-emphasis: filled double-circle #ffb703; */
 }
 
 /* W O R K */
@@ -269,7 +311,7 @@ body {
 
 .content {
   position:relative;
-  transform: translateY(60rem);
+  transform: translateY(80rem);
   z-index: 2;
   padding: 2rem 0;
 }
@@ -283,13 +325,20 @@ body {
   position: relative;
   z-index: 2;
   font-size: 1.4rem;
-  transform: translateY(70rem);
+  transform: translateY(100rem);
   text-align: right;
   margin-right: 2rem;
 }
 
 .footer {
-  transform: translateY(90rem);
+
+  padding-inline-start: 3rem;
+  transform: translateY(110rem);
+}
+
+.footer > a {
+  text-decoration: none;
+  font-size: 2rem;
 }
 
 @media (max-width: 30rem) {

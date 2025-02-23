@@ -307,12 +307,20 @@ function handleTransitions(scrollDistance){
 }
 
 
-const about = `hello, my name is Nikola and I'm a web designer, creative programmer and developer based in Berlin. <br/>
-               I build websites, design for web and social media, create motion graphics and experiment with code <br/>
-               my approach to design is unconventional, drawing inspiration from ... and my background in art history 
-               and philosophy.
-               I work mostly with CSS, JavaScript (p5.js, three.js) and SVG. Experiments with this stack, along with 
-               experience as a developer resulted in interest for deeper creative exploration of web and computational aesthetics.     
+const about = `
+                hello, my name is Nikola and I'm
+                web designer, creative coder and developer
+                based in Berlin.
+
+                I love creating functional solutions with unconventional design
+                experimenting with motion graphics and
+            
+            interactions.
+                My experience in web development, together with master's degree in philosophy and art history 
+                resulted in interest for deeper creative exploration of web and computational aesthetics.
+                My designs get inspired by renaissance painting and punk,
+                early graffitti, album art and fonts, as well as the aesthetics of
+                pre-smartphone Internet era. 
 `;
 
 
