@@ -176,72 +176,80 @@ const textFieldHTML = `
     </div>
 `;
 
-const open = document.getElementById('card-open');
-const content = document.getElementById('card-content');
 
-const workMainInterface = document.getElementById('work-main');
+const workWrap = document.getElementById('work-main');
 const moonField = document.querySelector('.moon-field');
 const textField = document.querySelector('.text-field');
-
-console.log(mobile)
-
-function moonFunction(){
-    const moons = document.querySelectorAll('.moon')
-    if(mobile){
-      moons.forEach((element)=>{ element.addEventListener('pointerdown', ()=> {
-        element.classList.toggle('move')
-       })
-     })
-    } else {
-      moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-        element.classList.toggle('move')
-       })
-     })
-    }
-}
-
+const closeBtn = document.getElementById('close');
 
 moonField.innerHTML = moonFieldHTML;
 textField.innerHTML = textFieldHTML;
 
-let active = Boolean;
-
-const closeWork = document.getElementById('close');
-
-
-closeWork.addEventListener('click', ()=> {
-  workMainInterface.classList.remove('active-preview');
-});
-
-if(mobile){
-  workMainInterface.addEventListener('click', (e)=>{
-    e.preventDefault;
-    if(mobile){
-      workMainInterface.classList.add('active-preview');
-    } else {
-      workMainInterface.classList.toggle('active-preview');
-    }
-    if(workMainInterface.classList.contains('active-preview')){
-      active = true;
-      closeWork.classList.add('visible');
-    }
-    if(active){
-      moonFunction();
-    }
-  });
+function moonFn(){
+    const moons = document.querySelectorAll('.moon')
+      moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
+        console.log('movinnnn')
+        element.classList.toggle('move')
+       })
+     })
 }
 
-workMainInterface.addEventListener('click', ()=>{
-  workMainInterface.classList.toggle('active-preview');
-  if(workMainInterface.classList.contains('active-preview')){
-    active = true;
-  }
-  if(active){
-    moonFunction();
+function moonFnMobile(){
+  const moons = document.querySelectorAll('.moon');
+  moons.forEach((element)=>{ element.addEventListener('click', ()=> {
+    element.classList.toggle('move')
+   })
+ })
+}
+
+workWrap.addEventListener('click', ()=>{
+  const moons = document.querySelectorAll('.moon')
+  if(mobile){
+    workWrap.classList.add('mobile')
+    closeBtn.classList.add('visible')
+    workWrap.classList.add('active-preview');
+    moons.forEach((element)=>{ element.addEventListener('click', ()=> {
+      element.classList.toggle('move')
+     })
+   })
+  } else {
+    workWrap.classList.toggle('active-preview');
+    moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
+      element.classList.toggle('move')
+     })
+   })
   }
 })
 
+closeBtn.addEventListener('click', (e)=>{
+  // console.log('close', e.target);
+  // let parent = e.target.parentElement;
+  // console.log(parent)
+  if(workWrap.classList.contains('active-preview')){
+    workWrap.classList.remove('active-preview')
+  }
+  closeBtn.classList.remove('visible');
+})
 
+// if(workWrap.classList.contains('active-preview')){
+//   const moons = document.querySelectorAll('.moon');
+//   if(workWrap.classList.contains('mobile')){
+//     moons.forEach((element)=>{ element.addEventListener('click', ()=> {
+//       element.classList.toggle('move')
+//      })
+//    })
+//   } else {
+//     moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
+//       console.log('movinnnn')
+//       element.classList.toggle('move')
+//      })
+//    })
+//   }
+// }
+
+
+
+// S C R O L L
 
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
