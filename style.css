@@ -252,9 +252,27 @@ body {
   }
 
   .bg-wrap__img {
+    position: relative;
     width: 7rem;
     display: flex;
     flex-direction: column;
+  }
+
+  .bg-wrap__img::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    height: 3rem;
+    width: 3rem;
+    background-image: url(./img/fire.png);
+    background-position: center;
+    background-size: cover;
+    transform: rotateX(180deg) scale(2);
+  }
+
+  .bg-wrap__img:first-of-type {
+    transform: rotateY(180deg);
   }
 
   .stup {
@@ -262,13 +280,9 @@ body {
   }
 
   .galeb{
-    transform: rotateY(180deg);
     animation: rotate 3s linear infinite;
   }
 
-  .galeb.two {
-    animation: rotate 3s linear infinite;
-  }
 
   @keyframes rotate {
 
