@@ -412,8 +412,8 @@ body {
     padding: .5rem 1.3rem;
     background-color: black;
     border: 1px solid lawngreen;
-    z-index: 5;
-    transform: translateY(71rem);
+    z-index: 10;
+    transform: translateY(70rem);
     opacity: 0;
     transition-duration: .7s;
   }
