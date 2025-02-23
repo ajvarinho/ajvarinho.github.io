@@ -67,6 +67,13 @@ body {
   background: radial-gradient(circle, rgba(163,165,180,.1) 0%, rgba(41,39,40, 1) 50%, rgba(41,39,40,1) 100%), url(#noiseFilter);
 } */
 
+.bg-wrap {
+  height: 40%;
+  border-bottom: .2rem solid hotpink;
+  position: relative;
+  z-index: 2;
+}
+
 
 
 /* P A R A L L A X    C O N T E X T    M A I N  */
@@ -234,6 +241,44 @@ body {
 
 @media (max-width: 30rem) {
 
+  .bg-decor {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 40%;
+    border-bottom: .2rem solid dotted lawngreen;
+  }
+
+  .bg-decor__img {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    background-image: url('./img/stup.png');
+    background-image: url('./img/stup.png');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: 0% 120%;
+  }
+
+  .bg-decor__img.two {
+    background-position: 105% 120%;
+  }
+
+  .galeb {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: 0% -5%;
+    background-image: url(./img/lebga.png);
+  }
+
+  .two > .galeb {
+    background-position: 5% -5%;
+    transform: rotateY(180deg);
+  }
+
     .wrapper {
       perspective: 10px;
     }
@@ -264,7 +309,7 @@ body {
       /* height: 100%;
       width: 50%; */
       z-index: 1;
-      transform: translateY(-55em) translateX(-4em) translateZ(-1em) rotateY(1deg);
+      transform: translateY(-55em) translateX(0em) translateZ(-1em) rotateY(1deg) rotateX(.5deg);
     }
 
     .title {
