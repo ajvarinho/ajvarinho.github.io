@@ -257,7 +257,8 @@ body {
   }
 
   .animate {
-    animation: move 2s linear;
+    animation: move-up 4s ease-out; 
+    animation-fill-mode: forwards; 
   }
 
   .animate::before {
@@ -273,6 +274,8 @@ body {
     transform: rotateX(180deg) scale(2);
     filter: url(#noise);
     box-shadow: 1rem -1rem 1rem .2rem rgba(0, 0, 0, .2);
+    animation: start 3s ease-in;
+    animation-fill-mode: forwards; 
   }
 
   .bg-wrap__img:first-of-type {
@@ -299,6 +302,29 @@ body {
     }
   }
 
+  @keyframes start {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes move-up {
+    0% {
+      transform: translateY(0rem);
+    }
+    100% {
+      transform: translateY(-25rem);
+    }
+  }
+
     .wrapper {
       perspective: 10px;
     }
@@ -306,7 +332,7 @@ body {
     .scroll-context {
       perspective: 20px;
       height: fit-content;
-      transform: translate(0) rotate(0);
+      transform: translateY(-20rem) rotate(0);
     }
 
     .text-wrap {
@@ -335,7 +361,7 @@ body {
 
     .title__wrap {
       z-index: 1;
-      transform: translateZ(-15px) translateX(-1rem) translateY(-20rem) rotateX(1deg) rotateY(0deg) skew(0deg);
+      transform: translateZ(-15px) translateX(-1rem) translateY(-50rem) rotateX(1deg) rotateY(0deg) skew(0deg);
     }
 
     .title {
@@ -343,7 +369,7 @@ body {
     }
 
     .work {
-      transform: translateZ(-6px) translateY(10rem) translateX(-1px) rotateY(-1.5deg) rotateZ(0deg);
+      transform: translateZ(-6px) translateY(-20rem) translateX(-1px) rotateY(-1.5deg) rotateZ(0deg);
 
     }
 
@@ -372,6 +398,14 @@ body {
       position: relative;
       width: 25%;
       transform: translateX(5em) translateY(0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(-50deg);
+    }
+
+    .content {
+      transform: translateY(85rem);
+    }
+
+    .contact {
+      transform: translateY(85rem);
     }
 
 
