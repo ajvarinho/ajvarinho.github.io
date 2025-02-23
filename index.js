@@ -254,7 +254,7 @@ let index = 0;
 const windowHeight = window.innerHeight;
 
 const pageTitle = document.getElementById('title');
-const galeboviWrap = document.querySelector('.bg-decor');
+
 
 console.log(wrapperHeight, windowHeight)
 
@@ -264,9 +264,9 @@ wrapper.addEventListener("scroll", e => {
 
   if(scrollDistance > 500) {
     pageTitle.classList.add('small');
-    galeboviWrap.style.opacity = 0;
+    //galeboviWrap.style.opacity = 0;
   } else {
-    galeboviWrap.style.opacity = 1;
+   // galeboviWrap.style.opacity = 1;
     //pageTitle.classList.remove('small');
   }
 
