@@ -258,11 +258,11 @@ body {
     background-image: url('./img/stup.png');
     background-repeat: no-repeat;
     background-size: 60%;
-    background-position: 0% 120%;
+    background-position: 0% 61%;
   }
 
   .bg-decor__img.two {
-    background-position: 105% 120%;
+    background-position: 105% 61%;
   }
 
   .galeb {
