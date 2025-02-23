@@ -350,6 +350,10 @@ body {
     perspective: 10px;
   }
 
+  .text-wrap {
+    font-size: 1.3rem;
+  }
+
   .start {
     animation: show 3s linear;
   }
@@ -387,7 +391,7 @@ body {
 
   .work {
     width: 90%;
-    transform: translateZ(-4px) translateY(-20rem) translateX(-1.5rem) rotateY(-1deg) rotateZ(0deg);
+    transform: translateZ(-4px) translateY(0rem) translateX(-1.5rem) rotateY(-1deg) rotateZ(0deg);
   }
 
   .work__wrap {
