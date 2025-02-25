@@ -227,31 +227,11 @@ workWrap.addEventListener('click', ()=>{
 })
 
 closeBtn.addEventListener('click', (e)=>{
-  // console.log('close', e.target);
-  // let parent = e.target.parentElement;
-  // console.log(parent)
   if(workWrap.classList.contains('active-preview')){
     workWrap.classList.remove('active-preview')
   }
   closeBtn.classList.remove('visible');
 })
-
-// if(workWrap.classList.contains('active-preview')){
-//   const moons = document.querySelectorAll('.moon');
-//   if(workWrap.classList.contains('mobile')){
-//     moons.forEach((element)=>{ element.addEventListener('click', ()=> {
-//       element.classList.toggle('move')
-//      })
-//    })
-//   } else {
-//     moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-//       console.log('movinnnn')
-//       element.classList.toggle('move')
-//      })
-//    })
-//   }
-// }
-
 
 
 // S C R O L L
@@ -259,7 +239,8 @@ closeBtn.addEventListener('click', (e)=>{
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
 
-const galebWraps = document.querySelectorAll('.bg-wrap__img')
+const galebWraps = document.querySelectorAll('.bg-wrap__img');
+const bgWrap = document.querySelector('.bg-wrap');
 
 let scrollValue;
 let scrollDistance;
@@ -274,13 +255,11 @@ console.log(wrapperHeight, windowHeight)
 
 wrapper.addEventListener("scroll", e => { 
 
-  console.log('scroll')
+  bgWrap.classList.add('animate');
+
   galebWraps.forEach((element)=> {
     element.classList.add('fire');
   })
-
-  galebWraps[0].classList.add('animate');
-  galebWraps[1].classList.add('animate-two');
 
   let scrollDistance = e.target.scrollTop;
   let st = window.scrollY || document.documentElement.scrollTop; 
@@ -299,20 +278,6 @@ wrapper.addEventListener("scroll", e => {
 
   lastScrollTop = st <= 0 ? 0 : st; 
 });
-
-
-function handleTransitions(scrollDistance){
-  index += 1; 
-  //textToMove.style.textShadow = `-${index}px ${index}px 2px rgb(18, 18, 20), 0 0 .1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30)`;
-  
-  if (scrollDistance >= windowHeight){
-    //adWrap.classList.add('show');
-    adImg.classList.add('on');
-  } else {
-    //adWrap.classList.remove('show')
-    adImg.classList.remove('on');
-  }
-}
 
 
 const about = `
