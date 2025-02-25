@@ -250,9 +250,6 @@ const windowHeight = window.innerHeight;
 
 const pageTitle = document.getElementById('title');
 
-
-console.log(wrapperHeight, windowHeight)
-
 wrapper.addEventListener("scroll", e => { 
 
   bgWrap.classList.add('animate');
@@ -262,19 +259,21 @@ wrapper.addEventListener("scroll", e => {
   })
 
   let scrollDistance = e.target.scrollTop;
-  let st = window.scrollY || document.documentElement.scrollTop; 
+  let st = scrollDistance; 
+
 
    if (st > lastScrollTop) {  
-
     index += 1;
     console.log(index, 'down');
 
   } else if (st < lastScrollTop) {  
-
     index -= 1;
     console.log(index, 'up');
-
   } 
+  //buggy ;P
+  // if(lastScrollTop < 10) {
+  //   bgWrap.classList.remove('animate');
+  // }
 
   lastScrollTop = st <= 0 ? 0 : st; 
 });
