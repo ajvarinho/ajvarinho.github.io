@@ -248,6 +248,13 @@ let lastScrollTop = 0;
 let index = 0;
 const windowHeight = window.innerHeight;
 
+bgWrap.addEventListener('click', ()=>{
+  galebWraps.forEach((element)=> {
+    element.classList.add('fire');
+  })
+  bgWrap.classList.toggle('animate');
+})
+
 const pageTitle = document.getElementById('title');
 
 wrapper.addEventListener("scroll", e => { 
@@ -259,6 +266,19 @@ wrapper.addEventListener("scroll", e => {
   })
 
   let scrollDistance = e.target.scrollTop;
+
+  console.log(scrollDistance)
+
+  if(scrollDistance > 20){
+    galebWraps.forEach((element)=> {
+      element.classList.add('fire');
+    })
+  }
+
+  if(scrollDistance > 40){
+    bgWrap.classList.add('animate');
+  }
+
   let st = scrollDistance; 
 
 

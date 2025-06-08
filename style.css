@@ -94,7 +94,7 @@ body {
 } */
 
 .animate {
-  animation: move-up 4s ease-out; 
+  animation: move-up 4s linear; 
   animation-fill-mode: forwards; 
 }
 
