@@ -300,5 +300,10 @@ const aboutText = document.querySelector('.section__text.about');
 
 aboutText.innerHTML = about;
 
+const testMe = 123;
+
+//p.5 test
+
+
 
 

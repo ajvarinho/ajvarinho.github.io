@@ -13,11 +13,18 @@ html {
   repeating-linear-gradient(0.25turn, transparent, #3f87a6 .1rem);
   --mesh: repeating-linear-gradient(0.65turn, transparent, rgba(255, 255, 255, 0.808) .25rem),
   repeating-linear-gradient(0.35turn, rgb(114, 109, 114), transparent .25rem);
+
+  --red: repeating-linear-gradient(0.25turn, transparent, rgba(155, 55, 25, .5) .5rem), repeating-linear-gradient(0.5turn, rgb(14, 19, 14), red 25rem);
 }
 
 @font-face {
   font-family: "IBM";
   src: url("./fonts/Web437_IBM_BIOS.woff") format('woff');
+}
+
+@font-face {
+  font-family: "Eurostile";
+  src: url("./fonts/eurostile_2.woff") format('woff');
 }
 
 button {
@@ -99,7 +106,7 @@ body {
 }
 
 .fire::before {
-  content: '';
+  content: '🔥';
   position: absolute;
   top: 105%;
   left: 15%;
@@ -162,6 +169,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.title{
+  font-family: Eurostile;
 }
 
 .small {
