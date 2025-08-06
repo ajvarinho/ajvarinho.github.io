@@ -9,203 +9,275 @@ if(width < 444){
   mobile = true;
 }
 
-const moonFieldHTML = `
-<div class="moon-field">
-  <div>
-    <div class="moon">
+// const moonFieldHTML = `
+// <div class="moon-field">
+//   <div>
+//     <div class="moon">
 
-    </div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-</div>
-`;
+//     </div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//   <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//   <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//   <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//   <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//   <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//   <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//   <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//     <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//     <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+//     <div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//     <div class="moon"></div>
+//   </div>
+// </div>
+// `;
 
-const textFieldHTML = `
-  <div class="room">
+// const textFieldHTML = `
+//   <div class="room">
 
-      <a tabindex="1" accesskey="W" class="moveForward" id="moveForward" href="#moveForward" ></a>
-      <a tabindex="2" accesskey="A" class="turnLeft" id="turnLeft" href="#turnLeft"></a>
-      <a tabindex="5" accesskey="X" class="stop" id="stop" href="#stop"></a>
-      <a tabindex="3" accesskey="D" class="turnRight" id="turnRight" href="#turnRight"></a>
-      <a tabindex="4" accesskey="S" class="moveBack" id="moveBack" href="#moveBack"></a>
+//       <a tabindex="1" accesskey="W" class="moveForward" id="moveForward" href="#moveForward" ></a>
+//       <a tabindex="2" accesskey="A" class="turnLeft" id="turnLeft" href="#turnLeft"></a>
+//       <a tabindex="5" accesskey="X" class="stop" id="stop" href="#stop"></a>
+//       <a tabindex="3" accesskey="D" class="turnRight" id="turnRight" href="#turnRight"></a>
+//       <a tabindex="4" accesskey="S" class="moveBack" id="moveBack" href="#moveBack"></a>
       
-      <div class="scene">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
+//       <div class="scene">
+//         <div class="front wall">
+//            <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//         <div class="left wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//         <div class="right wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
 
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//         <div class="back wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div class="scene scene-two">
+//         <div class="front wall">
+//            <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//         <div class="left wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//         <div class="right wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+
+//         <div class="back wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div class="scene scene-three">
+//         <div class="front wall">
+//            <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//         <div class="left wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//         <div class="right wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+
+//         <div class="back wall">
+//           <div class="marquee">
+//             <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+// `;
+
+
+// const workWrap = document.getElementById('work-main');
+// const moonField = document.querySelector('.moon-field');
+// const textField = document.querySelector('.text-field');
+// const closeBtn = document.getElementById('close');
+
+// moonField.innerHTML = moonFieldHTML;
+// textField.innerHTML = textFieldHTML;
+// const roomEl = document.querySelector('.room');
+
+// if(mobile){
+//   roomEl.classList.add('mobile');
+// }
+
+// function moonFn(){
+//     const moons = document.querySelectorAll('.moon')
+//       moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
+//         console.log('movinnnn')
+//         element.classList.toggle('move')
+//        })
+//      })
+// }
+
+// function moonFnMobile(){
+//   const moons = document.querySelectorAll('.moon');
+//   moons.forEach((element)=>{ element.addEventListener('click', ()=> {
+//     element.classList.toggle('move')
+//    })
+//  })
+// }
+
+class MoonField extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+
+  connectedCallback() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        h1 {
+          color: white;
+        }
+
+        em {
+          text-shadow: .3rem 1px 2px steelblue, 0 0 1em blue, 0 0 0.2em blue;
+          transition-duration: .5s;
+        }
+
+        em:hover {
+          text-shadow: .5rem 5px 5px steelblue, 0 5px 1em white, 0 0 0.2em blue;
+        }
+
+        .main {
+          display: flex;
+          flex-wrap: wrap;
+          background: linear-gradient(to bottom,  #64b3f4, #00a1af);
+          padding: 1rem;
+        }
+
+        .main > div {
+          display: flex;
+          flex-direction: column;
+          margin: 0.2rem;
+        }
+
+        .moon {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          box-shadow: 15px 5px 15px 0 #c2e5f4 inset;
+          transform: perspective(4em) translateX(20deg);
+          transition: transform 0.5s;
+          margin: 0.3rem;
+        }
+
+        .moon.move {
+          transform: rotateY(-180deg);
+        }
+      </style>
+
+      <h1>This is a <em>moon</em> field</h1>
+      <div class="main">
+        ${Array.from({ length: 12 }).map(() => `
+          <div>
+            ${Array.from({ length: 5 }).map(() => `<div class="moon"></div>`).join('')}
           </div>
-        </div>
+        `).join('')}
       </div>
+    `;
 
-      <div class="scene scene-two">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene scene-three">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-`;
-
-
-const workWrap = document.getElementById('work-main');
-const moonField = document.querySelector('.moon-field');
-const textField = document.querySelector('.text-field');
-const closeBtn = document.getElementById('close');
-
-moonField.innerHTML = moonFieldHTML;
-textField.innerHTML = textFieldHTML;
-const roomEl = document.querySelector('.room');
-
-if(mobile){
-  roomEl.classList.add('mobile');
+    const moons = this.shadowRoot.querySelectorAll('.moon');
+    moons.forEach((element) => {
+      element.addEventListener('mouseover', () => {
+        element.classList.toggle('move');
+      });
+    });
+  }
 }
 
-function moonFn(){
-    const moons = document.querySelectorAll('.moon')
-      moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-        console.log('movinnnn')
-        element.classList.toggle('move')
-       })
-     })
-}
+customElements.define('moon-field', MoonField);
 
-function moonFnMobile(){
-  const moons = document.querySelectorAll('.moon');
-  moons.forEach((element)=>{ element.addEventListener('click', ()=> {
-    element.classList.toggle('move')
-   })
- })
-}
 
 workWrap.addEventListener('click', ()=>{
   const moons = document.querySelectorAll('.moon')
