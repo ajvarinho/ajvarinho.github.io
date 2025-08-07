@@ -25,12 +25,22 @@
             </svg>
         </div> -->
 
-        <div class="mega-wrap">
+
+
+        <main class="mega-wrap">
 
             <div class="background">
             </div>
 
+            <svg class="svg-el" viewBox="" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline class="polyline top" stroke="rebeccapurple" stroke-width="3"></polyline>
+                <polyline class="polyline left" stroke="rebeccapurple" stroke-width="3"></polyline>
+                <polyline class="polyline bottom" fill="none" stroke="rebeccapurple" stroke-width="3"></polyline>
+            </svg>
+
+
             <div id="wrapper" class="wrapper">
+
                 <div class="parallax-wrap">
 
                     <div class="bg-wrap">
@@ -38,75 +48,44 @@
                             <img src="./img/lebga.png" alt="" class="galeb">
                             <img src="./img/stup.png" alt="" class="stup">
                         </div>
+
+                        <div  class="title__wrap">
+                            <!-- <img src="" alt="" class="image bg"> -->
+                            <h2 id="title" class="title">NIKOLA<br/>NJAVRO</h2>
+                        </div>
+
+
                         <div class="bg-wrap__img">
                             <img src="./img/lebga.png" alt="" class="galeb two">
                             <img src="./img/stup.png" alt="" class="stup">
                         </div>
                     </div>
 
-                    <div  class="title__wrap">
-                        <img src="" alt="" class="image bg">
-                        <h2 id="title" class="title">nikola <br/>njavro</h2>
-                    </div>
 
-                    <div class="scroll-context uno">
-                        <div class="text-wrap">
-                            <p class="">
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                            </p>
-                        </div>
-                    </div>
 
-                    <div class="scroll-context due">
-                        <div class="text-wrap">
-                            <p class="">
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                                web design and development<br class="desktop-break"/>
-                            </p>
-                        </div>
-                    </div>
+                    <div class="ticker-wrap">
 
-                    <button id="close" class="close">X</button>
-                    <div id="work-main" class="work">
-                        <h3 class="work__title">work</h3>
-                        <div class="work__wrap">
-                            <div class="moon-field"></div>
-                            <div class="work__desc">
-                                <p>
-                                    Interactive interface of a moon field, <br/>inspired by color palette and subtle gradient approach of Zagreb School of Animation. 
-                                </p>
+                        <div class="scroll-context uno">
+                            <div class="marquee">
+                                <p>web design and development _ web design and development - web design and development</p>
                             </div>
-                            <div class="text-field"></div>
-                            <div class="work__desc">
-                                <p>
-                                    Motion graphic interpreting <a href="https://www.instagram.com/sashatatic?igsh=MWIyYW5waDYzanAxZw==" target="_blank">Sasha Tatic</a>'s installation<br/>
-                                    presented in Crvena Gallery in Sarajevo, 2024.
-                                    <br/>
-                                    Inspired by Sasha's visual approach to poetry, this code explores the creative possibilities of <br/>
-                                    text rendering and animation. 
-                                </p>
+                        </div>
+
+                        <div class="scroll-context due">
+                            <div class="marquee">
+                                <p>web design and development _ web design and development - web design and development</p>
                             </div>
                         </div>
                     </div>
-
-
-
-                    <div class="parallax__fg">
+                    <!-- <div class="parallax__fg">
                         <img src="" alt="" class="image fg">
                         <div class="fg__element">
                             <div class="svg-context">
                                 <svg width="100%" height="100%">
-                                    <!-- <rect width="100" height="100" style="fill:blue;stroke:black;stroke-width:5;" /> -->
+                                    
                                     <path id="curve"  d="M -500 100 C 200 0, 200 200, 400 100 S 600 220, 1200 110" fill="transparent"/>/>
                                     <text font-size="36" fill="hotpink">
-                                        <!-- class="moving-text" -->
+                                        
                                         <textPath id="animatedText" href="#curve">
                                             Your ad could be here
                                         </textPath>
@@ -116,10 +95,25 @@
                             </div>
 
                         </div>
-                    </div>
-
+                    </div> -->
                 </div>
                 <section class="content">
+                    <div id="work-main" class="work">
+                        <h3 class="work__title">work main elements</h3>
+                        <button id="load" class="btn">load projects</button>
+                        <div class="work__wrap">
+
+                            <div id="test-wrap" class="work-card"></div>
+                            <div class="work-card">UI elements</div>
+                            <div class="work-card">UI elements</div>
+                            <!-- <moon-field></moon-field> -->
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="about">
+                    <div class="glass-bg"></div>
                     <p class="section__text about">
                     </p>
                 </section>
@@ -135,7 +129,7 @@
                 </footer>
             </div>
 
-        </div>
+        </main>
 
         <script src="/index.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

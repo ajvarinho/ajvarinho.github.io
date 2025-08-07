@@ -1,243 +1,64 @@
-console.log('alo');
-
 const width = window.innerWidth;
 let mobile;
-
-console.log(width)
 
 if(width < 444){
   mobile = true;
 }
 
-const moonFieldHTML = `
-<div class="moon-field">
-  <div>
-    <div class="moon">
+const card = document.querySelector('.title__wrap');
 
-    </div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-</div>
-`;
+let isResetting = false;
 
-const textFieldHTML = `
-  <div class="room">
+card.addEventListener('mousemove', (e) => {
+  if (isResetting) return;
 
-      <a tabindex="1" accesskey="W" class="moveForward" id="moveForward" href="#moveForward" ></a>
-      <a tabindex="2" accesskey="A" class="turnLeft" id="turnLeft" href="#turnLeft"></a>
-      <a tabindex="5" accesskey="X" class="stop" id="stop" href="#stop"></a>
-      <a tabindex="3" accesskey="D" class="turnRight" id="turnRight" href="#turnRight"></a>
-      <a tabindex="4" accesskey="S" class="moveBack" id="moveBack" href="#moveBack"></a>
-      
-      <div class="scene">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
 
-      <div class="scene scene-two">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
+  const rotateX = ((y - centerY) / centerY) * 30;
+  const rotateY = ((x - centerX) / centerX) * 30;
 
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
+  //card.style.transition = 'none'; // Instant response
+  card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+});
 
-      <div class="scene scene-three">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
+card.addEventListener('mouseleave', () => {
+  isResetting = true;
+  card.style.transition = 'transform 0.5s ease'; // Smooth return
+  card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+});
 
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-`;
-
-
-const workWrap = document.getElementById('work-main');
-const moonField = document.querySelector('.moon-field');
-const textField = document.querySelector('.text-field');
-const closeBtn = document.getElementById('close');
-
-moonField.innerHTML = moonFieldHTML;
-textField.innerHTML = textFieldHTML;
-const roomEl = document.querySelector('.room');
-
-if(mobile){
-  roomEl.classList.add('mobile');
-}
-
-function moonFn(){
-    const moons = document.querySelectorAll('.moon')
-      moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-        console.log('movinnnn')
-        element.classList.toggle('move')
-       })
-     })
-}
-
-function moonFnMobile(){
-  const moons = document.querySelectorAll('.moon');
-  moons.forEach((element)=>{ element.addEventListener('click', ()=> {
-    element.classList.toggle('move')
-   })
- })
-}
-
-workWrap.addEventListener('click', ()=>{
-  const moons = document.querySelectorAll('.moon')
-  if(mobile){
-    workWrap.classList.add('mobile')
-    closeBtn.classList.add('visible')
-    workWrap.classList.add('active-preview');
-    moons.forEach((element)=>{ element.addEventListener('click', ()=> {
-      element.classList.toggle('move')
-     })
-   })
-  } else {
-    workWrap.classList.toggle('active-preview');
-    moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-      element.classList.toggle('move')
-     })
-   })
+card.addEventListener('transitionend', (e) => {
+  if (e.propertyName === 'transform') {
+    isResetting = false;
+    // Let the next mouse move remove transition, no need to force it here
   }
-})
+});
 
-closeBtn.addEventListener('click', (e)=>{
-  if(workWrap.classList.contains('active-preview')){
-    workWrap.classList.remove('active-preview')
-  }
-  closeBtn.classList.remove('visible');
-})
+//device motion
+
+function handleMotionEvent(event) {
+  const x = event.accelerationIncludingGravity.x;
+  const y = event.accelerationIncludingGravity.y;
+  const z = event.accelerationIncludingGravity.z;
+
+  // Do something awesome.
+
+  alert('o', x, y, z);
+}
+
+window.addEventListener("devicemotion", handleMotionEvent, true);
 
 
 // S C R O L L
 
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
+const windowHeight = window.innerHeight;
 
 const galebWraps = document.querySelectorAll('.bg-wrap__img');
 const bgWrap = document.querySelector('.bg-wrap');
@@ -246,16 +67,16 @@ let scrollValue;
 let scrollDistance;
 let lastScrollTop = 0;
 let index = 0;
-const windowHeight = window.innerHeight;
 
 const pageTitle = document.getElementById('title');
 
 wrapper.addEventListener("scroll", e => { 
 
-  bgWrap.classList.add('animate');
+  //bgWrap.classList.add('animate');
 
   galebWraps.forEach((element)=> {
     element.classList.add('fire');
+    element.classList.add('animate');
   })
 
   let scrollDistance = e.target.scrollTop;
@@ -298,7 +119,68 @@ const about = `
 
 const aboutText = document.querySelector('.section__text.about');
 
-aboutText.innerHTML = about;
+const aboutBg = document.querySelector('.glass-bg');
 
+aboutText.innerHTML = about;
+aboutBg.innerHTML = about;
+
+
+//WORK
+
+
+document.getElementById('load').addEventListener('click', async () => {
+  const module = await import('./components/moonField.js');
+  const moonField = document.createElement('moon-field');
+  document.getElementById('test-wrap').appendChild(moonField);
+});
+
+//SVG FRAME
+const svgWrapEl = document.querySelector(".mega-wrap");
+const svgEl = document.querySelector(".svg-el");
+
+let wrapWidth = svgWrapEl.offsetWidth;
+let wrapHeight = svgWrapEl.offsetHeight;
+
+svgEl.setAttribute("height", wrapHeight);
+svgEl.setAttribute("width", wrapWidth);
+svgEl.setAttribute("viewBox", `0, 0, ${wrapWidth}, ${wrapHeight}`);
+
+const polylineTop = document.querySelector(".polyline.top");
+const polylineLeft = document.querySelector(".polyline.left");
+const polylineBottom = document.querySelector(".polyline.bottom");
+
+let widthNum = Math.round(wrapWidth);
+let heightNum = Math.round(wrapHeight);
+
+let pointsTop;
+let pointsLeft;
+let pointsBottom;
+
+pointsTop = `0,50 152,50 152,50 165,0 500,0, 552,50 552,50 ${widthNum},50 ${widthNum},50 ${widthNum},${
+  heightNum / 4 + 50
+} ${widthNum},${heightNum / 4 + 50} ${widthNum - 70},${heightNum / 4 - 50}`;
+
+pointsLeft =
+  "0,50 0,200 0,200 230,125 230,125 230,400 230,400 0,475 0,475 0,842";
+
+pointsBottom = `0,840 ${widthNum},840 ${widthNum},840 ${widthNum},950 ${widthNum},950 400,950 400,950 370,900 370,900 0,900 0,900 0,1800`;
+
+polylineTop.setAttribute("points", pointsTop);
+polylineLeft.setAttribute("points", pointsLeft);
+polylineBottom.setAttribute("points", pointsBottom);
+
+//SVG ANIMATION
+let topLength = Math.floor(polylineTop.getTotalLength());
+let leftLength = Math.floor(polylineLeft.getTotalLength());
+let bottomLength = Math.floor(polylineBottom.getTotalLength());
+//
+polylineTop.setAttribute("stroke-dasharray", topLength);
+polylineTop.setAttribute("stroke-dashoffset", topLength);
+//
+polylineLeft.setAttribute("stroke-dasharray", leftLength);
+polylineLeft.setAttribute("stroke-dashoffset", leftLength);
+//
+polylineBottom.setAttribute("stroke-dasharray", bottomLength);
+polylineBottom.setAttribute("stroke-dashoffset", bottomLength);
 
 
