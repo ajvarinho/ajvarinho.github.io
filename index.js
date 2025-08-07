@@ -70,6 +70,12 @@ let index = 0;
 
 const pageTitle = document.getElementById('title');
 
+let st;
+
+const aboutWrap = document.querySelector('.about');
+const aboutHeight = aboutWrap.getBoundingClientRect();
+let aboutTop = aboutHeight.y;
+
 wrapper.addEventListener("scroll", e => { 
 
   //bgWrap.classList.add('animate');
@@ -80,7 +86,7 @@ wrapper.addEventListener("scroll", e => {
   })
 
   let scrollDistance = e.target.scrollTop;
-  let st = scrollDistance; 
+  st = scrollDistance; 
 
 
    if (st > lastScrollTop) {  
@@ -91,13 +97,25 @@ wrapper.addEventListener("scroll", e => {
     index -= 1;
     console.log(index, 'up');
   } 
+
+  console.log(st, 'aaaa')
+
+  if(st > aboutTop){
+    aboutWrap.classList.add('active');
+  }
   //buggy ;P
   // if(lastScrollTop < 10) {
   //   bgWrap.classList.remove('animate');
   // }
 
   lastScrollTop = st <= 0 ? 0 : st; 
+
+
 });
+
+
+
+
 
 
 const about = `
