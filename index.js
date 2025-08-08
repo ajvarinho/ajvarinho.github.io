@@ -114,10 +114,6 @@ wrapper.addEventListener("scroll", e => {
 });
 
 
-
-
-
-
 const about = `
                 hello, my name is Nikola and I'm
                 web designer, creative coder and developer
@@ -135,21 +131,39 @@ const about = `
 `;
 
 
-const aboutText = document.querySelector('.section__text.about');
+const aboutText = document.querySelector('.about-text');
 
-const aboutBg = document.querySelector('.glass-bg');
+const aboutBg = document.querySelector('.about-bg');
 
 aboutText.innerHTML = about;
-aboutBg.innerHTML = about;
-
 
 //WORK
 
+const workWrapMain = document.getElementById('work-main');
+const workBgEffect = document.querySelector('.work-bg');
+
+
+workWrapMain.addEventListener('mousemove', (e) => {
+
+  const workValues = workWrapMain.getBoundingClientRect();
+  let x = e.clientX - workValues.left;
+  let y = e.clientY - workValues.top;
+
+  x = Math.round(x) / 2;
+  y = Math.round(y) / 2;
+
+  console.log('mouse moving', x, y)
+
+  //background-position: bottom 50px right 100px;
+
+  workBgEffect.style.backgroundPositionX = `${x}px`;
+  workBgEffect.style.backgroundPositionY = `${y}px`;
+});
 
 document.getElementById('load').addEventListener('click', async () => {
   const module = await import('./components/moonField.js');
   const moonField = document.createElement('moon-field');
-  document.getElementById('test-wrap').appendChild(moonField);
+  document.getElementById('project-preview').appendChild(moonField);
 });
 
 //SVG FRAME

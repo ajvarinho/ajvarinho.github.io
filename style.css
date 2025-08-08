@@ -14,11 +14,26 @@ html {
   --mesh: repeating-linear-gradient(0.65turn, transparent, rgba(255, 255, 255, 0.808) .25rem),
   repeating-linear-gradient(0.35turn, rgb(114, 109, 114), transparent .25rem);
   --box-shadow-1: .2em .2em .2em 2em rgba(224, 31, 134, 0.5), .2em .2em 2em 2em blue;
+
+  /**/
+  --linear-bg-1: linear-gradient(45deg, rgb(251, 149, 241), rgb(170, 170, 170));
 }
+
+/* FONTZ */
 
 @font-face {
   font-family: "IBM";
   src: url("./fonts/Web437_IBM_BIOS.woff") format('woff');
+}
+
+@font-face {
+  font-family: "Eurostile-ext";
+  src: url("./fonts/eurostile_ext.woff") format('woff');
+}
+
+@font-face {
+  font-family: "Eurostile-reg";
+  src: url("./fonts/eurostile_reg.woff") format('woff');
 }
 
 button {
@@ -175,6 +190,7 @@ main {
 }
 
 .title {
+  font-family: Eurostile-ext;
   font-size: 2rem;
 }
 
@@ -205,7 +221,6 @@ main {
 }
 
 .welcome-ticker {
-    width: 450px;
     background-color: yellow;
     color: black;
     white-space: nowrap;
@@ -214,6 +229,7 @@ main {
 }
 
 .welcome-ticker p {
+  font-family: Eurostile-reg;
     display: inline-block;
     padding-left: 100%;
     animation: movingText 15s linear infinite;
@@ -269,33 +285,58 @@ main {
 }
 
 
+.content {
+  position:relative;
+  transform: translateY(25rem);
+  z-index: 2;
+  padding: 2rem 0;
+}
+
 /* W O R K */
 
 .work {
-    position: relative;
-    height: 100vh;
-    /* width: 75%; */
-    z-index: 1;
-    /* text-align: right; */
-    /* transform: translateZ(-6px) translateY(5rem) translateX(-5rem) rotateY(-1deg) rotateZ(0deg); */
-    overflow: scroll;
-    transition-duration: .7s;
-    /**/
-
-    background-color: black;
-    color: white;
+  position: relative;
+  height: 100vh;
+  z-index: 1;
+  /* text-align: right; */
+  /* transform: translateZ(-6px) translateY(5rem) translateX(-5rem) rotateY(-1deg) rotateZ(0deg); */
+  overflow: scroll;
+  transition-duration: .7s;
+  /**/
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
 }
 
-.work__title > button {
+.work-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-radial-gradient(rgba(129, 129, 129, 0.2), #9198e5 2%);
+  z-index: 1;
+  /**/
+  transform: rotateY(3deg);
+}
+
+.work__title {
+  position: relative;
+  z-index: 2;
+}
+
+.work > .btn {
+  position: relative;
+  z-index: 2;
   font-size: 2rem;
   color: rgb(0, 0, 0);
   text-decoration: dotted 1px black;
 }
 
 .work__wrap {
-  display: flex;
-  flex-direction: column;
-  /* height: 150%; */
+  position: relative;
+  z-index: 2;
+  height: 80%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 }
 
 .work__desc {
@@ -309,6 +350,12 @@ main {
 
 .work-card {
   border: 1px solid blue;
+  /* filter: blur(10px); */
+}
+
+.work-card:hover {
+  border: 1px solid blue;
+  filter: blur(1px);
 }
 
 .active-preview {
@@ -330,45 +377,77 @@ main {
 
 /* A B O U T */
 
-.content {
-  position:relative;
-  transform: translateY(110rem);
-  z-index: 2;
-  padding: 2rem 0;
-}
+
 
 .about {
   position: relative;
-  background-image: url('/img/img_test_nobg.png');
-  box-shadow: var(--box-shadow-1);
+
+  /* box-shadow: var(--box-shadow-1); */
+  transform: translateY(20rem);
 }
 
-.glass-bg {
+
+
+.about-img {
   position: absolute;
   inset: 0;
-  border: 2px solid;
-  filter: blur(10px);
+  background: var(--linear-bg-1);
 }
 
-.section__text.about {
+.about-img > img {
+  width: 100%;
+}
+
+.text-bg {
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  z-index: 2;
+  border: 2px solid;
+  background: rgba(213, 213, 213, 0.7);
+  /**/
+  filter: blur(0px);
+  transform: rotateY(1deg);
+  background-image: url('./img/img_test_nobg.png');
+  background-size: cover;
+  opacity: 0;
+  transition-duration: .7s;
+}
+
+.text-bg.second {
+  background-position-x: -101%;
+  transform: translateX(33rem) rotateY(-1deg);
+}
+
+.text-bg:hover {
+  opacity: 0.8;
+
+}
+
+.about-text {
+    position: relative;
+    z-index: 3;
   font-size: 1.5rem;
   padding: 0 2rem;
   width: 50%;
+  pointer-events: none;
+  transform: translateX(20rem) rotateX(1deg);
+  background: rgba(2, 2, 2, .3);
+  color: white;
 }
 
 .contact {
   position: relative;
   z-index: 2;
   font-size: 1.4rem;
-  transform: translateY(130rem);
+  transform: translateY(75rem);
   text-align: right;
   margin-right: 2rem;
 }
 
 .footer {
-
   padding-inline-start: 3rem;
-  transform: translateY(140rem);
+  transform: translateY(100rem);
 }
 
 .footer > a {
