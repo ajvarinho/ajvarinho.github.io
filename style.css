@@ -242,47 +242,7 @@ main {
   transform: translateY(10em);
 }
 
-.scroll-context {
-  position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-perspective: 16px;
-  perspective: 16px;
-  width: 50%;
-}
 
-.scroll-context.uno {
-  transform: rotateY(2deg) rotateZ(0deg) scale(1);
-}
-
-.scroll-context.due {
-  transform: rotateY(-2deg) rotateZ(0deg) scale(1);
-}
-
-.welcome-ticker {
-    /* background: linear-gradient(45deg, deeppink, chocolate); */
-    background: var(--mesh-v3);
-    color: rgb(255, 255, 255);
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-    /**/
-    height: 10rem;
-  align-content: center;
-}
-
-.ticker-text {
-  font-family: Eurostile-reg;
-  font-size: .2rem;
-    display: inline-block;
-    padding-left: 100%;
-    animation: movingText 15s linear infinite;
-    text-transform: uppercase;
-}
-
-.ticker-text:hover {
-  font-size: 1rem;
-}
 
 .test-1 {
   position: relative;
@@ -398,6 +358,7 @@ main {
   color: white;
   margin: 0 2rem;
   border: 1px solid black;
+  transform-style: preserve-3d;
 }
 
 .work-bg {
@@ -510,7 +471,7 @@ main {
 
 .about {
   position: relative;
-
+  transform-style: preserve-3d;
   /* box-shadow: var(--box-shadow-1); */
   transform: translateY(20rem);
 }
