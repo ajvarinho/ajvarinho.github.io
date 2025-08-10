@@ -93,7 +93,6 @@ main {
   position: absolute;
   inset: 0;
   background: var(--mesh-v2);
-  animation: noise linear infinite;
 }
 
 
@@ -167,7 +166,7 @@ main {
   transform: translateX(15px) rotateY(180deg);
 }
 
-.galeb{
+.galeb {
   z-index: 3;
   transform: translateX(5px);
   margin-right: 1.5rem;
@@ -284,6 +283,7 @@ main {
 }
 
 .test-1 {
+  position: relative;
   transform-style: preserve-3d;
   height: 50vh;
   border: 2px solid;
@@ -291,6 +291,14 @@ main {
   width: 25rem;
   display: flex;
   justify-content: space-evenly;
+}
+
+.test-1:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  filter: blur(10px);
 }
 
   .card-1, .card-2, .card-3, .card-4 {
@@ -306,6 +314,12 @@ main {
   text-transform: uppercase;
   writing-mode: sideways-lr;
 }
+
+.welcome-card {
+  position: relative;
+  background: transparent;
+}
+
 
 
 @keyframes movingText {
@@ -558,7 +572,7 @@ main {
 
 .footer {
   padding-inline-start: 3rem;
-      transform: translateY(100rem);
+  transform: translateY(100rem);
 
 }
 
@@ -595,17 +609,6 @@ main {
     perspective: 10px;
   }
 
-  .scroll-context.uno {
-    perspective: 10px;
-    /* transform: translateX(11rem) translateY(-18rem) translateZ(-0.5em) rotateX(-1deg) rotateY(2deg) rotateZ(0deg) scale(1.4); */
-    animation-fill-mode: forwards;
-    overflow: hidden;
-  }
-
-  .scroll-context.due {
-    /* transform: translateX(2rem) translateY(-12rem) translateZ(-0.5em) rotateX(-1deg) rotateY(-2deg) rotateZ(-1deg) scale(2.5); */
-    perspective: 10px;
-  }
 
   /**/
   .test-1 {
@@ -681,6 +684,26 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .work {
+  position: relative;
+  height: 100vh;
+  z-index: 1;
+  /* text-align: right; */
+  /* transform: translateZ(-6px) translateY(5rem) translateX(-5rem) rotateY(-1deg) rotateZ(0deg); */
+  overflow: scroll;
+  transition-duration: .7s;
+  /**/
+  /* background: linear-gradient(45deg, aqua, chartreuse); */
+  background: var(--mesh);
+  color: white;
+  margin: 0 2rem;
+  border: 1px solid black;
+}
+
+  .work-bg {
+    transform: rotateY(3deg);
+  }
+
   .active-preview {
     width: 100%;
     transform: translateZ(0px) translateY(-25rem) translateX(0em) rotateY(0deg) rotateZ(0deg);
@@ -729,6 +752,7 @@ main {
   .about-text {
     width: 97%;
   pointer-events: none;
+   -webkit-transform: translateX(0rem) rotateX(1deg);
   transform: translateX(0rem) rotateX(1deg);
   }
 

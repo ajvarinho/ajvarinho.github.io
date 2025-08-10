@@ -5,39 +5,39 @@ if(width < 444){
   mobile = true;
 }
 
-const card = document.querySelector('.title__wrap');
+// const card = document.querySelector('.title__wrap');
 
-let isResetting = false;
+// let isResetting = false;
 
-card.addEventListener('mousemove', (e) => {
-  if (isResetting) return;
+// card.addEventListener('mousemove', (e) => {
+//   if (isResetting) return;
 
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+//   const rect = card.getBoundingClientRect();
+//   const x = e.clientX - rect.left;
+//   const y = e.clientY - rect.top;
 
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
+//   const centerX = rect.width / 2;
+//   const centerY = rect.height / 2;
 
-  const rotateX = ((y - centerY) / centerY) * 30;
-  const rotateY = ((x - centerX) / centerX) * 30;
+//   const rotateX = ((y - centerY) / centerY) * 30;
+//   const rotateY = ((x - centerX) / centerX) * 30;
 
-  //card.style.transition = 'none'; // Instant response
-  card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-});
+//   //card.style.transition = 'none'; // Instant response
+//   card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+// });
 
-card.addEventListener('mouseleave', () => {
-  isResetting = true;
-  card.style.transition = 'transform 0.5s ease'; // Smooth return
-  card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-});
+// card.addEventListener('mouseleave', () => {
+//   isResetting = true;
+//   card.style.transition = 'transform 0.5s ease'; // Smooth return
+//   card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+// });
 
-card.addEventListener('transitionend', (e) => {
-  if (e.propertyName === 'transform') {
-    isResetting = false;
-    // Let the next mouse move remove transition, no need to force it here
-  }
-});
+// card.addEventListener('transitionend', (e) => {
+//   if (e.propertyName === 'transform') {
+//     isResetting = false;
+//     // Let the next mouse move remove transition, no need to force it here
+//   }
+// });
 
 //device motion
 
@@ -82,14 +82,14 @@ wrapper.addEventListener("scroll", e => {
   st = scrollDistance; 
 
   if(st > 100) {
-    bgWrap.classList.add('animate');
+    //bgWrap.classList.add('animate');
 
     galebWraps.forEach((element)=> {
       element.classList.add('fire');
       element.classList.add('animate');
     })
   } else {
-    bgWrap.classList.remove('animate');
+    //bgWrap.classList.remove('animate');
         galebWraps.forEach((element)=> {
       element.classList.remove('fire');
       element.classList.remove('animate');
