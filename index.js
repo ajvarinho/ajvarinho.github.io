@@ -48,7 +48,7 @@ function handleMotionEvent(event) {
 
   // Do something awesome.
 
-  alert('o', x, y, z);
+  //alert('o', x, y, z);
 }
 
 window.addEventListener("devicemotion", handleMotionEvent, true);
@@ -60,8 +60,8 @@ const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
 const windowHeight = window.innerHeight;
 
-const galebWraps = document.querySelectorAll('.bg-wrap__img');
-const bgWrap = document.querySelector('.bg-wrap');
+const galebWraps = document.querySelectorAll('.welcome__img');
+const bgWrap = document.querySelector('.welcome');
 
 let scrollValue;
 let scrollDistance;
@@ -78,16 +78,23 @@ let aboutTop = aboutHeight.y;
 
 wrapper.addEventListener("scroll", e => { 
 
-  //bgWrap.classList.add('animate');
-
-  galebWraps.forEach((element)=> {
-    element.classList.add('fire');
-    element.classList.add('animate');
-  })
-
   let scrollDistance = e.target.scrollTop;
   st = scrollDistance; 
 
+  if(st > 100) {
+    bgWrap.classList.add('animate');
+
+    galebWraps.forEach((element)=> {
+      element.classList.add('fire');
+      element.classList.add('animate');
+    })
+  } else {
+    bgWrap.classList.remove('animate');
+        galebWraps.forEach((element)=> {
+      element.classList.remove('fire');
+      element.classList.remove('animate');
+    })
+  }
 
    if (st > lastScrollTop) {  
     index += 1;
@@ -141,6 +148,15 @@ aboutText.innerHTML = about;
 
 const workWrapMain = document.getElementById('work-main');
 const workBgEffect = document.querySelector('.work-bg');
+const projectsWrap = document.querySelector('.work__wrap');
+
+// for(let i = 0; i < 12; i++){
+//   let projectCard = document.createElement('div');
+//   projectCard.setAttribute('class', 'work-card');
+//   projectsWrap.appendChild(projectCard);
+// };
+
+//background: conic-gradient(from 0.15turn at 50% 50%, #f69d3c,10deg, #3f87a6, 150deg, #ebf8e1);
 
 
 workWrapMain.addEventListener('mousemove', (e) => {
@@ -156,15 +172,39 @@ workWrapMain.addEventListener('mousemove', (e) => {
 
   //background-position: bottom 50px right 100px;
 
-  workBgEffect.style.backgroundPositionX = `${x}px`;
-  workBgEffect.style.backgroundPositionY = `${y}px`;
+  //workBgEffect.style.backgroundPositionX = `${x}px`;
+  //workBgEffect.style.backgroundPositionY = `${y}px`;
 });
 
-document.getElementById('load').addEventListener('click', async () => {
-  const module = await import('./components/moonField.js');
-  const moonField = document.createElement('moon-field');
-  document.getElementById('project-preview').appendChild(moonField);
+const projectsArray = [{name: 'Raze App', tag: 'raze-app'}, {name: 'Moon Field', tag: 'moon-field'}, {name: '3D', tag: 'three-d'}];
+const projectBtns = document.querySelectorAll('.project.btn');
+
+projectBtns.forEach((btn, index) => {
+  const project = projectsArray[index];
+  if (project) {
+    // Append name to the button text
+    btn.textContent += ` ${project.name}`;
+
+    btn.id = project.tag;
+    
+    // Add tag as a data attribute
+    btn.dataset.tag = project.tag;
+  }
 });
+
+projectBtns.forEach((btn)=>{
+  btn.addEventListener('click', async (e) => {
+  console.log(e.target.id);
+  const module = await import(`./components/${e.target.id}.js`);
+  const activeProject = document.createElement(`${e.target.id}`);
+  if(document.getElementById('project-preview').children === 0) {
+    document.getElementById('project-preview').appendChild(activeProject);
+  } else {
+    document.getElementById('project-preview').innerHTML = '';
+    document.getElementById('project-preview').appendChild(activeProject);
+  }
+});
+})
 
 //SVG FRAME
 const svgWrapEl = document.querySelector(".mega-wrap");
