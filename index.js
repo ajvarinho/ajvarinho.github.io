@@ -132,10 +132,12 @@ const about = `
             interactions.
                 My experience in web development, together with master's degree in philosophy and art history 
                 resulted in interest for deeper creative exploration of web and computational aesthetics.
-                My designs get inspired by renaissance painting and punk,
-                early graffitti, album art and fonts, as well as the aesthetics of
-                pre-smartphone Internet era. 
+
 `;
+
+                // My designs get inspired by renaissance painting and punk,
+                // early graffitti, album art and fonts, as well as the aesthetics of
+                // pre-smartphone Internet era. 
 
 
 const aboutText = document.querySelector('.about-text');
