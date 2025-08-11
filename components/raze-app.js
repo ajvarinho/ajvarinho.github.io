@@ -5,11 +5,15 @@ export class Raze extends HTMLElement {
     };
 
     connectedCallback() {
-    const rows = parseInt(this.getAttribute('rows')) || 12;
-    const cols = parseInt(this.getAttribute('cols')) || 5;
 
     this.shadowRoot.innerHTML = `
       <style>
+
+        @font-face {
+          font-family: "Eurostile-ext";
+          src: url("./fonts/eurostile_ext.woff") format('woff');
+        }
+
         .raze-wrap {
         position: relative;
         display: grid;
@@ -22,15 +26,14 @@ export class Raze extends HTMLElement {
         }
 
         .title-wrap {
-        height: 60vh;
         color: black;
-        background-color: gray;
+        background: linear-gradient(180deg, dimgrey, white);
         display: flex;
         flex-direction: column;
-        gap: 2rem;
         }
 
         h3 {
+        font-family: Eurostile-ext;
         text-align: center;
         }
 
@@ -48,6 +51,24 @@ export class Raze extends HTMLElement {
         .image-wrap {
         background-color: blue;
         }
+
+        .figure {
+        margin: 0;
+        }
+
+        img {
+        width: 100%;
+        }
+
+        @media (max-width: 30rem) {
+
+        .raze-wrap {
+          display: flex;
+          flex-direction: column;
+        }
+  
+        }
+
       </style>
 
       <section class="raze-wrap">
@@ -60,13 +81,25 @@ export class Raze extends HTMLElement {
             </div>
         </div>
         <div class="image-wrap">
-            here is the image
+            <figure class="figure">
+              <img
+                src="./img/raze/raze_iphone3.png"
+                alt="Image of a smartphone with Raze app opened" />
+              <figcaption>Raze app - your guide</figcaption>
+            </figure>
         </div>
         <div class="desc-wrap">
             <p>here is the desc app element it is text and should be longer and break into multiple lines - raze is the app imagined for exploration, funy bizness an dmore more more</p>
         </div>
         <div class="styleguide-wrap">
-            here hben wir styleguide wrapp
+            <p>The app's bold color pallete emphasizes the dynamics of the contrast. Through research and testing, it was discovered users tended to 
+            engage more with content that was emphasized </p>
+            <figure class="figure">
+              <img
+                src="./img/raze/raze_palette.png"
+                alt="raze color palette - matrix with black, blue, yellow and grey-colored squares" />
+              <figcaption>color palette</figcaption>
+            </figure>
         </div>
 
       </section>

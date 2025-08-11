@@ -178,34 +178,51 @@ workWrapMain.addEventListener('mousemove', (e) => {
   //workBgEffect.style.backgroundPositionY = `${y}px`;
 });
 
+const dialogEl = document.querySelector("[closedby='any']");
+
 const projectsArray = [{name: 'Raze App', tag: 'raze-app'}, {name: 'Moon Field', tag: 'moon-field'}, {name: '3D', tag: 'three-d'}];
 const projectBtns = document.querySelectorAll('.project.btn');
 
 projectBtns.forEach((btn, index) => {
+
   const project = projectsArray[index];
   if (project) {
-    // Append name to the button text
+
     btn.textContent += ` ${project.name}`;
 
     btn.id = project.tag;
-    
-    // Add tag as a data attribute
+
     btn.dataset.tag = project.tag;
   }
 });
 
 projectBtns.forEach((btn)=>{
+
   btn.addEventListener('click', async (e) => {
-  console.log(e.target.id);
-  const module = await import(`./components/${e.target.id}.js`);
-  const activeProject = document.createElement(`${e.target.id}`);
-  if(document.getElementById('project-preview').children === 0) {
-    document.getElementById('project-preview').appendChild(activeProject);
-  } else {
-    document.getElementById('project-preview').innerHTML = '';
-    document.getElementById('project-preview').appendChild(activeProject);
-  }
-});
+
+    //open dialog
+
+      dialogEl.showModal();
+      if(mobile){
+        console.log('alo ba')
+      }
+
+    const module = await import(`./components/${e.target.id}.js`);
+    const activeProject = document.createElement(`${e.target.id}`);
+
+    if(document.getElementById('project-preview-dialog').children === 0) {
+      document.getElementById('project-preview-dialog').appendChild(activeProject);
+    } else {
+      document.getElementById('project-preview-dialog').innerHTML = '';
+      document.getElementById('project-preview-dialog').appendChild(activeProject);
+    }
+
+  });
+
+})
+
+document.getElementById('close-dialog').addEventListener('click', ()=>{
+  dialogEl.close();
 })
 
 //SVG FRAME
