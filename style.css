@@ -33,6 +33,9 @@ html {
   --bg-1: repeating-radial-gradient( circle at 0 0, transparent 0, #e1e7ed .1em ), 
   repeating-linear-gradient( #03076055, #030760 );
 
+    --bg-1-v2: repeating-radial-gradient( circle at 25% 25%, transparent 0, #e1e7ed 2px ), 
+  repeating-linear-gradient( #03076055, #030760 );
+
   --bg-2: repeating-radial-gradient(rgba(129, 129, 129, 0.2), #9198e5 2%);
 }
 
@@ -366,9 +369,10 @@ main {
 }
 
 .work-bg {
-  position: absolute;
-  inset: 0;
-  background: var(--bg-1);
+  position: relative;
+  top: 0;
+  left: 0;
+  background: var(--bg-1-v2);
   z-index: 1;
   /**/
   -webkit-transform: rotateY(3deg);
@@ -655,9 +659,9 @@ main {
   border: 1px solid black;
 }
 
-  .work-bg {
+  /* .work-bg {
     transform: rotateY(3deg);
-  }
+  } */
 
   .active-preview {
     width: 100%;
