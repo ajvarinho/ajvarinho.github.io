@@ -242,23 +242,6 @@ main {
   transform: translateY(10em);
 }
 
-.scroll-context {
-  position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-perspective: 16px;
-  perspective: 16px;
-  width: 50%;
-}
-
-.scroll-context.uno {
-  transform: rotateY(2deg) rotateZ(0deg) scale(1);
-}
-
-.scroll-context.due {
-  transform: rotateY(-2deg) rotateZ(0deg) scale(1);
-}
-
 .welcome-ticker {
     /* background: linear-gradient(45deg, deeppink, chocolate); */
     background: var(--mesh-v3);
@@ -300,7 +283,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  filter: blur(10px);
+  filter:url(#noise);
 }
 
   .card-1, .card-2, .card-3, .card-4 {
@@ -380,6 +363,8 @@ main {
   transform: translateY(40rem);
   z-index: 2;
   padding: 2rem 0;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 /* W O R K */
@@ -400,7 +385,7 @@ main {
   border: 1px solid black;
   /**/
   transform-style: preserve-3d;
--webkit-transform-style: preserve-3d;
+
 }
 
 .work-bg {
