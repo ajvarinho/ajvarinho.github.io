@@ -203,6 +203,7 @@ projectBtns.forEach((btn)=>{
     //open dialog
 
       dialogEl.showModal();
+      dialogEl.open = true;
       if(mobile){
         console.log('alo ba')
       }
@@ -222,6 +223,7 @@ projectBtns.forEach((btn)=>{
 })
 
 document.getElementById('close-dialog').addEventListener('click', ()=>{
+  dialogEl.open = false;
   dialogEl.close();
 })
 

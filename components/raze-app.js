@@ -49,6 +49,80 @@ export class Raze extends HTMLElement {
           border-radius: 6px;
         }
 
+        /*  dialog  */
+
+        /* Reset dialog chrome */
+        dialog {
+          border: none;
+          padding: 0;
+          background: transparent;
+          opacity: 0;
+          transition:
+            opacity 0.4s ease-out,
+            overlay 0.4s ease-out allow-discrete,
+            display 0.4s ease-out allow-discrete;
+        }
+
+        /* Open state for the dialog container */
+        dialog[open] {
+          opacity: 1;
+        }
+
+        @starting-style {
+          dialog[open] {
+            opacity: 0;
+          }
+        }
+
+        /* Backdrop overlay */
+        dialog::backdrop {
+          background-color: rgba(0,0,0,0.4);
+          backdrop-filter: blur(4px);
+          transition:
+            background-color 0.4s ease-out,
+            overlay 0.4s ease-out allow-discrete,
+            display 0.4s ease-out allow-discrete;
+        }
+
+        dialog[open]::backdrop {
+          background-color: rgba(0,0,0,0.4);
+        }
+
+        @starting-style {
+          dialog[open]::backdrop {
+            background-color: rgba(0,0,0,0);
+          }
+        }
+
+        /* Inner content box */
+        .dialog-wrap {
+          background: white;
+          padding: 2rem;
+          border-radius: 8px;
+          max-width: 90vw;
+          max-height: 80vh;
+          overflow-y: auto;
+          box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+          transform: scale(0.95);
+          opacity: 0;
+          transition:
+            opacity 0.4s ease-out,
+            transform 0.4s ease-out;
+        }
+
+        /* Animate content in */
+        dialog[open] .dialog-wrap {
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        @starting-style {
+          dialog[open] .dialog-wrap {
+            transform: scale(0.95);
+            opacity: 0;
+          }
+        }
+
         /* === Carousel styles === */
         .carousel {
           position: relative;
@@ -165,7 +239,10 @@ export class Raze extends HTMLElement {
 
       <!-- First zoom dialog -->
       <dialog id="zoomDialog">
-        <img class="dialog-img" />
+        <div class="dialog-wrap">
+          <img class="dialog-img" />
+          <button id="close-zoom">X</button>
+        </div>
       </dialog>
 
       <!-- Second full-size dialog -->
@@ -213,17 +290,21 @@ export class Raze extends HTMLElement {
       });
     });
 
-    zoomImg.addEventListener('click', () => {
-      fullImg.src = zoomImg.src;
-      fullDialog.showModal();
-    });
+   this.shadowRoot.getElementById('close-zoom').addEventListener('click', ()=>{
+      zoomDialog.close();
+    })
 
-    zoomDialog.addEventListener('click', e => {
-      if (e.target === zoomDialog) zoomDialog.close();
-    });
-    fullDialog.addEventListener('click', e => {
-      if (e.target === fullDialog || e.target === fullImg) fullDialog.close();
-    });
+    // zoomImg.addEventListener('click', () => {
+    //   fullImg.src = zoomImg.src;
+    //   fullDialog.showModal();
+    // });
+
+    // zoomDialog.addEventListener('click', e => {
+    //   if (e.target === zoomDialog) zoomDialog.close();
+    // });
+    // fullDialog.addEventListener('click', e => {
+    //   if (e.target === fullDialog || e.target === fullImg) fullDialog.close();
+    // });
   }
 }
 
