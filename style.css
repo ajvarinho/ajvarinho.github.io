@@ -260,7 +260,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  filter: blur(10px);
+  filter:url(#noise);
 }
 
   .card-1, .card-2, .card-3, .card-4 {
@@ -340,6 +340,8 @@ main {
   transform: translateY(40rem);
   z-index: 2;
   padding: 2rem 0;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 /* W O R K */
@@ -360,7 +362,7 @@ main {
   border: 1px solid black;
   /**/
   transform-style: preserve-3d;
--webkit-transform-style: preserve-3d;
+
 }
 
 .work-bg {
