@@ -87,12 +87,17 @@ wrapper.addEventListener("scroll", e => {
 
     galebWraps.forEach((element)=> {
       element.classList.add('fire');
-      element.classList.add('animate');
+      setTimeout(()=> {
+        element.classList.add('animate');
+      }, 1000);
     });
 
-    sjene.forEach((element=>{
-      element.classList.add('moving');
-    }));
+    setTimeout(() => {
+      sjene.forEach((element=>{
+        element.classList.add('moving');
+      }));
+    }, "1000");
+
 
   } else {
     //bgWrap.classList.remove('animate');

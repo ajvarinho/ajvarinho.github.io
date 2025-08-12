@@ -143,16 +143,30 @@ main {
   width: 7rem;
   display: flex;
   flex-direction: column;
-  transform: scale(1.2);
 }
+
+  .welcome__img.first {
+    transform: rotateY(180deg);
+  }
+
+  .welcome__img.second {
+    transform: scale(1.2);
+  }
+
+/*welcome__img - first of type dodati rotate, second of type dodati scale*/
 
 /* .bg-wrap__img.first {
   transform: rotateY(180deg);
 } */
 
-.animate {
-  animation: move-up 3s ease-out; 
-  animation-fill-mode: forwards; 
+
+
+.animate.first {
+  transform: translateY(-25rem) rotateY(360deg) scale(1);
+}
+
+.animate.second {
+  transform: translateY(-25rem) rotateY(180deg) scale(1.2);
 }
 
 .fire::before {
@@ -203,11 +217,16 @@ content: '';
   width: 0rem; */
   /* transform: scale(0); */
     animation-name: sjene;
+    animation-fill-mode: forwards;
   animation-duration: 3s;
   animation-iteration-count: 1;
 }
 
 /*druga*/
+
+/* .welcome > div:nth-of-type(3) > .welcome__img.animate {
+transform: scale(1.2);
+} */
 
 .welcome > div:nth-of-type(3) > .sjena{
   transform: translateY(0.8rem) scale(1);
@@ -653,9 +672,9 @@ dialog[open] .dialog-wrap {
     flex-direction: column;
   }
 
-  .welcome__img.first {
+  /* .welcome__img.first {
     transform: rotateY(180deg);
-  }
+  } */
 
   .stup {
     
