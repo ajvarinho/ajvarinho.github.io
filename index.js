@@ -62,6 +62,7 @@ const windowHeight = window.innerHeight;
 
 const galebWraps = document.querySelectorAll('.welcome__img');
 const bgWrap = document.querySelector('.welcome');
+const sjene = document.querySelectorAll('.sjena');
 
 let scrollValue;
 let scrollDistance;
@@ -87,13 +88,22 @@ wrapper.addEventListener("scroll", e => {
     galebWraps.forEach((element)=> {
       element.classList.add('fire');
       element.classList.add('animate');
-    })
+    });
+
+    sjene.forEach((element=>{
+      element.classList.add('moving');
+    }));
+
   } else {
     //bgWrap.classList.remove('animate');
-        galebWraps.forEach((element)=> {
+    galebWraps.forEach((element)=> {
       element.classList.remove('fire');
       element.classList.remove('animate');
-    })
+    });
+
+    sjene.forEach((element=>{
+      element.classList.remove('moving');
+    }));
   }
 
    if (st > lastScrollTop) {  
@@ -203,10 +213,12 @@ projectBtns.forEach((btn)=>{
     //open dialog
 
       dialogEl.showModal();
-      dialogEl.open = true;
+
       if(mobile){
         console.log('alo ba')
       }
+
+      console.log(window.getComputedStyle(document.body))
 
     const module = await import(`./components/${e.target.id}.js`);
     const activeProject = document.createElement(`${e.target.id}`);
@@ -223,8 +235,8 @@ projectBtns.forEach((btn)=>{
 })
 
 document.getElementById('close-dialog').addEventListener('click', ()=>{
-  dialogEl.open = false;
   dialogEl.close();
+  document.documentElement.style.overflow = ''; // restore scroll
 })
 
 //SVG FRAME
