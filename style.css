@@ -405,10 +405,9 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
 }
 
 .project.btn {
-  font-family: Eurostile-reg;
+  font-family: sans-serif;
   font-size: 1.2rem;
   text-transform: uppercase;
-  border: 1px solid blue;
 }
 
 .test {
@@ -709,21 +708,42 @@ dialog[open] .dialog-wrap {
     height: fit-content;
     width: 100%;
     margin: 0;
-    padding: 200px 1.5rem;
-    transform: translateZ(0px) translateY(0rem) translateX(-0.5rem) rotateY(0deg) rotateX(-10deg) scale(1);
+    /* padding: 200px 1.5rem; */
+    transform: translateZ(0px) translateY(0rem) translateX(-0.5rem) rotateY(0deg) rotateX(3deg) scale(1);
   }
 
   .work__wrap {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     /**/
-    grid-template-rows: 30% 70%;
-    grid-template-columns: 1fr;
+    /* grid-template-rows: 30% 70%;
+    grid-template-columns: 1fr; */
+    transform-style: preserve-3d;
   }
 
   .work-bg {
     transform: rotateY(-3deg);
     /* width: 200%; */
+    display: none;
   }
+
+  .projects-list {
+  position: relative;
+    height: 100%;
+    border: 1px solid black;
+    transform: translateX(8rem) rotateX(-3deg) translateY(-6rem);
+    width: 100%;
+    display: inline-block;
+    transform-style: preserve-3d;
+}
+
+.projects-list::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+  filter: blur(10px);
+}
 
   .active-preview {
     width: 100%;
@@ -797,7 +817,7 @@ dialog[open] .dialog-wrap {
   .footer {
     font-size: 1rem;
 
-    background: var(--pixel-gradient);
+
     color: white;
     transform: translateY(100rem);
   }
