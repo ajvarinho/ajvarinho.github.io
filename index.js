@@ -5,39 +5,39 @@ if(width < 444){
   mobile = true;
 }
 
-const card = document.querySelector('.title__wrap');
+// const card = document.querySelector('.title__wrap');
 
-let isResetting = false;
+// let isResetting = false;
 
-card.addEventListener('mousemove', (e) => {
-  if (isResetting) return;
+// card.addEventListener('mousemove', (e) => {
+//   if (isResetting) return;
 
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+//   const rect = card.getBoundingClientRect();
+//   const x = e.clientX - rect.left;
+//   const y = e.clientY - rect.top;
 
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
+//   const centerX = rect.width / 2;
+//   const centerY = rect.height / 2;
 
-  const rotateX = ((y - centerY) / centerY) * 30;
-  const rotateY = ((x - centerX) / centerX) * 30;
+//   const rotateX = ((y - centerY) / centerY) * 30;
+//   const rotateY = ((x - centerX) / centerX) * 30;
 
-  //card.style.transition = 'none'; // Instant response
-  card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-});
+//   //card.style.transition = 'none'; // Instant response
+//   card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+// });
 
-card.addEventListener('mouseleave', () => {
-  isResetting = true;
-  card.style.transition = 'transform 0.5s ease'; // Smooth return
-  card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-});
+// card.addEventListener('mouseleave', () => {
+//   isResetting = true;
+//   card.style.transition = 'transform 0.5s ease'; // Smooth return
+//   card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+// });
 
-card.addEventListener('transitionend', (e) => {
-  if (e.propertyName === 'transform') {
-    isResetting = false;
-    // Let the next mouse move remove transition, no need to force it here
-  }
-});
+// card.addEventListener('transitionend', (e) => {
+//   if (e.propertyName === 'transform') {
+//     isResetting = false;
+//     // Let the next mouse move remove transition, no need to force it here
+//   }
+// });
 
 //device motion
 
@@ -62,6 +62,7 @@ const windowHeight = window.innerHeight;
 
 const galebWraps = document.querySelectorAll('.welcome__img');
 const bgWrap = document.querySelector('.welcome');
+const sjene = document.querySelectorAll('.sjena');
 
 let scrollValue;
 let scrollDistance;
@@ -82,18 +83,32 @@ wrapper.addEventListener("scroll", e => {
   st = scrollDistance; 
 
   if(st > 100) {
-    bgWrap.classList.add('animate');
+    //bgWrap.classList.add('animate');
 
     galebWraps.forEach((element)=> {
       element.classList.add('fire');
-      element.classList.add('animate');
-    })
+      setTimeout(()=> {
+        element.classList.add('animate');
+      }, 1000);
+    });
+
+    setTimeout(() => {
+      sjene.forEach((element=>{
+        element.classList.add('moving');
+      }));
+    }, "1000");
+
+
   } else {
-    bgWrap.classList.remove('animate');
-        galebWraps.forEach((element)=> {
+    //bgWrap.classList.remove('animate');
+    galebWraps.forEach((element)=> {
       element.classList.remove('fire');
       element.classList.remove('animate');
-    })
+    });
+
+    sjene.forEach((element=>{
+      element.classList.remove('moving');
+    }));
   }
 
    if (st > lastScrollTop) {  
@@ -132,10 +147,12 @@ const about = `
             interactions.
                 My experience in web development, together with master's degree in philosophy and art history 
                 resulted in interest for deeper creative exploration of web and computational aesthetics.
-                My designs get inspired by renaissance painting and punk,
-                early graffitti, album art and fonts, as well as the aesthetics of
-                pre-smartphone Internet era. 
+
 `;
+
+                // My designs get inspired by renaissance painting and punk,
+                // early graffitti, album art and fonts, as well as the aesthetics of
+                // pre-smartphone Internet era. 
 
 
 const aboutText = document.querySelector('.about-text');
@@ -176,34 +193,55 @@ workWrapMain.addEventListener('mousemove', (e) => {
   //workBgEffect.style.backgroundPositionY = `${y}px`;
 });
 
+const dialogEl = document.querySelector("[closedby='any']");
+
 const projectsArray = [{name: 'Raze App', tag: 'raze-app'}, {name: 'Moon Field', tag: 'moon-field'}, {name: '3D', tag: 'three-d'}];
 const projectBtns = document.querySelectorAll('.project.btn');
 
 projectBtns.forEach((btn, index) => {
+
   const project = projectsArray[index];
   if (project) {
-    // Append name to the button text
+
     btn.textContent += ` ${project.name}`;
 
     btn.id = project.tag;
-    
-    // Add tag as a data attribute
+
     btn.dataset.tag = project.tag;
   }
 });
 
 projectBtns.forEach((btn)=>{
+
   btn.addEventListener('click', async (e) => {
-  console.log(e.target.id);
-  const module = await import(`./components/${e.target.id}.js`);
-  const activeProject = document.createElement(`${e.target.id}`);
-  if(document.getElementById('project-preview').children === 0) {
-    document.getElementById('project-preview').appendChild(activeProject);
-  } else {
-    document.getElementById('project-preview').innerHTML = '';
-    document.getElementById('project-preview').appendChild(activeProject);
-  }
-});
+
+    //open dialog
+
+      dialogEl.showModal();
+
+      if(mobile){
+        console.log('alo ba')
+      }
+
+      console.log(window.getComputedStyle(document.body))
+
+    const module = await import(`./components/${e.target.id}.js`);
+    const activeProject = document.createElement(`${e.target.id}`);
+
+    if(document.getElementById('project-preview-dialog').children === 0) {
+      document.getElementById('project-preview-dialog').appendChild(activeProject);
+    } else {
+      document.getElementById('project-preview-dialog').innerHTML = '';
+      document.getElementById('project-preview-dialog').appendChild(activeProject);
+    }
+
+  });
+
+})
+
+document.getElementById('close-dialog').addEventListener('click', ()=>{
+  dialogEl.close();
+  document.documentElement.style.overflow = ''; // restore scroll
 })
 
 //SVG FRAME
