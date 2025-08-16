@@ -60,7 +60,7 @@ const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
 const windowHeight = window.innerHeight;
 
-const galebWraps = document.querySelectorAll('.welcome__img');
+const galebWraps = document.querySelectorAll('.bg-wrap__img');
 const bgWrap = document.querySelector('.welcome');
 const sjene = document.querySelectorAll('.sjena');
 
@@ -79,6 +79,7 @@ let aboutTop = aboutHeight.y;
 
 wrapper.addEventListener("scroll", e => { 
 
+  console.log('scroll lol')
   let scrollDistance = e.target.scrollTop;
   st = scrollDistance; 
 

@@ -138,16 +138,39 @@ main {
   width: 7rem;
   display: flex;
   flex-direction: column;
+  /**/
+  --base-translate-y: 0rem;    
+  --anim-translate-y: -25rem;    
+  --base-rotateY: 0deg;       
+  --anim-rotateY: 0deg;         
+  --base-scale: 1;             
+  --anim-scale: 1.2;            
+
 }
 
-/* .bg-wrap__img.first {
-  transform: rotateY(180deg);
-} */
-
-.animate {
-  animation: move-up 4s ease-out; 
-  animation-fill-mode: forwards; 
+.bg-wrap__img.first {
+  --base-rotate: 180deg;
+    transform: rotateY(var(--base-rotate));
 }
+
+.bg-wrap__img.second {
+  --base-scale: 1.2;
+  transform: scale(var(--base-scale));
+}
+
+ .bg-wrap__img.first.animate {
+
+    transform: translateY(var(--anim-translate-y)) scale(var(--base-scale)) rotateY(var(--anim-rotateY));
+    transition: transform 3s ease-in;
+  }
+
+  .bg-wrap__img.second.animate {
+    --anim-translate-y: -25rem;
+    --anim-rotateY: 180deg;
+    transform: translateY(var(--anim-translate-y)) scale(var(--anim-scale)) rotateY(var(--anim-rotateY));
+    transition: transform 3s ease-in;
+  }
+
 
 .fire::before {
   content: '';
