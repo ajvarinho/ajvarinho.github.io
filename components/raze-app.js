@@ -28,7 +28,7 @@ export class Raze extends HTMLElement {
 
         .title-wrap {
           color: black;
-          background: linear-gradient(180deg, dimgrey, white);
+          background: white;
           display: flex;
           flex-direction: column;
         }
@@ -192,16 +192,16 @@ export class Raze extends HTMLElement {
             flex-direction: column;
           }
         }
+
+        .desc-wrap > p {
+          text-align: left;
+        }
       </style>
 
       <section class="raze-wrap">
         <div class="title-wrap">
             <h3 class="title">RAZE</h3>
-            <div class="tags-wrap">
-              <div class="tag">ux/ui</div>
-              <div class="tag">mobile app</div>
-              <div class="tag">mozda jos nesto</div>
-            </div>
+
         </div>
         <div class="image-wrap">
           <div class="carousel" id="carousel">
@@ -309,3 +309,10 @@ export class Raze extends HTMLElement {
 }
 
 customElements.define('raze-app', Raze);
+
+
+            // <div class="tags-wrap">
+            //   <div class="tag">ux/ui</div>
+            //   <div class="tag">mobile app</div>
+            //   <div class="tag">mozda jos nesto</div>
+            // </div>

@@ -434,6 +434,10 @@ dialog {
     opacity 0.4s ease-out,
     overlay 0.4s ease-out allow-discrete,
     display 0.4s ease-out allow-discrete;
+
+  /*overwriting default style*/
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 /* Open state for the dialog container */
@@ -469,18 +473,19 @@ dialog[open]::backdrop {
 
 /* Inner content box */
 .dialog-wrap {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 90vw;
-  max-height: 80vh;
+  background: var(--mesh);
+  /* padding: 2rem; */
   overflow-y: auto;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  /* box-shadow: 0 8px 30px rgba(0,0,0,0.3); */
   transform: scale(0.95);
   opacity: 0;
   transition:
     opacity 0.4s ease-out,
     transform 0.4s ease-out;
+    /*full width and height*/
+  width: 100%;
+  height: 100%;
+  text-align: right;
 }
 
 /* Animate content in */

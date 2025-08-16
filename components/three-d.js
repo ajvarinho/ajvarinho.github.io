@@ -17,6 +17,8 @@ export class threeD extends HTMLElement {
             perspective: 15px;
             perspective-origin: 50% calc(50% - 2em);
             overflow: hidden;
+            /**/
+            width: 100vw;
         }
 
         .scene {
