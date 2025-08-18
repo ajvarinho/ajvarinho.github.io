@@ -56,11 +56,11 @@ window.addEventListener("devicemotion", handleMotionEvent, true);
 
 // S C R O L L
 
+const windowHeight = window.innerHeight;
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
-const windowHeight = window.innerHeight;
 
-const galebWraps = document.querySelectorAll('.bg-wrap__img');
+let imgWraps = document.querySelectorAll('.bg-wrap__img');
 const bgWrap = document.querySelector('.welcome');
 const sjene = document.querySelectorAll('.sjena');
 
@@ -77,64 +77,127 @@ const aboutWrap = document.querySelector('.about');
 const aboutHeight = aboutWrap.getBoundingClientRect();
 let aboutTop = aboutHeight.y;
 
-wrapper.addEventListener("scroll", e => { 
 
-  console.log('scroll lol')
-  let scrollDistance = e.target.scrollTop;
-  st = scrollDistance; 
+const animWrap = document.querySelector('.bg-wrap');
 
-  if(st > 100) {
-    //bgWrap.classList.add('animate');
+const watcher = document.querySelector('.watcher');
 
-    galebWraps.forEach((element)=> {
-      element.classList.add('fire');
-      setTimeout(()=> {
-        element.classList.add('animate');
-      }, 1000);
-    });
+window.addEventListener('DOMContentLoaded', (event)=>{
+  //createObserver();
 
-    setTimeout(() => {
-      sjene.forEach((element=>{
-        element.classList.add('moving');
-      }));
-    }, "1000");
+  console.log('loaded')
+}, false);
 
+//
 
-  } else {
-    //bgWrap.classList.remove('animate');
-    galebWraps.forEach((element)=> {
-      element.classList.remove('fire');
-      element.classList.remove('animate');
-    });
+// function createObserver() {
+//   let observer;
 
-    sjene.forEach((element=>{
-      element.classList.remove('moving');
-    }));
-  }
+//   let options = {
+//     root: null,
+//     rootMargin: "0px",
+//     threshold: buildThresholdList(),
+//   };
 
-   if (st > lastScrollTop) {  
-    index += 1;
-    console.log(index, 'down');
-
-  } else if (st < lastScrollTop) {  
-    index -= 1;
-    console.log(index, 'up');
-  } 
-
-  console.log(st, 'aaaa')
-
-  if(st > aboutTop){
-    aboutWrap.classList.add('active');
-  }
-  //buggy ;P
-  // if(lastScrollTop < 10) {
-  //   bgWrap.classList.remove('animate');
-  // }
-
-  lastScrollTop = st <= 0 ? 0 : st; 
+//   observer = new IntersectionObserver(handleIntersect, options);
+//   observer.observe(animWrap);
+// }
 
 
-});
+//
+
+const observer = new IntersectionObserver(
+    (entries) => {
+      // entries is an array; we only observe 1 element, so take the first
+      const entry = entries[0];
+
+      console.log('check', entry);
+
+      // entry.isIntersecting === true  -> the hero is within the observed area
+      // entry.isIntersecting === false -> we’ve scrolled past our threshold
+      if (entry.isIntersecting) {
+        console.log('here', entry);
+        imgWraps.forEach((element)=>{
+          element.classList.remove('fire', 'animate');
+        });
+
+      } else {
+        console.log('scrolled away');
+        imgWraps.forEach((element)=>{
+          element.classList.add('fire', 'animate');
+        });
+      }
+    },
+    {
+      root: null,                 // use the viewport as the "root"
+      rootMargin: '100px 0px 0px 0px',
+      // ^ shrink the top edge of the root by 120px. That means:
+      //   - As soon as the top of the hero goes 120px above the top of the screen,
+      //     it is considered "not intersecting".
+      threshold: 0                // fire when it crosses in/out (any amount)
+    }
+  );
+
+  // 3) Start observing the hero element.
+  observer.observe(watcher);
+
+  // (optional) If you ever want to stop watching:
+  // observer.unobserve(hero);
+  // observer.disconnect();
+
+
+//
+
+
+
+// wrapper.addEventListener("scroll", e => { 
+
+//   console.log('scroll lol')
+//   let scrollDistance = e.target.scrollTop;
+//   st = scrollDistance; 
+
+//   if(st > 100) {
+//     //bgWrap.classList.add('animate');
+
+//     galebWraps.forEach((element)=> {
+//       element.classList.add('fire');
+//       setTimeout(()=> {
+//         element.classList.add('animate');
+//       }, 1000);
+//     });
+
+//   } else {
+//     //bgWrap.classList.remove('animate');
+//     galebWraps.forEach((element)=> {
+//       element.classList.remove('fire');
+//       element.classList.remove('animate');
+//     });
+
+//     sjene.forEach((element=>{
+//       element.classList.remove('moving');
+//     }));
+//   }
+
+//    if (st > lastScrollTop) {  
+//     index += 1;
+//     console.log(index, 'down');
+
+//   } else if (st < lastScrollTop) {  
+//     index -= 1;
+//     console.log(index, 'up');
+//   } 
+
+//   console.log(st, 'aaaa')
+
+//   if(st > aboutTop){
+//     aboutWrap.classList.add('active');
+//   }
+
+
+//   lastScrollTop = st <= 0 ? 0 : st; 
+
+
+// });
 
 
 const about = `
