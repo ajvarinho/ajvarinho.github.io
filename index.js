@@ -74,59 +74,72 @@ const pageTitle = document.getElementById('title');
 let st;
 
 const aboutWrap = document.querySelector('.about');
-const aboutHeight = aboutWrap.getBoundingClientRect();
-let aboutTop = aboutHeight.y;
-
-
-const animWrap = document.querySelector('.bg-wrap');
-
+// const aboutHeight = aboutWrap.getBoundingClientRect();
+// let aboutTop = aboutHeight.y;
 const watcher = document.querySelector('.watcher');
+
+const cardTexts = document.querySelectorAll('.text-wrap p');
+
+console.log(cardTexts)
 
 window.addEventListener('DOMContentLoaded', (event)=>{
   //createObserver();
 
   console.log('loaded')
 }, false);
-
 //
 
-// function createObserver() {
-//   let observer;
+let animateTimeout = null;
+  let sjeneTimeout = null;
+  let animStarted = false;
 
-//   let options = {
-//     root: null,
-//     rootMargin: "0px",
-//     threshold: buildThresholdList(),
-//   };
+  const ANIMATE_DELAY = 500; // ms before adding .animate
 
-//   observer = new IntersectionObserver(handleIntersect, options);
-//   observer.observe(animWrap);
-// }
+  function startAnimations() {
+    if (animStarted) return; // don't re-start while already started
+    animStarted = true;
 
+    // add immediate class that shows 'fire' visual (or other immediate state)
+    imgWraps.forEach(el => el.classList.add('fire'));
 
-//
+    // schedule the main transforms after a small delay (your previous logic)
+    animateTimeout = setTimeout(() => {
+      imgWraps.forEach(el => {
+        // To ensure CSS animation restarts cleanly, remove then re-add with a forced reflow
+        el.classList.remove('animate');
+        void el.offsetWidth; // reflow
+        el.classList.add('animate');
+      });
+    }, ANIMATE_DELAY);
+  }
+
+  function resetAnimations() {
+    // cancel pending timers so they don't run after we already reset
+    clearTimeout(animateTimeout); animateTimeout = null;
+
+    // remove animation-related classes (they will transition back thanks to transition on transform)
+    imgWraps.forEach(el => {
+      el.classList.remove('fire', 'animate');
+      void el.offsetWidth; // reset
+    });
+
+    animStarted = false;
+  }
+
 
 const observer = new IntersectionObserver(
     (entries) => {
-      // entries is an array; we only observe 1 element, so take the first
+  
       const entry = entries[0];
 
-      console.log('check', entry);
-
-      // entry.isIntersecting === true  -> the hero is within the observed area
-      // entry.isIntersecting === false -> we’ve scrolled past our threshold
       if (entry.isIntersecting) {
-        console.log('here', entry);
-        imgWraps.forEach((element)=>{
-          element.classList.remove('fire', 'animate');
-        });
+        resetAnimations();
 
       } else {
-        console.log('scrolled away');
-        imgWraps.forEach((element)=>{
-          element.classList.add('fire', 'animate');
-        });
-      }
+        startAnimations();
+        cardTexts.forEach(el => el.classList.remove('hidden'));
+      };
+
     },
     {
       root: null,                 // use the viewport as the "root"
@@ -147,58 +160,6 @@ const observer = new IntersectionObserver(
 
 
 //
-
-
-
-// wrapper.addEventListener("scroll", e => { 
-
-//   console.log('scroll lol')
-//   let scrollDistance = e.target.scrollTop;
-//   st = scrollDistance; 
-
-//   if(st > 100) {
-//     //bgWrap.classList.add('animate');
-
-//     galebWraps.forEach((element)=> {
-//       element.classList.add('fire');
-//       setTimeout(()=> {
-//         element.classList.add('animate');
-//       }, 1000);
-//     });
-
-//   } else {
-//     //bgWrap.classList.remove('animate');
-//     galebWraps.forEach((element)=> {
-//       element.classList.remove('fire');
-//       element.classList.remove('animate');
-//     });
-
-//     sjene.forEach((element=>{
-//       element.classList.remove('moving');
-//     }));
-//   }
-
-//    if (st > lastScrollTop) {  
-//     index += 1;
-//     console.log(index, 'down');
-
-//   } else if (st < lastScrollTop) {  
-//     index -= 1;
-//     console.log(index, 'up');
-//   } 
-
-//   console.log(st, 'aaaa')
-
-//   if(st > aboutTop){
-//     aboutWrap.classList.add('active');
-//   }
-
-
-//   lastScrollTop = st <= 0 ? 0 : st; 
-
-
-// });
-
 
 const about = `
                 hello, my name is Nikola and I'm
@@ -225,9 +186,26 @@ const aboutBg = document.querySelector('.about-bg');
 
 aboutText.innerHTML = about;
 
-const testMe = 123;
+const mainWrap = document.querySelector('.wrapper');
 
-//p.5 test
+mainWrap.addEventListener('mousemove', (e) => {
+
+  const perspectiveValues = mainWrap.getBoundingClientRect();
+  let x = e.clientX - perspectiveValues.left;
+  let y = e.clientY - perspectiveValues.top;
+
+  x = Math.round(x) / 10;
+  y = Math.round(y) / 10;
+
+  console.log('main wrap', x, y);
+
+  mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
+
+  //background-position: bottom 50px right 100px;
+
+  //workBgEffect.style.backgroundPositionX = `${x}px`;
+  //workBgEffect.style.backgroundPositionY = `${y}px`;
+});
 
 
 //WORK
@@ -247,19 +225,18 @@ const projectsWrap = document.querySelector('.work__wrap');
 
 workWrapMain.addEventListener('mousemove', (e) => {
 
+  workBgEffect.style.opacity = 1;
+
   const workValues = workWrapMain.getBoundingClientRect();
   let x = e.clientX - workValues.left;
   let y = e.clientY - workValues.top;
 
-  x = Math.round(x) / 2;
-  y = Math.round(y) / 2;
+  x = Math.round(x) / 8;
+  y = Math.round(y);
 
-  console.log('mouse moving', x, y)
-
-  //background-position: bottom 50px right 100px;
-
-  //workBgEffect.style.backgroundPositionX = `${x}px`;
-  //workBgEffect.style.backgroundPositionY = `${y}px`;
+  // workBgEffect.style.backgroundPositionX = `${x}px`;
+  // workBgEffect.style.backgroundPositionY = `${y}px`;
+  workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`
 });
 
 const dialogEl = document.querySelector("[closedby='any']");
