@@ -237,9 +237,8 @@ workWrapMain.addEventListener('mousemove', (e) => {
 
   // workBgEffect.style.backgroundPositionX = `${x}px`;
   // workBgEffect.style.backgroundPositionY = `${y}px`;
-  // if(!mobile){
-  //   workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`;
-  // }
+    workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`;
+  
 });
 
 const dialogEl = document.querySelector("[closedby='any']");
