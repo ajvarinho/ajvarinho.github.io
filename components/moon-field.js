@@ -5,7 +5,7 @@ export class MoonField extends HTMLElement {
   }
 
   connectedCallback() {
-    const rows = parseInt(this.getAttribute('rows')) || 12;
+    const rows = parseInt(this.getAttribute('rows')) || 5;
     const cols = parseInt(this.getAttribute('cols')) || 5;
 
     this.shadowRoot.innerHTML = `
