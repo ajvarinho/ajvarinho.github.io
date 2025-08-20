@@ -269,10 +269,11 @@ projectBtns.forEach((btn)=>{
     const module = await import(`./components/${e.target.id}.js`);
     const activeProject = document.createElement(`${e.target.id}`);
 
-    alert(`${activeProject.id}, active`)
+
 
     if(document.getElementById('project-preview-dialog').children === 0) {
       document.getElementById('project-preview-dialog').appendChild(activeProject);
+      alert(document.getElementById('project-preview-dialog').childNodes, 'active')
     } else {
       document.getElementById('project-preview-dialog').innerHTML = '';
       document.getElementById('project-preview-dialog').appendChild(activeProject);
