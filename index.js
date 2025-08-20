@@ -236,7 +236,9 @@ workWrapMain.addEventListener('mousemove', (e) => {
 
   // workBgEffect.style.backgroundPositionX = `${x}px`;
   // workBgEffect.style.backgroundPositionY = `${y}px`;
-  workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`
+  if(!mobile){
+    workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`;
+  }
 });
 
 const dialogEl = document.querySelector("[closedby='any']");
@@ -263,14 +265,7 @@ projectBtns.forEach((btn)=>{
 
     //open dialog
 
-      dialogEl.showModal();
-
-      if(mobile){
-        alert('test')
-      }
-
-      console.log(window.getComputedStyle(document.body))
-
+    dialogEl.showModal();
     const module = await import(`./components/${e.target.id}.js`);
     const activeProject = document.createElement(`${e.target.id}`);
 
@@ -280,7 +275,6 @@ projectBtns.forEach((btn)=>{
       document.getElementById('project-preview-dialog').innerHTML = '';
       document.getElementById('project-preview-dialog').appendChild(activeProject);
     }
-
   });
 
 })
