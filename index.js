@@ -266,7 +266,7 @@ projectBtns.forEach((btn)=>{
       dialogEl.showModal();
 
       if(mobile){
-        console.log('alo ba')
+        alert('test')
       }
 
       console.log(window.getComputedStyle(document.body))
