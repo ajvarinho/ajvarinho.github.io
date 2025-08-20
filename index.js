@@ -77,14 +77,10 @@ const aboutWrap = document.querySelector('.about');
 // const aboutHeight = aboutWrap.getBoundingClientRect();
 // let aboutTop = aboutHeight.y;
 const watcher = document.querySelector('.watcher');
-
 const cardTexts = document.querySelectorAll('.text-wrap p');
-
-console.log(cardTexts)
 
 window.addEventListener('DOMContentLoaded', (event)=>{
   //createObserver();
-
   console.log('loaded')
 }, false);
 //
@@ -188,7 +184,9 @@ aboutText.innerHTML = about;
 
 const mainWrap = document.querySelector('.wrapper');
 
-mainWrap.addEventListener('mousemove', (e) => {
+function perspectiveTrick(){
+
+  mainWrap.addEventListener('mousemove', (e) => {
 
   const perspectiveValues = mainWrap.getBoundingClientRect();
   let x = e.clientX - perspectiveValues.left;
@@ -197,13 +195,7 @@ mainWrap.addEventListener('mousemove', (e) => {
   x = Math.round(x) / 10;
   y = Math.round(y) / 10;
 
-  console.log('main wrap', x, y);
-
-  if(!mobile){
-    mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
-  } else {
-    mainWrap.style.perspectiveOrigin = '50% 50%';
-  }
+  mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
 
 
   //background-position: bottom 50px right 100px;
@@ -211,7 +203,11 @@ mainWrap.addEventListener('mousemove', (e) => {
   //workBgEffect.style.backgroundPositionX = `${x}px`;
   //workBgEffect.style.backgroundPositionY = `${y}px`;
 });
+}
 
+if(!mobile){
+  perspectiveTrick();
+}
 
 //WORK
 

@@ -437,7 +437,7 @@ dialog {
   border: none;
   padding: 0;
   background: transparent;
-  opacity: 0;
+  /* opacity: 0; */
   transition:
     opacity 0.4s ease-out,
     overlay 0.4s ease-out allow-discrete,
@@ -455,7 +455,7 @@ dialog[open] {
 
 @starting-style {
   dialog[open] {
-    opacity: 0;
+    /* opacity: 0; */
   }
 }
 
@@ -486,7 +486,7 @@ dialog[open]::backdrop {
   overflow-y: auto;
   /* box-shadow: 0 8px 30px rgba(0,0,0,0.3); */
   transform: scale(0.95);
-  opacity: 0;
+  /* opacity: 0; */
   transition:
     opacity 0.4s ease-out,
     transform 0.4s ease-out;
@@ -505,7 +505,7 @@ dialog[open] .dialog-wrap {
 @starting-style {
   dialog[open] .dialog-wrap {
     transform: scale(0.95);
-    opacity: 0;
+    /* opacity: 0; */
   }
 }
 
