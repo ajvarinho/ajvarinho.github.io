@@ -266,6 +266,7 @@ projectBtns.forEach((btn)=>{
     //open dialog
 
     dialogEl.showModal();
+    alert('modal active')
     const module = await import(`./components/${e.target.id}.js`);
     const activeProject = document.createElement(`${e.target.id}`);
 
@@ -273,7 +274,6 @@ projectBtns.forEach((btn)=>{
 
     if(document.getElementById('project-preview-dialog').children === 0) {
       document.getElementById('project-preview-dialog').appendChild(activeProject);
-      alert(document.getElementById('project-preview-dialog').childNodes, 'active')
     } else {
       document.getElementById('project-preview-dialog').innerHTML = '';
       document.getElementById('project-preview-dialog').appendChild(activeProject);
