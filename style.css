@@ -690,8 +690,7 @@ dialog[open] .dialog-wrap {
     height: fit-content;
     width: 100%;
     margin: 0;
-    /* padding: 200px 1.5rem; */
-    transform: translateZ(0px) translateY(0rem) translateX(-0.5rem) rotateY(0deg) rotateX(1deg) scale(1);
+
   }
 
   .work__wrap {
@@ -699,15 +698,15 @@ dialog[open] .dialog-wrap {
   }
 
   .work-bg {
-    transform: rotateY(-3deg);
-    display: none;
+    /* transform: rotateY(-3deg);
+    display: none; */
   }
 
   .projects-list {
   position: relative;
     height: 100%;
     border: 1px solid black;
-    transform: translateX(8rem) rotateX(-3deg) translateY(-6rem);
+    /* transform: translateX(8rem) rotateX(-3deg) translateY(-6rem); */
     width: 100%;
     display: inline-block;
     transform-style: preserve-3d;
@@ -722,10 +721,7 @@ dialog[open] .dialog-wrap {
   filter: blur(10px);
 }
 
-  .active-preview {
-    width: 100%;
-    transform: translateZ(0px) translateY(-25rem) translateX(0em) rotateY(0deg) rotateZ(0deg);
-  }
+
 
   .close {
     color: rgb(255, 255, 255);
