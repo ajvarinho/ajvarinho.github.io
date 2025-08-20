@@ -199,7 +199,12 @@ mainWrap.addEventListener('mousemove', (e) => {
 
   console.log('main wrap', x, y);
 
-  mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
+  if(!mobile){
+    mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
+  } else {
+    mainWrap.style.perspectiveOrigin = '50% 50%';
+  }
+
 
   //background-position: bottom 50px right 100px;
 
@@ -251,7 +256,7 @@ projectBtns.forEach((btn, index) => {
   const project = projectsArray[index];
   if (project) {
 
-    btn.textContent += ` ${project.name}`;
+    btn.textContent += `${project.name}`;
 
     btn.id = project.tag;
 
@@ -266,11 +271,8 @@ projectBtns.forEach((btn)=>{
     //open dialog
 
     dialogEl.showModal();
-    alert('modal active')
     const module = await import(`./components/${e.target.id}.js`);
     const activeProject = document.createElement(`${e.target.id}`);
-
-
 
     if(document.getElementById('project-preview-dialog').children === 0) {
       document.getElementById('project-preview-dialog').appendChild(activeProject);
