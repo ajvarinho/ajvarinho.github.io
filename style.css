@@ -502,10 +502,8 @@ dialog[open]::backdrop {
     transform 0.4s ease-out;
     /*full width and height*/
   width: 100vw;
-  height: 90vh;
+  height: fit-content;
   text-align: right;
-  /**/
-  margin-bottom: 2rem;
 }
 
 /* Animate content in */
@@ -520,6 +518,48 @@ dialog[open] .dialog-wrap {
     opacity: 0;
   }
 }
+
+.btn-wrap {
+  position: fixed;
+  display: flex;
+  gap: 2rem;
+
+  width: 100%;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.up {
+  top: 0;
+justify-content: end;
+}
+
+.down {
+  bottom: 0;
+  justify-content: center;
+}
+
+.btn-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+
+.btn-wrap > button {
+  cursor: pointer;
+  z-index: 2;
+  padding: .2rem 1rem;
+  border: 2px solid;
+  transition-duration: .7s;
+}
+
+.btn-wrap > button:hover {
+  color: blue;
+  background: pink;
+}
+
+
 
 
 
@@ -733,17 +773,6 @@ dialog[open] .dialog-wrap {
   filter: blur(10px);
 }
 
-
-
-  .close {
-    color: rgb(255, 255, 255);
-    padding: .5rem 1.3rem;
-    background-color: rgb(103, 103, 103);
-    border: 1px solid lawngreen;
-    z-index: 10;
-  }
-
-
   .about {
     transform: translateY(30rem);
   }
@@ -761,6 +790,7 @@ dialog[open] .dialog-wrap {
   pointer-events: none;
    -webkit-transform: translateX(0rem) rotateX(1deg);
   transform: translateX(0rem) rotateX(1deg);
+  backdrop-filter: blur(10px);
   }
 
   .text-bg {
