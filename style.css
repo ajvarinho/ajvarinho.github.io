@@ -301,27 +301,29 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
   filter:url(#noise);
 }
 
-
-
 .parallax__fg {
   position: relative;
-  height: 50%;
-  width: 100%;
   z-index: 1;
-  transform: translateZ(-8px) translateY(20rem) translateX(0px) rotateY(-2deg) rotateZ(0deg) rotateZ(0deg);
-  overflow: scroll;
+  transform-style: preserve-3d;
+}
+
+.fg__element {
+  transform-style: preserve-3d;
+}
+
+.svg-context {
+  width: 100vw;
+  transform: translateZ(0px) translateY(-15rem) translateX(5rem) rotateY(1deg);
 }
 
 #animatedText {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 900;
   fill: rgb(224, 31, 134);
   font-family: "IBM";
   filter: blur(0px);
   text-shadow: .1em .1em .1em rgb(11, 11, 11);
-  /* text-emphasis: filled double-circle #ffb703; */
 }
-
 
 /* SVG kad dodje momenat*/
 .svg-el {
@@ -341,10 +343,8 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
   }
 }
 
-
 .content {
   position:relative;
-  /*bilo 25rem*/
   transform: translateY(40rem);
   z-index: 2;
   padding: 2rem 0;
@@ -359,12 +359,9 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
   height: fit-content;
   z-index: 1;
   transition-duration: .7s;
-  /**/
-  /* background: linear-gradient(45deg, aqua, chartreuse); */
   background: var(--mesh);
   color: white;
   margin: 0 2rem;
-  /**/
   transform-style: preserve-3d;
   backdrop-filter: blur(10px);
   transform: rotateX(1deg) translateZ(.1rem);
@@ -384,8 +381,6 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
   transition-duration: 0.7s;
 }
 
-
-
 .work__wrap {
   position: relative;
   z-index: 2;
@@ -393,11 +388,9 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
 }
 
 .projects-list {
-
   position: relative;
   height: 90%;
   z-index: 2;
-  display: inline-block;
   transform-style: preserve-3d;
 }
 

@@ -20,6 +20,7 @@ export class Raze extends HTMLElement {
           display: grid;
           grid-template-rows: 60% 40%;
           grid-template-columns: 40% 60%;
+          padding: 2rem 0;
         }
 
         .raze-wrap > div {
@@ -190,6 +191,7 @@ export class Raze extends HTMLElement {
           .raze-wrap {
             display: flex;
             flex-direction: column;
+
           }
         }
 
