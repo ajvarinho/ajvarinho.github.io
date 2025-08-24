@@ -793,16 +793,15 @@ display: flex;
     transform: translate(0%, 40px) scale(1);
     transition-duration: 0.7s;
     opacity: 1;
-    height: 80vh;
+    height: 55vh;
 
   }
 
 
 
   .about-img > img {
-    width: 100%;
-  transform: translateX(-21rem) rotateY(-2deg) scale(1.2);
-    opacity: 0.5;
+ width: 70%;
+    transform: translateX(-9rem) rotateY(0deg) scale(1.2);
   }
 
   .about-text {
