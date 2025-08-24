@@ -785,10 +785,10 @@ display: flex;
   .about-img:before {
   content: '';
   position: absolute;
-  top: -253px;
-  left: 63px;
-  height: 15rem;
-  width: 16rem;
+  top: -267%;
+    left: 63px;
+    height: 40rem;
+    width: 10rem;
   transition-duration: 1s;
   background-color: #0000004f;
   /* background-image: url('./img/img_test_nobg.png');
