@@ -758,13 +758,14 @@ display: flex;
 
   .img-effect {
     position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  transform-style: preserve-3d;
-  transform: translate(0%, 40px) scale(0.6);
-  transition-duration: 0.7s;
-  opacity: 1;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transform: translate(0%, 40px) scale(1);
+    transition-duration: 0.7s;
+    opacity: 1;
+    height: 80vh;
   }
 
 
@@ -784,16 +785,16 @@ display: flex;
 
   .text-bg {
     width: 100%;
-    /* transform: translateZ(.1rem) translateX(-6rem) translateY(10rem) rotateY(1deg); */
+    transform: translateZ(-.9rem) translateX(-13rem) translateY(10rem) rotateY(1deg);
     background-size: cover;
-    background-repeat: no-repeat;
-    background-size: 150%;
+    overflow: scroll;
+    background-position: 9%;
   }
 
   .text-bg.second {
-     width: 100%;
-    background-position-x: 32%;
-  /* transform: translateX(16rem) translateZ(-.5rem) translateY(10rem) rotateY(-1deg); */
+     width: 180%;
+    background-position-x: 116%;
+    transform: translateX(11rem) translateZ(-0.9rem) translateY(10rem) rotateY(-1deg);
   }
 
   .about-img:before {
@@ -814,7 +815,7 @@ display: flex;
     left: 145px;
     height: 17rem;
     width: 15rem;
-    background-color: #f200ff4f;
+    background: var(--mesh-v3);
 
 }
 
