@@ -790,18 +790,19 @@ display: flex;
     display: flex;
     justify-content: center;
     transform-style: preserve-3d;
-    transform: translate(0%, 40px) scale(1);
+    transform: translate(0%, 40px) scale(1.5);
     transition-duration: 0.7s;
     opacity: 1;
-    height: 55vh;
+    height: 60vh;
 
   }
 
 
 
   .about-img > img {
- width: 70%;
+width: 70%;
     transform: translateX(-9rem) rotateY(0deg) scale(1.2);
+    filter: drop-shadow(4px 0px 0px chartreuse);
   }
 
   .about-text {
@@ -812,17 +813,15 @@ display: flex;
   }
 
   .text-bg {
-    width: 100%;
-    transform: translateZ(-.9rem) translateX(-13rem) translateY(10rem) rotateY(1deg);
+  transform: translateZ(-1rem) translateX(-5rem) translateY(0rem) rotateY(1deg);
     background-size: cover;
     overflow: scroll;
     background-position: 9%;
   }
 
   .text-bg.second {
-     width: 180%;
-    background-position-x: 116%;
-    transform: translateX(13rem) translateZ(-0.9rem) translateY(10rem) rotateY(-1deg);
+background-position-x: 71%;
+    transform: translateX(14rem) translateZ(-1rem) translateY(00rem) rotateY(-1deg);
   }
 
   .about-img:before {
