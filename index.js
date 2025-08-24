@@ -209,6 +209,11 @@ if(!mobile){
   perspectiveTrick();
 }
 
+const aboutImg = document.getElementById('about-img');
+const effectWrap = document.querySelector('.img-effect');
+
+aboutImg.addEventListener('click', ()=> effectWrap.style.opacity = '1');
+
 //WORK
 
 const workWrapMain = document.getElementById('work-main');
@@ -233,7 +238,7 @@ workWrapMain.addEventListener('mousemove', (e) => {
   let y = e.clientY - workValues.top;
 
   x = Math.round(x) / 8;
-  y = Math.round(y);
+  y = Math.round(y) / 2;
 
   // workBgEffect.style.backgroundPositionX = `${x}px`;
   // workBgEffect.style.backgroundPositionY = `${y}px`;
@@ -285,52 +290,52 @@ document.getElementById('close-dialog').addEventListener('click', ()=>{
 })
 
 //SVG FRAME
-const svgWrapEl = document.querySelector(".mega-wrap");
-const svgEl = document.querySelector(".svg-el");
+// const svgWrapEl = document.querySelector(".mega-wrap");
+// const svgEl = document.querySelector(".svg-el");
 
-let wrapWidth = svgWrapEl.offsetWidth;
-let wrapHeight = svgWrapEl.offsetHeight;
+// let wrapWidth = svgWrapEl.offsetWidth;
+// let wrapHeight = svgWrapEl.offsetHeight;
 
-svgEl.setAttribute("height", wrapHeight);
-svgEl.setAttribute("width", wrapWidth);
-svgEl.setAttribute("viewBox", `0, 0, ${wrapWidth}, ${wrapHeight}`);
+// svgEl.setAttribute("height", wrapHeight);
+// svgEl.setAttribute("width", wrapWidth);
+// svgEl.setAttribute("viewBox", `0, 0, ${wrapWidth}, ${wrapHeight}`);
 
-const polylineTop = document.querySelector(".polyline.top");
-const polylineLeft = document.querySelector(".polyline.left");
-const polylineBottom = document.querySelector(".polyline.bottom");
+// const polylineTop = document.querySelector(".polyline.top");
+// const polylineLeft = document.querySelector(".polyline.left");
+// const polylineBottom = document.querySelector(".polyline.bottom");
 
-let widthNum = Math.round(wrapWidth);
-let heightNum = Math.round(wrapHeight);
+// let widthNum = Math.round(wrapWidth);
+// let heightNum = Math.round(wrapHeight);
 
-let pointsTop;
-let pointsLeft;
-let pointsBottom;
+// let pointsTop;
+// let pointsLeft;
+// let pointsBottom;
 
-pointsTop = `0,50 152,50 152,50 165,0 500,0, 552,50 552,50 ${widthNum},50 ${widthNum},50 ${widthNum},${
-  heightNum / 4 + 50
-} ${widthNum},${heightNum / 4 + 50} ${widthNum - 70},${heightNum / 4 - 50}`;
+// pointsTop = `0,50 152,50 152,50 165,0 500,0, 552,50 552,50 ${widthNum},50 ${widthNum},50 ${widthNum},${
+//   heightNum / 4 + 50
+// } ${widthNum},${heightNum / 4 + 50} ${widthNum - 70},${heightNum / 4 - 50}`;
 
-pointsLeft =
-  "0,50 0,200 0,200 230,125 230,125 230,400 230,400 0,475 0,475 0,842";
+// pointsLeft =
+//   "0,50 0,200 0,200 230,125 230,125 230,400 230,400 0,475 0,475 0,842";
 
-pointsBottom = `0,840 ${widthNum},840 ${widthNum},840 ${widthNum},950 ${widthNum},950 400,950 400,950 370,900 370,900 0,900 0,900 0,1800`;
+// pointsBottom = `0,840 ${widthNum},840 ${widthNum},840 ${widthNum},950 ${widthNum},950 400,950 400,950 370,900 370,900 0,900 0,900 0,1800`;
 
-polylineTop.setAttribute("points", pointsTop);
-polylineLeft.setAttribute("points", pointsLeft);
-polylineBottom.setAttribute("points", pointsBottom);
+// polylineTop.setAttribute("points", pointsTop);
+// polylineLeft.setAttribute("points", pointsLeft);
+// polylineBottom.setAttribute("points", pointsBottom);
 
-//SVG ANIMATION
-let topLength = Math.floor(polylineTop.getTotalLength());
-let leftLength = Math.floor(polylineLeft.getTotalLength());
-let bottomLength = Math.floor(polylineBottom.getTotalLength());
-//
-polylineTop.setAttribute("stroke-dasharray", topLength);
-polylineTop.setAttribute("stroke-dashoffset", topLength);
-//
-polylineLeft.setAttribute("stroke-dasharray", leftLength);
-polylineLeft.setAttribute("stroke-dashoffset", leftLength);
-//
-polylineBottom.setAttribute("stroke-dasharray", bottomLength);
-polylineBottom.setAttribute("stroke-dashoffset", bottomLength);
+// //SVG ANIMATION
+// let topLength = Math.floor(polylineTop.getTotalLength());
+// let leftLength = Math.floor(polylineLeft.getTotalLength());
+// let bottomLength = Math.floor(polylineBottom.getTotalLength());
+// //
+// polylineTop.setAttribute("stroke-dasharray", topLength);
+// polylineTop.setAttribute("stroke-dashoffset", topLength);
+// //
+// polylineLeft.setAttribute("stroke-dasharray", leftLength);
+// polylineLeft.setAttribute("stroke-dashoffset", leftLength);
+// //
+// polylineBottom.setAttribute("stroke-dasharray", bottomLength);
+// polylineBottom.setAttribute("stroke-dashoffset", bottomLength);
 
 
