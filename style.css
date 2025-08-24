@@ -783,16 +783,27 @@ display: flex;
   }
 
   .about-img:before {
-  content: '';
-  position: absolute;
-  top: -267%;
+     content: '';
+    position: absolute;
+    top: -185%;
     left: 63px;
-    height: 40rem;
+    height: 17rem;
     width: 10rem;
-  transition-duration: 1s;
-  background-color: #0000004f;
-  /* background-image: url('./img/img_test_nobg.png');
-  background-position: 107% 11%; */
+    background-color: #0000004f;
+    background-image: url('./img/img_test_nobg.png');
+    background-position: 120% 33%;
+}
+
+  .about-img:after {
+    content: '';
+    position: absolute;
+    top: -120%;
+    left: 145px;
+    height: 17rem;
+    width: 15rem;
+    background-color: #0000004f;
+    background-image: url('./img/img_test_nobg.png');
+    background-position: 200% 0%;
 }
 
   .content {
