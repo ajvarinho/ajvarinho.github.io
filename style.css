@@ -760,7 +760,7 @@ display: flex;
 
   .about-img > img {
     width: 100%;
-  transform: rotate(90deg) scale(2);
+  transform: rotate(45deg) scale(2);
   opacity: .2;
   }
 
