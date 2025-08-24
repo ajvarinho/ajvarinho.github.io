@@ -209,10 +209,18 @@ if(!mobile){
   perspectiveTrick();
 }
 
-const aboutImg = document.getElementById('about-img');
+const aboutImg = document.querySelector('.about-btn');
 const effectWrap = document.querySelector('.img-effect');
 
-aboutImg.addEventListener('click', ()=> effectWrap.style.opacity = '1');
+aboutImg.addEventListener('click', (e)=> {
+  effectWrap.style.opacity = '1';
+  e.target.style.display = 'none';
+});
+
+effectWrap.addEventListener('click', ()=> {
+  effectWrap.style.opacity = '0';
+  aboutImg.style = '';
+});
 
 //WORK
 

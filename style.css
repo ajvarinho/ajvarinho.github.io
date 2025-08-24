@@ -357,8 +357,20 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
 
 .work__title {
   position: relative;
+  display: inline-block;
   z-index: 2;
   transition-duration: 0.7s;
+  font-size: 3rem;
+}
+
+.uc {
+  font-size: 1.5rem;
+  opacity: 0;
+  transition-duration: 0.7s;
+}
+
+.work:hover > .uc {
+  opacity: 1;
 }
 
 .work__wrap {
@@ -389,9 +401,11 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
 }
 
 .item {
+  position: relative;
   text-align: center;
-
 }
+
+
 
 .project.btn {
   font-family: sans-serif;
@@ -618,18 +632,28 @@ display: flex;
   color: black;
 }
 
+.about-btn {
+  position: absolute;
+  top: 6rem;
+  left: 35rem;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 0.2rem .2rem;
+  z-index: 5;
+}
+
 .contact {
   position: relative;
   z-index: 2;
   font-size: 1.4rem;
-  transform: translateY(75rem);
+  transform: translateY(55rem);
   text-align: right;
   margin-right: 2rem;
 }
 
 .footer {
   padding-inline-start: 3rem;
-  transform: translateY(100rem);
+  transform: translateY(55rem);
 
 }
 
@@ -825,6 +849,10 @@ display: flex;
 
 }
 
+.about-btn {
+  display: none;
+}
+
   .content {
     transform: translateY(50rem);
   }
@@ -843,3 +871,13 @@ display: flex;
   
 }
 
+  @keyframes rotate {
+
+    0% {
+      transform: rotateY(0deg);
+    }
+
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
