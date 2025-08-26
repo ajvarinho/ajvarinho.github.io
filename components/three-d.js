@@ -83,7 +83,7 @@ export class threeD extends HTMLElement {
       </style>
 
 
-        <svg viewBox="0 0 0 0">
+        <svg viewBox="0 0 0 0" style="height:0;">
             <filter id='feTurbulence-basic' x='0%' y='0%' width='100%' height='100%'>
                 <feTurbulence id="turbulence_el" baseFrequency="0.05" />
                 <feDiffuseLighting in='noise' lighting-color='#d4ff3bff' surfaceScale='2'>
