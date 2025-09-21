@@ -119,11 +119,17 @@ const observer = new IntersectionObserver(
 
 const effectWrap = document.querySelector('.img-effect');
 
-  const watcherTwo = document.querySelector('.img');
+const watcherTwo = document.querySelector('.watcher-2');
+
+const contentWrap = document.querySelector('.content');
 
   function moveImg(){
-    document.addEventListener('scroll', ()=>{
-
+    let distance;
+    const imgMain = document.querySelector('.img');
+    contentWrap.addEventListener('scroll', (e)=>{
+      distance = contentWrap.scrollTop;
+      console.log('distance', distance);
+      imgMain.style.transform = `translateY(${distance}px)`
     })
   }
 
@@ -134,27 +140,22 @@ const effectWrap = document.querySelector('.img-effect');
 
       if (entry.isIntersecting) {
         console.log('here')
-
-
+        moveImg();
       } else {
         console.log('alo bre')
       };
 
     },
     {
-      root: null,                 // use the viewport as the "root"
+      root: null, 
       rootMargin: '-100px 0px 0px 0px',
-      // ^ shrink the top edge of the root by 120px. That means:
-      //   - As soon as the top of the hero goes 120px above the top of the screen,
-      //     it is considered "not intersecting".
-      threshold: 0                // fire when it crosses in/out (any amount)
+      threshold: 0                
     }
   );
 
-  // 3) Start observing the hero element.
   observerTwo.observe(watcherTwo);
 
-  // (optional) If you ever want to stop watching:
+
   // observer.unobserve(hero);
   // observer.disconnect();
 
@@ -187,9 +188,6 @@ if(!mobile){
 }
 
 
-
-
-
 //WORK
 
 const workWrapMain = document.getElementById('work-main');
@@ -205,22 +203,24 @@ const projectsWrap = document.querySelector('.work__wrap');
 //background: conic-gradient(from 0.15turn at 50% 50%, #f69d3c,10deg, #3f87a6, 150deg, #ebf8e1);
 
 
-workWrapMain.addEventListener('mousemove', (e) => {
+// WORK EFFECT TO DO
 
-  workBgEffect.style.opacity = 1;
+// workWrapMain.addEventListener('mousemove', (e) => {
 
-  const workValues = workWrapMain.getBoundingClientRect();
-  let x = e.clientX - workValues.left;
-  let y = e.clientY - workValues.top;
+//   workBgEffect.style.opacity = 1;
 
-  x = Math.round(x) / 8;
-  y = Math.round(y) / 2;
+//   const workValues = workWrapMain.getBoundingClientRect();
+//   let x = e.clientX - workValues.left;
+//   let y = e.clientY - workValues.top;
 
-  // workBgEffect.style.backgroundPositionX = `${x}px`;
-  // workBgEffect.style.backgroundPositionY = `${y}px`;
-    workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`;
+//   x = Math.round(x) / 8;
+//   y = Math.round(y) / 2;
+
+//   // workBgEffect.style.backgroundPositionX = `${x}px`;
+//   // workBgEffect.style.backgroundPositionY = `${y}px`;
+//     workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`;
   
-});
+// });
 
 const dialogEl = document.querySelector("[closedby='any']");
 
@@ -260,10 +260,10 @@ projectBtns.forEach((btn)=>{
 
 })
 
-document.getElementById('close-dialog').addEventListener('click', ()=>{
-  dialogEl.close();
-  document.documentElement.style.overflow = ''; // restore scroll
-})
+// document.getElementById('close-dialog').addEventListener('click', ()=>{
+//   dialogEl.close();
+//   document.documentElement.style.overflow = ''; // restore scroll
+// })
 
 //SVG FRAME
 // const svgWrapEl = document.querySelector(".mega-wrap");
