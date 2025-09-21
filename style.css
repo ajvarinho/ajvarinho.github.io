@@ -601,7 +601,6 @@ position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
   width: 100%;
   transform-style: preserve-3d;
 
