@@ -121,6 +121,8 @@ main {
   -webkit-perspective: 25px;
   perspective: 25px;
   perspective-origin: 50% 50%;
+  /**/
+      border: 10px solid blue;
 }
 
 .content-wrap.parallax {
@@ -334,7 +336,7 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
   padding: 2rem 0;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-
+  border: 2px solid red;
 }
 
 /* W O R K */
@@ -674,6 +676,7 @@ justify-content: end;
   .wrapper {
     -webkit-perspective: 10px;
     perspective: 10px;
+
   }
 
   .ticker-wrap {
