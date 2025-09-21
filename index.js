@@ -5,53 +5,22 @@ if(width < 444){
   mobile = true;
 }
 
-// const card = document.querySelector('.title__wrap');
+/*
 
-// let isResetting = false;
-
-// card.addEventListener('mousemove', (e) => {
-//   if (isResetting) return;
-
-//   const rect = card.getBoundingClientRect();
-//   const x = e.clientX - rect.left;
-//   const y = e.clientY - rect.top;
-
-//   const centerX = rect.width / 2;
-//   const centerY = rect.height / 2;
-
-//   const rotateX = ((y - centerY) / centerY) * 30;
-//   const rotateY = ((x - centerX) / centerX) * 30;
-
-//   //card.style.transition = 'none'; // Instant response
-//   card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-// });
-
-// card.addEventListener('mouseleave', () => {
-//   isResetting = true;
-//   card.style.transition = 'transform 0.5s ease'; // Smooth return
-//   card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-// });
-
-// card.addEventListener('transitionend', (e) => {
-//   if (e.propertyName === 'transform') {
-//     isResetting = false;
-//     // Let the next mouse move remove transition, no need to force it here
-//   }
-// });
-
-//device motion
+@todo - device motion
 
 function handleMotionEvent(event) {
   const x = event.accelerationIncludingGravity.x;
   const y = event.accelerationIncludingGravity.y;
   const z = event.accelerationIncludingGravity.z;
-
-  // Do something awesome.
-
   //alert('o', x, y, z);
 }
 
 window.addEventListener("devicemotion", handleMotionEvent, true);
+
+**/
+
+
 
 
 // S C R O L L
@@ -138,8 +107,43 @@ const observer = new IntersectionObserver(
 
     },
     {
-      root: null,                 // use the viewport as the "root"
+      root: null, 
       rootMargin: '100px 0px 0px 0px',
+      threshold: 0 
+    }
+  );
+
+  observer.observe(watcher);
+  // observer.unobserve(hero);
+  // observer.disconnect();
+
+const effectWrap = document.querySelector('.img-effect');
+
+  const watcherTwo = document.querySelector('.img');
+
+  function moveImg(){
+    document.addEventListener('scroll', ()=>{
+
+    })
+  }
+
+  const observerTwo = new IntersectionObserver(
+    (entries) => {
+  
+      const entry = entries[0];
+
+      if (entry.isIntersecting) {
+        console.log('here')
+
+
+      } else {
+        console.log('alo bre')
+      };
+
+    },
+    {
+      root: null,                 // use the viewport as the "root"
+      rootMargin: '-100px 0px 0px 0px',
       // ^ shrink the top edge of the root by 120px. That means:
       //   - As soon as the top of the hero goes 120px above the top of the screen,
       //     it is considered "not intersecting".
@@ -148,31 +152,12 @@ const observer = new IntersectionObserver(
   );
 
   // 3) Start observing the hero element.
-  observer.observe(watcher);
+  observerTwo.observe(watcherTwo);
 
   // (optional) If you ever want to stop watching:
   // observer.unobserve(hero);
   // observer.disconnect();
 
-
-//
-
-const about = `
-                hello, my name is Nikola and I'm
-                web designer, creative coder and developer.
-                .
-`;
-
-                // My designs get inspired by renaissance painting and punk,
-                // early graffitti, album art and fonts, as well as the aesthetics of
-                // pre-smartphone Internet era. 
-
-
-const aboutText = document.querySelector('.about-text');
-
-const aboutBg = document.querySelector('.about-bg');
-
-//aboutText.innerHTML = about;
 
 const mainWrap = document.querySelector('.wrapper');
 
@@ -201,18 +186,9 @@ if(!mobile){
   perspectiveTrick();
 }
 
-const aboutImg = document.querySelector('.about-btn');
-const effectWrap = document.querySelector('.img-effect');
 
-aboutImg.addEventListener('click', (e)=> {
-  effectWrap.style.opacity = '1';
-  e.target.style.display = 'none';
-});
 
-effectWrap.addEventListener('click', ()=> {
-  effectWrap.style.opacity = '0';
-  aboutImg.style = '';
-});
+
 
 //WORK
 
