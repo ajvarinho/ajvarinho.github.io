@@ -1,324 +1,317 @@
-console.log('alo');
-
 const width = window.innerWidth;
 let mobile;
-
-console.log(width)
 
 if(width < 444){
   mobile = true;
 }
 
-const moonFieldHTML = `
-<div class="moon-field">
-  <div>
-    <div class="moon">
+/*
 
-    </div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-  <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-    <div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-    <div class="moon"></div>
-  </div>
-</div>
-`;
+@todo - device motion
 
-const textFieldHTML = `
-  <div class="room">
-
-      <a tabindex="1" accesskey="W" class="moveForward" id="moveForward" href="#moveForward" ></a>
-      <a tabindex="2" accesskey="A" class="turnLeft" id="turnLeft" href="#turnLeft"></a>
-      <a tabindex="5" accesskey="X" class="stop" id="stop" href="#stop"></a>
-      <a tabindex="3" accesskey="D" class="turnRight" id="turnRight" href="#turnRight"></a>
-      <a tabindex="4" accesskey="S" class="moveBack" id="moveBack" href="#moveBack"></a>
-      
-      <div class="scene">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene scene-two">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene scene-three">
-        <div class="front wall">
-           <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="left wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-        <div class="right wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-
-        <div class="back wall">
-          <div class="marquee">
-            <p>Odnos mojih roditelja naucio me kako da zastitim sebe.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-`;
-
-
-const workWrap = document.getElementById('work-main');
-const moonField = document.querySelector('.moon-field');
-const textField = document.querySelector('.text-field');
-const closeBtn = document.getElementById('close');
-
-moonField.innerHTML = moonFieldHTML;
-textField.innerHTML = textFieldHTML;
-const roomEl = document.querySelector('.room');
-
-if(mobile){
-  roomEl.classList.add('mobile');
+function handleMotionEvent(event) {
+  const x = event.accelerationIncludingGravity.x;
+  const y = event.accelerationIncludingGravity.y;
+  const z = event.accelerationIncludingGravity.z;
+  //alert('o', x, y, z);
 }
 
-function moonFn(){
-    const moons = document.querySelectorAll('.moon')
-      moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-        console.log('movinnnn')
-        element.classList.toggle('move')
-       })
-     })
-}
+window.addEventListener("devicemotion", handleMotionEvent, true);
 
-function moonFnMobile(){
-  const moons = document.querySelectorAll('.moon');
-  moons.forEach((element)=>{ element.addEventListener('click', ()=> {
-    element.classList.toggle('move')
-   })
- })
-}
+**/
 
-workWrap.addEventListener('click', ()=>{
-  const moons = document.querySelectorAll('.moon')
-  if(mobile){
-    workWrap.classList.add('mobile')
-    closeBtn.classList.add('visible')
-    workWrap.classList.add('active-preview');
-    moons.forEach((element)=>{ element.addEventListener('click', ()=> {
-      element.classList.toggle('move')
-     })
-   })
-  } else {
-    workWrap.classList.toggle('active-preview');
-    moons.forEach((element)=>{ element.addEventListener('mouseover', ()=> {
-      element.classList.toggle('move')
-     })
-   })
-  }
-})
 
-closeBtn.addEventListener('click', (e)=>{
-  if(workWrap.classList.contains('active-preview')){
-    workWrap.classList.remove('active-preview')
-  }
-  closeBtn.classList.remove('visible');
-})
 
 
 // S C R O L L
 
+const windowHeight = window.innerHeight;
 const wrapper = document.getElementById('wrapper');
 let wrapperHeight = wrapper.offsetHeight;
 
-const galebWraps = document.querySelectorAll('.bg-wrap__img');
-const bgWrap = document.querySelector('.bg-wrap');
+let imgWraps = document.querySelectorAll('.bg-wrap__img');
+const bgWrap = document.querySelector('.welcome');
+const sjene = document.querySelectorAll('.sjena');
 
 let scrollValue;
 let scrollDistance;
 let lastScrollTop = 0;
 let index = 0;
-const windowHeight = window.innerHeight;
-
-bgWrap.addEventListener('click', ()=>{
-  galebWraps.forEach((element)=> {
-    element.classList.add('fire');
-  })
-  bgWrap.classList.toggle('animate');
-})
 
 const pageTitle = document.getElementById('title');
 
-wrapper.addEventListener("scroll", e => { 
+let st;
 
-  bgWrap.classList.add('animate');
+const aboutWrap = document.querySelector('.about');
+// const aboutHeight = aboutWrap.getBoundingClientRect();
+// let aboutTop = aboutHeight.y;
+const watcher = document.querySelector('.watcher');
+const cardTexts = document.querySelectorAll('.text-wrap p');
 
-  galebWraps.forEach((element)=> {
-    element.classList.add('fire');
-  })
+window.addEventListener('DOMContentLoaded', (event)=>{
+  //createObserver();
+  console.log('loaded')
+}, false);
+//
 
-  let scrollDistance = e.target.scrollTop;
+let animateTimeout = null;
+  let sjeneTimeout = null;
+  let animStarted = false;
 
-  console.log(scrollDistance)
+  const ANIMATE_DELAY = 500; // ms before adding .animate
 
-  if(scrollDistance > 20){
-    galebWraps.forEach((element)=> {
-      element.classList.add('fire');
+  function startAnimations() {
+    if (animStarted) return; // don't re-start while already started
+    animStarted = true;
+
+    // add immediate class that shows 'fire' visual (or other immediate state)
+    imgWraps.forEach(el => el.classList.add('fire'));
+
+    // schedule the main transforms after a small delay (your previous logic)
+    animateTimeout = setTimeout(() => {
+      imgWraps.forEach(el => {
+        // To ensure CSS animation restarts cleanly, remove then re-add with a forced reflow
+        el.classList.remove('animate');
+        void el.offsetWidth; // reflow
+        el.classList.add('animate');
+      });
+    }, ANIMATE_DELAY);
+  }
+
+  function resetAnimations() {
+    // cancel pending timers so they don't run after we already reset
+    clearTimeout(animateTimeout); animateTimeout = null;
+
+    // remove animation-related classes (they will transition back thanks to transition on transform)
+    imgWraps.forEach(el => {
+      el.classList.remove('fire', 'animate');
+      void el.offsetWidth; // reset
+    });
+
+    animStarted = false;
+  }
+
+
+const observer = new IntersectionObserver(
+    (entries) => {
+  
+      const entry = entries[0];
+
+      if (entry.isIntersecting) {
+        resetAnimations();
+
+      } else {
+        startAnimations();
+        cardTexts.forEach(el => el.classList.remove('hidden'));
+      };
+
+    },
+    {
+      root: null, 
+      rootMargin: '100px 0px 0px 0px',
+      threshold: 0 
+    }
+  );
+
+  observer.observe(watcher);
+  // observer.unobserve(hero);
+  // observer.disconnect();
+
+const effectWrap = document.querySelector('.img-effect');
+
+  const watcherTwo = document.querySelector('.img');
+
+  function moveImg(){
+    document.addEventListener('scroll', ()=>{
+
     })
   }
 
-  if(scrollDistance > 40){
-    bgWrap.classList.add('animate');
-  }
+  const observerTwo = new IntersectionObserver(
+    (entries) => {
+  
+      const entry = entries[0];
 
-  let st = scrollDistance; 
+      if (entry.isIntersecting) {
+        console.log('here')
 
 
-   if (st > lastScrollTop) {  
-    index += 1;
-    console.log(index, 'down');
+      } else {
+        console.log('alo bre')
+      };
 
-  } else if (st < lastScrollTop) {  
-    index -= 1;
-    console.log(index, 'up');
-  } 
-  //buggy ;P
-  // if(lastScrollTop < 10) {
-  //   bgWrap.classList.remove('animate');
-  // }
+    },
+    {
+      root: null,                 // use the viewport as the "root"
+      rootMargin: '-100px 0px 0px 0px',
+      // ^ shrink the top edge of the root by 120px. That means:
+      //   - As soon as the top of the hero goes 120px above the top of the screen,
+      //     it is considered "not intersecting".
+      threshold: 0                // fire when it crosses in/out (any amount)
+    }
+  );
 
-  lastScrollTop = st <= 0 ? 0 : st; 
+  // 3) Start observing the hero element.
+  observerTwo.observe(watcherTwo);
+
+  // (optional) If you ever want to stop watching:
+  // observer.unobserve(hero);
+  // observer.disconnect();
+
+
+const mainWrap = document.querySelector('.wrapper');
+
+function perspectiveTrick(){
+
+  mainWrap.addEventListener('mousemove', (e) => {
+
+  const perspectiveValues = mainWrap.getBoundingClientRect();
+  let x = e.clientX - perspectiveValues.left;
+  let y = e.clientY - perspectiveValues.top;
+
+  x = Math.round(x) / 10;
+  y = Math.round(y) / 10;
+
+  mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
+
+
+  //background-position: bottom 50px right 100px;
+
+  //workBgEffect.style.backgroundPositionX = `${x}px`;
+  //workBgEffect.style.backgroundPositionY = `${y}px`;
+});
+}
+
+if(!mobile){
+  perspectiveTrick();
+}
+
+
+
+
+
+//WORK
+
+const workWrapMain = document.getElementById('work-main');
+const workBgEffect = document.querySelector('.work-bg');
+const projectsWrap = document.querySelector('.work__wrap');
+
+// for(let i = 0; i < 12; i++){
+//   let projectCard = document.createElement('div');
+//   projectCard.setAttribute('class', 'work-card');
+//   projectsWrap.appendChild(projectCard);
+// };
+
+//background: conic-gradient(from 0.15turn at 50% 50%, #f69d3c,10deg, #3f87a6, 150deg, #ebf8e1);
+
+
+workWrapMain.addEventListener('mousemove', (e) => {
+
+  workBgEffect.style.opacity = 1;
+
+  const workValues = workWrapMain.getBoundingClientRect();
+  let x = e.clientX - workValues.left;
+  let y = e.clientY - workValues.top;
+
+  x = Math.round(x) / 8;
+  y = Math.round(y) / 2;
+
+  // workBgEffect.style.backgroundPositionX = `${x}px`;
+  // workBgEffect.style.backgroundPositionY = `${y}px`;
+    workBgEffect.style.background = `conic-gradient(from 8turn at 0% 50%, rgba(242, 1, 255, 0.5), ${y}deg, transparent, ${x}deg, rgba(187, 187, 187, .1))`;
+  
 });
 
+const dialogEl = document.querySelector("[closedby='any']");
 
-const about = `
-                hello, my name is Nikola and I'm
-                web designer, creative coder and developer
-                based in Berlin.
+const projectsArray = [{name: 'Raze App', tag: 'raze-app'}, {name: 'Moon Field', tag: 'moon-field'}, {name: '3D', tag: 'three-d'}];
+const projectBtns = document.querySelectorAll('.project.btn');
 
-                I love creating functional solutions with unconventional design
-                experimenting with motion graphics and
-            
-            interactions.
-                My experience in web development, together with master's degree in philosophy and art history 
-                resulted in interest for deeper creative exploration of web and computational aesthetics.
-                My designs get inspired by renaissance painting and punk,
-                early graffitti, album art and fonts, as well as the aesthetics of
-                pre-smartphone Internet era. 
-`;
+projectBtns.forEach((btn, index) => {
 
+  const project = projectsArray[index];
+  if (project) {
 
-const aboutText = document.querySelector('.section__text.about');
+    btn.textContent += `${project.name}`;
 
-aboutText.innerHTML = about;
+    btn.id = project.tag;
 
+    btn.dataset.tag = project.tag;
+  }
+});
+
+projectBtns.forEach((btn)=>{
+
+  btn.addEventListener('click', async (e) => {
+
+    //open dialog
+
+    dialogEl.showModal();
+    const module = await import(`./components/${e.target.id}.js`);
+    const activeProject = document.createElement(`${e.target.id}`);
+
+    if(document.getElementById('project-preview-dialog').children === 0) {
+      document.getElementById('project-preview-dialog').appendChild(activeProject);
+    } else {
+      document.getElementById('project-preview-dialog').innerHTML = '';
+      document.getElementById('project-preview-dialog').appendChild(activeProject);
+    }
+  });
+
+})
+
+document.getElementById('close-dialog').addEventListener('click', ()=>{
+  dialogEl.close();
+  document.documentElement.style.overflow = ''; // restore scroll
+})
+
+//SVG FRAME
+// const svgWrapEl = document.querySelector(".mega-wrap");
+// const svgEl = document.querySelector(".svg-el");
+
+// let wrapWidth = svgWrapEl.offsetWidth;
+// let wrapHeight = svgWrapEl.offsetHeight;
+
+// svgEl.setAttribute("height", wrapHeight);
+// svgEl.setAttribute("width", wrapWidth);
+// svgEl.setAttribute("viewBox", `0, 0, ${wrapWidth}, ${wrapHeight}`);
+
+// const polylineTop = document.querySelector(".polyline.top");
+// const polylineLeft = document.querySelector(".polyline.left");
+// const polylineBottom = document.querySelector(".polyline.bottom");
+
+// let widthNum = Math.round(wrapWidth);
+// let heightNum = Math.round(wrapHeight);
+
+// let pointsTop;
+// let pointsLeft;
+// let pointsBottom;
+
+// pointsTop = `0,50 152,50 152,50 165,0 500,0, 552,50 552,50 ${widthNum},50 ${widthNum},50 ${widthNum},${
+//   heightNum / 4 + 50
+// } ${widthNum},${heightNum / 4 + 50} ${widthNum - 70},${heightNum / 4 - 50}`;
+
+// pointsLeft =
+//   "0,50 0,200 0,200 230,125 230,125 230,400 230,400 0,475 0,475 0,842";
+
+// pointsBottom = `0,840 ${widthNum},840 ${widthNum},840 ${widthNum},950 ${widthNum},950 400,950 400,950 370,900 370,900 0,900 0,900 0,1800`;
+
+// polylineTop.setAttribute("points", pointsTop);
+// polylineLeft.setAttribute("points", pointsLeft);
+// polylineBottom.setAttribute("points", pointsBottom);
+
+// //SVG ANIMATION
+// let topLength = Math.floor(polylineTop.getTotalLength());
+// let leftLength = Math.floor(polylineLeft.getTotalLength());
+// let bottomLength = Math.floor(polylineBottom.getTotalLength());
+// //
+// polylineTop.setAttribute("stroke-dasharray", topLength);
+// polylineTop.setAttribute("stroke-dashoffset", topLength);
+// //
+// polylineLeft.setAttribute("stroke-dasharray", leftLength);
+// polylineLeft.setAttribute("stroke-dashoffset", leftLength);
+// //
+// polylineBottom.setAttribute("stroke-dasharray", bottomLength);
+// polylineBottom.setAttribute("stroke-dashoffset", bottomLength);
 
 
