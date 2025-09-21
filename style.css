@@ -286,6 +286,7 @@ transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rota
   position: relative;
   z-index: 1;
   transform-style: preserve-3d;
+  transform: translateY(20rem);
 }
 
 .fg__element {
@@ -561,11 +562,13 @@ justify-content: end;
   position: relative;
   transform-style: preserve-3d;
   /* box-shadow: var(--box-shadow-1); */
-  transform: translateY(10rem);
+  transform: translateY(4rem);
   /* transform-style: preserve-3d;
 -webkit-transform-style: preserve-3d; */
-display: flex;
+/* display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center; */
 }
 
 .about-img {
@@ -573,46 +576,64 @@ display: flex;
   /* inset: 0; */
   background: none;
   transform-style: preserve-3d;
-
-}
-
-.img-effect {
-  position: absolute;
-  inset: 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  transform-style: preserve-3d;
-  transform: translate(15%, 40px) scale(0.7);
-  transition-duration: 0.7s;
-  opacity: 0;
+  transform: translateY(-5rem);
 }
 
 .about-img > img {
   width: 75%;
-  margin-left: 15rem;
+
 }
+
+.img-effect {
+position: absolute;
+  inset: 0;
+  display: flex;
+
+
+  transition-duration: 0.7s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+
 
 
 .text-bg {
-  position: absolute;
-  inset: 0;
-  width: 75%;
+width: 50%;
   z-index: 2;
   border: 2px solid;
   background: rgba(213, 213, 213, 0.7);
-  /**/
-  filter: blur(0px);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-image: none;
+    background-size: auto;
   transform: rotateY(1deg);
   background-image: url('./img/img_test_nobg.png');
-  background-size: contain;
-    background-position:30%;
-  /* opacity: 0; */
+  background-size: cover;
+  background-position-x: -68%;
+
   transition-duration: .7s;
+  display: inline-block;
+  height: 100%;
+  background-position-y: 61%;
+  background-repeat: no-repeat;
 }
 
 .text-bg.second {
-  background-position-x: 100%;
+  background-position-x: 134%;
   transform: rotateY(-1deg);
+  width: 50%;
+  display: inline-block;
 }
 
 .text-bg:hover {
@@ -630,16 +651,7 @@ display: flex;
   pointer-events: none;
 
   color: black;
-}
-
-.about-btn {
-  position: absolute;
-  top: 6rem;
-  left: 35rem;
-  cursor: pointer;
-  border: 1px solid;
-  padding: 0.2rem .2rem;
-  z-index: 5;
+  text-align: justify;
 }
 
 .contact {

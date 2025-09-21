@@ -159,16 +159,8 @@ const observer = new IntersectionObserver(
 
 const about = `
                 hello, my name is Nikola and I'm
-                web designer, creative coder and developer
-                based in Berlin.
-
-                I love creating functional solutions with unconventional design
-                experimenting with motion graphics and
-            
-            interactions.
-                My experience in web development, together with master's degree in philosophy and art history 
-                resulted in interest for deeper creative exploration of web and computational aesthetics.
-
+                web designer, creative coder and developer.
+                .
 `;
 
                 // My designs get inspired by renaissance painting and punk,
@@ -180,7 +172,7 @@ const aboutText = document.querySelector('.about-text');
 
 const aboutBg = document.querySelector('.about-bg');
 
-aboutText.innerHTML = about;
+//aboutText.innerHTML = about;
 
 const mainWrap = document.querySelector('.wrapper');
 
