@@ -119,11 +119,13 @@ const observer = new IntersectionObserver(
 
 const effectWrap = document.querySelector('.img-effect');
 
-let imgs = effectWrap.querySelectorAll('div');
+let imgs = effectWrap.querySelectorAll('.img-wrap');
 
 const img = document.querySelector('.img');
 
 const watcherTwo = document.querySelector('.watcher-2');
+
+const imgLeft = document.querySelector('.img-wrap');
 
 
   const observerTwo = new IntersectionObserver(
@@ -132,16 +134,17 @@ const watcherTwo = document.querySelector('.watcher-2');
       const entry = entries[0];
 
       if (entry.isIntersecting) {
-        console.log('here')
         img.classList.add('visible');
         imgs.forEach((img)=>{
           img.classList.add('zoom')
-        })
-        
+        });
+
+       
+        imgLeft.style.backgroundPosition = '45%';
 
       } else {
-        console.log('alo bre');
         img.classList.remove('visible');
+        imgLeft.style.backgroundPosition = '';
         imgs.forEach((img)=>{
           img.classList.remove('zoom')
         })
@@ -164,6 +167,8 @@ const watcherTwo = document.querySelector('.watcher-2');
   // (optional) If you ever want to stop watching:
   // observer.unobserve(hero);
   // observer.disconnect();
+
+
 
 
 const mainWrap = document.querySelector('.wrapper');
