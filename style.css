@@ -612,7 +612,7 @@ position: absolute;
   width: 100%;
   transform-style: preserve-3d;
 
-  transform: translateZ(-1rem) scale(1.5) translateY(20rem);
+  transform: translateZ(-1rem) scale(1.5) translateY(25rem);
 }
 
 
@@ -669,14 +669,14 @@ width: 50%;
   position: relative;
   z-index: 2;
   font-size: 1.4rem;
-  transform: translateY(70rem);
+  transform: translateY(90rem);
   text-align: right;
   margin-right: 2rem;
 }
 
 .footer {
   padding-inline-start: 3rem;
-  transform: translateY(55rem);
+  transform: translateY(90rem);
 
 }
 
@@ -832,11 +832,11 @@ transform: translateZ(-1rem) scale(2) translateY(15rem);
   /* transform: translateZ(-1rem) translateX(-5rem) translateY(0rem) rotateY(1deg); */
   background-size: cover;
   overflow: scroll;
-  background-position: 9%;
+  background-position: 27%;
 }
 
 .text-bg.second {
-  background-position-x: 71%;
+  background-position-x: 75%;
   /* transform: translateX(14rem) translateZ(-1rem) translateY(00rem) rotateY(-1deg); */
 }
 
