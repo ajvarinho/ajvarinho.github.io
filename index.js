@@ -119,15 +119,12 @@ const observer = new IntersectionObserver(
 
 const effectWrap = document.querySelector('.img-effect');
 
+let imgs = effectWrap.querySelectorAll('div');
+
 const img = document.querySelector('.img');
 
-  const watcherTwo = document.querySelector('.img');
+const watcherTwo = document.querySelector('.watcher-2');
 
-  function moveImg(){
-    document.addEventListener('scroll', ()=>{
-
-    })
-  }
 
   const observerTwo = new IntersectionObserver(
     (entries) => {
@@ -137,10 +134,17 @@ const img = document.querySelector('.img');
       if (entry.isIntersecting) {
         console.log('here')
         img.classList.add('visible');
+        imgs.forEach((img)=>{
+          img.classList.add('zoom')
+        })
+        
 
       } else {
         console.log('alo bre');
         img.classList.remove('visible');
+        imgs.forEach((img)=>{
+          img.classList.remove('zoom')
+        })
       };
 
     },
