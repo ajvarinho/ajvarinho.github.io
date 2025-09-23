@@ -130,7 +130,7 @@ main {
   z-index: 1;
 }
 
-.watcher {
+.watcher, .watcher-2 {
   height: 5rem;
 }
 
@@ -587,7 +587,15 @@ justify-content: end;
 
 .about-img > img {
   width: 75%;
+  transition-duration: 1.6s;
+  transform: scale(0.2);
+  opacity: 0;
+}
 
+.img.visible {
+  /* border: 1rem solid blue; */
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 .img-effect {
@@ -796,7 +804,7 @@ width: 50%;
   }
 
   .about-img {
-    transform: translateY(2rem);
+    transform: translateY(-10rem);
   }
 
   .img-effect {
@@ -812,11 +820,6 @@ width: 50%;
 transform: translateZ(-1rem) scale(2) translateY(15rem);
   }
 
-
-
-  .about-img > img {
-   transform: translateZ(0.2rem) scale(1);
-  }
 
   .about-text {
     width: 97%;

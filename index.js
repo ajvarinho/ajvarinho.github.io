@@ -119,6 +119,8 @@ const observer = new IntersectionObserver(
 
 const effectWrap = document.querySelector('.img-effect');
 
+const img = document.querySelector('.img');
+
   const watcherTwo = document.querySelector('.img');
 
   function moveImg(){
@@ -134,16 +136,17 @@ const effectWrap = document.querySelector('.img-effect');
 
       if (entry.isIntersecting) {
         console.log('here')
-
+        img.classList.add('visible');
 
       } else {
-        console.log('alo bre')
+        console.log('alo bre');
+        img.classList.remove('visible');
       };
 
     },
     {
       root: null,                 // use the viewport as the "root"
-      rootMargin: '-100px 0px 0px 0px',
+      rootMargin: '0px 100px 100px 100px',
       // ^ shrink the top edge of the root by 120px. That means:
       //   - As soon as the top of the hero goes 120px above the top of the screen,
       //     it is considered "not intersecting".
