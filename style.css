@@ -572,7 +572,7 @@ dialog[open] .dialog-wrap {
 .about-img > img {
   width: 75%;
   transition-duration: 1s;
-  transform: scale(0.2) rotateX(180deg);
+  transform: scale(0.2);
   opacity: 0;
 }
 
@@ -595,28 +595,39 @@ dialog[open] .dialog-wrap {
 }
 
 .text-bg {
+  position: relative;
   width: 50%;
   z-index: 2;
   border: 2px solid;
   display: inline-block;
   height: 100%;
-
 }
 
-.text-bg.second {
-  background-position-x: 134%;
-  transform: rotateY(-1deg);
-  width: 50%;
-  display: inline-block;
+
+.text-bg:first-of-type {
+  transform: rotateY(3deg);
+}
+
+.text-bg:last-of-type {
+  transform: rotateY(-3deg);
+}
+
+.text-bg:last-of-type > .img-wrap {
+  background-position-x: 200%;
 }
 
 .img-wrap {
+  position: relative;
   height: 100%;
   background-image: url('./img/img_test_nobg.png');
   background-size: cover;
-  /* background-position-x: -68%;
-  background-position-y: 61%; */
   background-repeat: no-repeat;
+}
+
+.img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
 .text-bg:hover {
@@ -808,13 +819,7 @@ dialog[open] .dialog-wrap {
     overflow: hidden;
   }
 
-  .text-bg:first-of-type {
-    transform: rotateY(3deg);
-  }
 
-  .text-bg:last-of-type {
-    transform: rotateY(-3deg);
-  }
 
   .text-bg:first-of-type > .img-wrap {
     background-position: 20%;
@@ -828,7 +833,7 @@ dialog[open] .dialog-wrap {
     transform: scale(2) translateY(2rem) translateX(-3rem);
     opacity: 0.2;
     background-position-y: 73%;
-    background-color: coral;
+    /* background-color: coral; */
   }
 
 
