@@ -726,6 +726,7 @@ dialog[open] .dialog-wrap {
 
   .cards-wrap {
     display: inline-block;
+    transform: translateY(5rem);
   }
 
   .text-wrap > p {
@@ -807,7 +808,7 @@ dialog[open] .dialog-wrap {
   }
 
   .img.visible {
-    transform: scale(1.5);
+    transform: scale(2);
   }
 
   .img-effect {
@@ -819,7 +820,8 @@ dialog[open] .dialog-wrap {
     transition-duration: 0.7s;
     opacity: 1;
     height: 40vh;
-    transform: translateZ(-1rem) scale(2) translateY(15rem);
+    /* transform: translateZ(-1rem) scale(2) translateY(15rem); */
+    transform: translateZ(-0.5rem) scale(1.2) translateY(20rem);
   }
 
   .img-wrap {
@@ -855,13 +857,14 @@ dialog[open] .dialog-wrap {
 }
 
 .contact {
-  transform: translateY(95rem);
+  transform: translateY(110rem);
+  margin-right: 2.5rem
 }
 
 .footer {
   font-size: 1rem;
   color: white;
-  transform: translateY(100rem);
+  transform: translateY(125rem);
 }
   
 }
