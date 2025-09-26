@@ -122,6 +122,11 @@ main {
   height: 5rem;
 }
 
+.watcher-2  {
+  transform: translateY(10rem);
+
+}
+
 /* WELCOME - STUPOVI< GALEBOVI< TITLE */
 .bg-wrap {
   position: relative;
@@ -213,12 +218,12 @@ main {
 }
 
 .scroll-context.uno {
-  transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rotateY(1deg) rotateZ(0deg) scale(1);
+  transform: translateX(0rem) translateY(7rem) translateZ(0rem) rotateX(0deg) rotateY(1deg) rotateZ(0deg) scale(1);
   text-align: left;
 }
 
 .scroll-context.due {
-  transform: translateX(0rem) translateY(0rem) translateZ(0rem) rotateX(0deg) rotateY(-1deg) rotateZ(0deg) scale(1);
+  transform: translateX(0rem) translateY(7rem) translateZ(0rem) rotateX(0deg) rotateY(-1deg) rotateZ(0deg) scale(1);
 }
 
 .text-wrap > p {
@@ -291,12 +296,12 @@ main {
 }
 
 .svg-context {
-  width: 100vw;
-  transform: translateZ(0px) translateY(-15rem) translateX(5rem) rotateY(1deg);
+  width: 300%;
+  transform: translateZ(0px) translateY(15rem) translateX(5rem) rotateY(0.5deg);
 }
 
 #animatedText {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 900;
   fill: rgb(224, 31, 134);
   font-family: "IBM";
@@ -566,13 +571,15 @@ dialog[open] .dialog-wrap {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translateY(0);
+  transform: translateY(-3rem);
 }
 
 .about-img > img {
-  width: 75%;
+  width: 50%;
   transition-duration: 1s;
+  /* scale(0.2); */
   transform: scale(0.2);
+  /* opacity: 0; */
   opacity: 0;
 }
 
@@ -596,7 +603,7 @@ dialog[open] .dialog-wrap {
 
 .text-bg {
   position: relative;
-  width: 50%;
+  width: 30%;
   z-index: 2;
   border: 2px solid;
   display: inline-block;
@@ -612,8 +619,15 @@ dialog[open] .dialog-wrap {
   transform: rotateY(-3deg);
 }
 
+
+
+.text-bg:first-of-type > .img-wrap {
+  background-position-x: -30%;
+}
+
+
 .text-bg:last-of-type > .img-wrap {
-  background-position-x: 200%;
+  background-position-x: 123%;
 }
 
 .img-wrap {
@@ -650,15 +664,15 @@ dialog[open] .dialog-wrap {
 .contact {
   position: relative;
   z-index: 2;
-  font-size: 1.4rem;
-  transform: translateY(90rem);
+  font-size: 2rem;
+  transform: translateY(100rem);
   text-align: right;
   margin-right: 2rem;
 }
 
 .footer {
   padding-inline-start: 3rem;
-  transform: translateY(90rem);
+  transform: translateY(118rem);
 }
 
 .footer > a {
@@ -835,7 +849,6 @@ dialog[open] .dialog-wrap {
     background-position-y: 73%;
     /* background-color: coral; */
   }
-
 
 .content {
   transform: translateY(50rem);

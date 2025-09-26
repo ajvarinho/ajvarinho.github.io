@@ -136,15 +136,15 @@ const imgLeft = document.querySelector('.img-wrap');
       if (entry.isIntersecting) {
         img.classList.add('visible');
         imgs.forEach((img)=>{
-          img.classList.add('zoom')
+          //img.classList.add('zoom')
         });
 
        
-        imgLeft.style.backgroundPosition = '45%';
+        //imgLeft.style.backgroundPosition = '45%';
 
       } else {
         img.classList.remove('visible');
-        imgLeft.style.backgroundPosition = '';
+        //imgLeft.style.backgroundPosition = '';
         imgs.forEach((img)=>{
           img.classList.remove('zoom')
         })
@@ -184,7 +184,7 @@ function perspectiveTrick(){
   x = Math.round(x) / 10;
   y = Math.round(y) / 10;
 
-  mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
+  //mainWrap.style.perspectiveOrigin = `${x}% ${y}%`;
 
 
   //background-position: bottom 50px right 100px;
