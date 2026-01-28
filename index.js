@@ -6,7 +6,6 @@ if(width < 444){
 }
 
 /*
-
 @todo - device motion
 
 function handleMotionEvent(event) {
@@ -19,10 +18,6 @@ function handleMotionEvent(event) {
 window.addEventListener("devicemotion", handleMotionEvent, true);
 
 **/
-
-
-
-
 // S C R O L L
 
 const windowHeight = window.innerHeight;
@@ -58,34 +53,29 @@ let animateTimeout = null;
   let sjeneTimeout = null;
   let animStarted = false;
 
-  const ANIMATE_DELAY = 500; // ms before adding .animate
+  const ANIMATE_DELAY = 500; 
 
   function startAnimations() {
-    if (animStarted) return; // don't re-start while already started
+    if (animStarted) return; 
     animStarted = true;
 
-    // add immediate class that shows 'fire' visual (or other immediate state)
     imgWraps.forEach(el => el.classList.add('fire'));
 
-    // schedule the main transforms after a small delay (your previous logic)
     animateTimeout = setTimeout(() => {
       imgWraps.forEach(el => {
-        // To ensure CSS animation restarts cleanly, remove then re-add with a forced reflow
         el.classList.remove('animate');
-        void el.offsetWidth; // reflow
+        void el.offsetWidth; 
         el.classList.add('animate');
       });
     }, ANIMATE_DELAY);
   }
 
   function resetAnimations() {
-    // cancel pending timers so they don't run after we already reset
     clearTimeout(animateTimeout); animateTimeout = null;
 
-    // remove animation-related classes (they will transition back thanks to transition on transform)
     imgWraps.forEach(el => {
       el.classList.remove('fire', 'animate');
-      void el.offsetWidth; // reset
+      void el.offsetWidth; 
     });
 
     animStarted = false;
@@ -152,24 +142,13 @@ const imgLeft = document.querySelector('.img-wrap');
 
     },
     {
-      root: null,                 // use the viewport as the "root"
+      root: null, 
       rootMargin: '0px 100px 100px 100px',
-      // ^ shrink the top edge of the root by 120px. That means:
-      //   - As soon as the top of the hero goes 120px above the top of the screen,
-      //     it is considered "not intersecting".
-      threshold: 0                // fire when it crosses in/out (any amount)
+      threshold: 0  
     }
   );
 
-  // 3) Start observing the hero element.
   observerTwo.observe(watcherTwo);
-
-  // (optional) If you ever want to stop watching:
-  // observer.unobserve(hero);
-  // observer.disconnect();
-
-
-
 
 const mainWrap = document.querySelector('.wrapper');
 
@@ -197,9 +176,6 @@ function perspectiveTrick(){
 if(!mobile){
   perspectiveTrick();
 }
-
-
-
 
 
 //WORK
