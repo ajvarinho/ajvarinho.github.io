@@ -838,6 +838,10 @@ dialog[open] .dialog-wrap {
     transition-duration: .7s;
   }
 
+  .img-wrap.two {
+    background-image: url('./img/1.png');
+  }
+
   .text-bg {
     overflow: hidden;
   }
